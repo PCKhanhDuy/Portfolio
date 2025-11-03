@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Front-end / UI·UX</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Space Grotesk','system-ui','sans-serif'],
+            sans: ['Inter','system-ui','sans-serif']
+          },
+          colors: { primary: { DEFAULT: '#7C3AED' }, neon: '#22d3ee' },
+          boxShadow: {
+            island: '0 10px 30px rgba(0,0,0,.25)',
+            glow: '0 0 0 2px rgba(124,58,237,.25), 0 0 40px rgba(124,58,237,.35)',
+            card: '0 20px 60px -15px rgba(124,58,237,.35)'
+          },
+          keyframes: {
+            spinSlow: { to: { transform: 'rotate(360deg)' } },
+            float: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-8px)' } }
+          },
+          animation: { spinSlow: 'spinSlow 12s linear infinite', float: 'float 6s ease-in-out infinite' }
+        }
+      }
+    }
+  </script>
+
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+
+  <!-- GSAP & Plugins (optional) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
+
+  <!-- Lenis (optional) -->
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.32/bundled/lenis.min.js" defer></script>
+
+  <!-- Devicon -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+  <style>
+    :root { --blob1:#7c3aed; --blob2:#22d3ee; --blob3:#10b981; }
+    html,body{height:100%}
+    .glass{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);background:rgba(255,255,255,.6)}
+    .dark .glass{background:rgba(17,17,17,.55)}
+    .island{transition:transform .25s ease, box-shadow .25s ease, background .25s ease}
+    .island:hover{transform:translate(-50%,0) scale(1.02)}
+    section{scroll-margin-top:110px}
+
+    /* BG blobs */
+    .goo{filter:url(#goo)}
+    .blob{position:absolute;border-radius:9999px;mix-blend-mode:screen;opacity:.5}
+    .blob.b1{width:40vw;height:40vw;background:radial-gradient(circle at 30% 30%,var(--blob1),transparent 60%);top:-10vw;left:-10vw}
+    .blob.b2{width:45vw;height:45vw;background:radial-gradient(circle at 70% 30%,var(--blob2),transparent 60%);top:-5vw;right:-15vw}
+    .blob.b3{width:50vw;height:50vw;background:radial-gradient(circle at 50% 50%,var(--blob3),transparent 60%);bottom:-20vw;left:20vw}
+
+    /* Marquee */
+    .marquee{overflow:hidden;position:relative}
+    .marquee-track{display:flex;gap:3rem;width:max-content;animation:marquee 24s linear infinite}
+    .marquee:hover .marquee-track{animation-play-state:paused}
+    @keyframes marquee{from{transform:translateX(0)} to{transform:translateX(-50%)}}
+
+    /* Avatar responsive fix */
+    @media (max-width:480px){ .avatar-wrap{width:92vw} .avatar-img{height:360px} }
+
+    /* Cursor grow */
+    .cursor.grow{width:60px;height:60px;background:rgba(124,58,237,.25);border-color:transparent}
+  </style>
+</head>
+<body class="bg-zinc-50 text-zinc-800 dark:bg-zinc-950 dark:text-zinc-200 font-sans">
+
+  <!-- SVG filter -->
+  <svg width="0" height="0" class="absolute">
+    <filter id="goo">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
+      <feColorMatrix in="blur" mode="matrix" values="
+        1 0 0 0 0
+        0 1 0 0 0
+        0 0 1 0 0
+        0 0 0 20 -10" result="goo"/>
+      <feBlend in="SourceGraphic" in2="goo"/>
+    </filter>
+  </svg>
+
+  <!-- BG blobs -->
+  <div class="fixed inset-0 -z-10 goo">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+  </div>
+
+  <!-- Dynamic Island Header -->
+  <div id="island" class="island glass shadow-island fixed left-1/2 -translate-x-1/2 top-4 z-50 rounded-full px-4 sm:px-5 py-2 sm:py-3 flex items-center gap-3 sm:gap-5">
+    <!-- Mobile menu button -->
+    <button id="menuToggle" class="sm:hidden p-2 rounded-full hover:bg-white/30 dark:hover:bg-white/10" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainMenu">
+      <i data-lucide="menu"></i>
+    </button>
+
+    <!-- NAV -->
+    <nav id="mainMenu" class="menu-items hidden sm:flex items-center gap-3 sm:gap-5">
+      <a href="#home" class="navlink text-sm sm:text-base font-medium hover:text-primary">Home</a>
+      <a href="#about" class="navlink text-sm sm:text-base font-medium hover:text-primary">About</a>
+      <a href="#skills" class="navlink text-sm sm:text-base font-medium hover:text-primary">Skills</a>
+      <a href="#exp" class="navlink text-sm sm:text-base font-medium hover:text-primary">Experience</a>
+      <a href="#projects" class="navlink text-sm sm:text-base font-medium hover:text-primary">Projects</a>
+      <a href="#contact" class="navlink text-sm sm:text-base font-medium hover:text-primary">Contact</a>
+    </nav>
+
+    <!-- Toggles -->
+    <div class="flex items-center gap-2 sm:gap-3 ml-1 sm:ml-3">
+      <button id="langToggle" class="px-3 py-1 rounded-full text-xs font-semibold bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900" aria-label="Language toggle">VI</button>
+      <button id="themeToggle" class="p-2 rounded-full hover:bg-white/30 dark:hover:bg-white/10" aria-label="Dark/Light">
+        <i id="themeIcon" data-lucide="moon"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Custom cursor -->
+  <div class="cursor hidden md:block" id="cursor" style="width:20px;height:20px;border-radius:50%;position:fixed;pointer-events:none;z-index:10000;transform:translate(-50%,-50%);border:2px solid rgba(124,58,237,.6);transition:width .2s,height .2s,background .2s,border .2s,transform .08s;mix-blend-mode:difference"></div>
+
+  <!-- HERO -->
+  <section id="home" class="min-h-[90vh] relative flex items-center">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-12 gap-10 items-center">
+        <!-- Text -->
+        <div class="lg:col-span-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/70 dark:bg-zinc-900/60 border border-white/40 dark:border-white/5 backdrop-blur mb-6">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="text-xs font-medium t" data-key="available">Đang nhận dự án freelance</span>
+          </div>
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1]">
+            <span class="t" data-key="titleA">Front-end Developer</span> · <span class="text-primary">UI/UX</span> Designer
+          </h1>
+          <p class="mt-5 text-lg text-zinc-600 dark:text-zinc-400 max-w-xl t" data-key="heroDesc">
+            Xây dựng trải nghiệm web nhanh, mượt, đậm chất riêng. Tôi biến wireframe thành sản phẩm sống động với motion “cực căng”.
+          </p>
+          <div class="mt-8 flex flex-wrap items-center gap-4">
+            <a href="#projects" class="group inline-flex items-center gap-2 px-5 py-3 rounded-full bg-primary text-white font-semibold hover:shadow-glow">
+              <i data-lucide="rocket"></i><span class="t" data-key="btnProjects">Xem dự án</span>
+            </a>
+            <a href="#contact" class="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-zinc-300 dark:border-zinc-700 hover:bg-white/60 dark:hover:bg-white/10">
+              <i data-lucide="mail"></i><span class="t" data-key="btnContact">Liên hệ</span>
+            </a>
+          </div>
+          <div class="mt-6 flex flex-wrap items-center gap-5 text-sm text-zinc-500 dark:text-zinc-400">
+            <div class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4"></i><span>GMT+7 · Saigon</span></div>
+            <div class="flex items-center gap-2"><i data-lucide="briefcase" class="w-4 h-4"></i><span class="t" data-key="expYears">4+ năm kinh nghiệm</span></div>
+          </div>
+        </div>
+
+        <!-- Avatar block -->
+        <div class="lg:col-span-6">
+          <div class="relative avatar-wrap w-[320px] sm:w-[380px] mx-auto">
+            <div class="absolute inset-0 -z-10 animate-spinSlow rounded-full"
+                 style="mask: radial-gradient(farthest-side, transparent calc(100% - 18px), #000 0);
+                        background: conic-gradient(from 0deg, #7c3aed, #22d3ee, #10b981, #7c3aed)"></div>
+
+            <div class="relative rounded-[28px] p-3 glass border border-white/40 dark:border-white/10 shadow-card">
+              <div class="rounded-[22px] overflow-hidden">
+                <img class="avatar-img w-full h-[420px] object-cover"
+                     src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=1400&auto=format&fit=crop" alt="Avatar">
+              </div>
+
+              <div class="absolute left-1/2 -bottom-5 -translate-x-1/2 px-4 py-2 rounded-full glass border border-white/40 dark:border-white/10 shadow-island">
+                <div class="flex items-center gap-2 text-sm">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  Alex Nguyen · Saigon, VN
+                </div>
+              </div>
+            </div>
+
+            <div class="absolute -left-6 top-4 animate-float">
+              <div class="px-3 py-2 rounded-xl bg-white/80 dark:bg-zinc-900/70 border border-white/40 dark:border-white/10 shadow-island">Tailwind</div>
+            </div>
+            <div class="absolute -right-8 top-16" style="animation: float 7s ease-in-out infinite .6s">
+              <div class="px-3 py-2 rounded-xl bg-white/80 dark:bg-zinc-900/70 border border-white/40 dark:border-white/10 shadow-island">GSAP</div>
+            </div>
+            <div class="absolute -right-2 -bottom-4" style="animation: float 6s ease-in-out infinite .2s">
+              <div class="px-3 py-2 rounded-xl bg-white/80 dark:bg-zinc-900/70 border border-white/40 dark:border-white/10 shadow-island">React</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- quick stats -->
+      <div class="mt-16 grid sm:grid-cols-3 gap-4">
+        <div class="glass border border-white/40 dark:border-white/10 rounded-2xl px-4 py-3 text-sm flex items-center gap-3">
+          <i data-lucide="briefcase" class="w-4 h-4"></i> 4+ năm kinh nghiệm
+        </div>
+        <div class="glass border border-white/40 dark:border-white/10 rounded-2xl px-4 py-3 text-sm flex items-center gap-3">
+          <i data-lucide="zap" class="w-4 h-4"></i> Performance 95+ Lighthouse
+        </div>
+        <div class="glass border border-white/40 dark:border-white/10 rounded-2xl px-4 py-3 text-sm flex items-center gap-3">
+          <i data-lucide="accessibility" class="w-4 h-4"></i> A11y-first mindset
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-24">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-12 gap-8 items-start">
+        <!-- left -->
+        <div class="lg:col-span-7 glass border border-white/40 dark:border-white/10 rounded-3xl p-6">
+          <div class="flex items-center justify-between flex-wrap gap-4">
+            <h2 class="font-display text-3xl sm:text-4xl font-bold">Về tôi</h2>
+            <div class="flex items-center gap-2">
+              <a href="#" class="px-3 py-2 rounded-full border border-white/40 dark:border-white/10 hover:bg-white/50 dark:hover:bg-white/10 text-sm flex items-center gap-2"><i data-lucide="github" class="w-4 h-4"></i> GitHub</a>
+              <a href="#" class="px-3 py-2 rounded-full border border-white/40 dark:border-white/10 hover:bg-white/50 dark:hover:bg-white/10 text-sm flex items-center gap-2"><i data-lucide="dribbble" class="w-4 h-4"></i> Dribbble</a>
+              <a href="#" class="px-3 py-2 rounded-full border border-white/40 dark:border-white/10 hover:bg-white/50 dark:hover:bg-white/10 text-sm flex items-center gap-2"><i data-lucide="linkedin" class="w-4 h-4"></i> LinkedIn</a>
+              <a href="#" class="px-3 py-2 rounded-full border border-white/40 dark:border-white/10 hover:bg-white/50 dark:hover:bg-white/10 text-sm flex items-center gap-2"><i data-lucide="badge-check" class="w-4 h-4"></i> Behance</a>
+            </div>
+          </div>
+
+          <p class="mt-5 text-zinc-600 dark:text-zinc-400 leading-8">
+            Tôi là Front-end Developer & UI/UX Designer mê những giao diện táo bạo, giàu cảm xúc, vẫn chuẩn usability.
+            Tập trung hiệu năng, accessibility và micro-interactions để sản phẩm vừa đẹp vừa dùng sướng.
+          </p>
+
+          <div class="mt-6 grid sm:grid-cols-3 gap-4">
+            <div class="p-5 rounded-2xl glass border border-white/40 dark:border-white/10">
+              <p class="text-sm opacity-70">Họ tên</p><p class="font-semibold">Alex Nguyen</p>
+            </div>
+            <div class="p-5 rounded-2xl glass border border-white/40 dark:border-white/10">
+              <p class="text-sm opacity-70">Tuổi</p><p class="font-semibold">25</p>
+            </div>
+            <div class="p-5 rounded-2xl glass border border-white/40 dark:border-white/10">
+              <p class="text-sm opacity-70">Học vấn</p><p class="font-semibold">ĐH CNTT — HCMUS (2018–2022)</p>
+            </div>
+          </div>
+
+          <div class="mt-6 grid sm:grid-cols-3 gap-4 text-sm">
+            <div class="rounded-2xl border border-white/40 dark:border-white/10 p-4">
+              <div class="flex items-center gap-2 text-primary font-semibold"><i data-lucide="sparkles" class="w-4 h-4"></i> Motion</div>
+              <p class="mt-2 text-zinc-600 dark:text-zinc-400">GSAP, micro-interaction, 60fps.</p>
+            </div>
+            <div class="rounded-2xl border border-white/40 dark:border-white/10 p-4">
+              <div class="flex items-center gap-2 text-primary font-semibold"><i data-lucide="shield-check" class="w-4 h-4"></i> A11y & Perf</div>
+              <p class="mt-2 text-zinc-600 dark:text-zinc-400">Lighthouse 95+, semantic, ARIA.</p>
+            </div>
+            <div class="rounded-2xl border border-white/40 dark:border-white/10 p-4">
+              <div class="flex items-center gap-2 text-primary font-semibold"><i data-lucide="git-branch" class="w-4 h-4"></i> Team & CI/CD</div>
+              <p class="mt-2 text-zinc-600 dark:text-zinc-400">Review, code style, pipeline.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- right -->
+        <div class="lg:col-span-5">
+          <div class="rounded-3xl glass border border-white/40 dark:border-white/10 p-6">
+            <h3 class="font-semibold">Liên hệ nhanh</h3>
+            <div class="mt-4 space-y-3 text-sm">
+              <div class="flex items-center gap-3"><i data-lucide="mail" class="w-4 h-4"></i> <a href="mailto:alex@example.com" class="underline">alex@example.com</a></div>
+              <div class="flex items-center gap-3"><i data-lucide="phone" class="w-4 h-4"></i> <a href="tel:+84901234567" class="underline">+84 90 123 4567</a></div>
+              <div class="flex items-center gap-3"><i data-lucide="map-pin" class="w-4 h-4"></i> Saigon, Vietnam</div>
+              <div class="flex items-center gap-3"><i data-lucide="link" class="w-4 h-4"></i> <a class="underline" href="#" target="_blank" rel="noreferrer">alex.design</a></div>
+            </div>
+
+            <div class="mt-6 grid grid-cols-3 gap-3 text-center">
+              <div class="rounded-2xl border border-white/40 dark:border-white/10 p-4">
+                <p class="text-2xl font-bold">20+</p><p class="text-xs opacity-70">Dự án</p>
+              </div>
+              <div class="rounded-2xl border border-white/40 dark:border-white/10 p-4">
+                <p class="text-2xl font-bold">8</p><p class="text-xs opacity-70">Sản phẩm live</p>
+              </div>
+              <div class="rounded-2xl border border-white/40 dark:border-white/10 p-4">
+                <p class="text-2xl font-bold">4</p><p class="text-xs opacity-70">Giải thưởng</p>
+              </div>
+            </div>
+
+            <div class="mt-6 flex flex-wrap gap-2">
+              <a href="#" class="flex-1 min-w-[140px] px-4 py-2 rounded-xl border border-white/40 dark:border-white/10 hover:bg-white/50 dark:hover:bg-white/10 flex items-center justify-center gap-2 text-sm"><i data-lucide="github"></i> GitHub</a>
+              <a href="#" class="flex-1 min-w-[140px] px-4 py-2 rounded-xl border border-white/40 dark:border-white/10 hover:bg-white/50 dark:hover:bg-white/10 flex items-center justify-center gap-2 text-sm"><i data-lucide="dribbble"></i> Dribbble</a>
+              <a href="#" class="flex-1 min-w-[140px] px-4 py-2 rounded-xl border border-white/40 dark:border-white/10 hover:bg-white/50 dark:hover:bg-white/10 flex items-center justify-center gap-2 text-sm"><i data-lucide="linkedin"></i> LinkedIn</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="py-24">
+    <div class="container mx-auto px-6">
+      <div class="flex items-end justify-between gap-4 mb-8">
+        <h2 class="font-display text-3xl sm:text-4xl font-bold t" data-key="skillsTitle">Kĩ năng & Công nghệ</h2>
+        <span class="text-sm text-zinc-500 dark:text-zinc-400 t" data-key="drag">Hover để tạm dừng</span>
+      </div>
+
+      <div class="marquee rounded-3xl border border-white/50 dark:border-white/10 glass p-6">
+        <div class="marquee-track">
+          <div class="flex items-center gap-12 text-5xl">
+            <i class="devicon-html5-plain colored"></i>
+            <i class="devicon-css3-plain colored"></i>
+            <i class="devicon-javascript-plain colored"></i>
+            <i class="devicon-typescript-plain colored"></i>
+            <i class="devicon-tailwindcss-plain colored"></i>
+            <i class="devicon-react-original colored"></i>
+            <i class="devicon-nextjs-original"></i>
+            <i class="devicon-vitejs-plain colored"></i>
+            <i class="devicon-figma-plain colored"></i>
+            <i class="devicon-nodejs-plain colored"></i>
+            <i class="devicon-express-original"></i>
+            <i class="devicon-mongodb-plain colored"></i>
+            <i class="devicon-postgresql-plain colored"></i>
+            <i class="devicon-git-plain colored"></i>
+            <i class="devicon-docker-plain colored"></i>
+            <i class="devicon-aws-plain colored"></i>
+          </div>
+          <div class="flex items-center gap-12 text-5xl ml-12">
+            <i class="devicon-html5-plain colored"></i>
+            <i class="devicon-css3-plain colored"></i>
+            <i class="devicon-javascript-plain colored"></i>
+            <i class="devicon-typescript-plain colored"></i>
+            <i class="devicon-tailwindcss-plain colored"></i>
+            <i class="devicon-react-original colored"></i>
+            <i class="devicon-nextjs-original"></i>
+            <i class="devicon-vitejs-plain colored"></i>
+            <i class="devicon-figma-plain colored"></i>
+            <i class="devicon-nodejs-plain colored"></i>
+            <i class="devicon-express-original"></i>
+            <i class="devicon-mongodb-plain colored"></i>
+            <i class="devicon-postgresql-plain colored"></i>
+            <i class="devicon-git-plain colored"></i>
+            <i class="devicon-docker-plain colored"></i>
+            <i class="devicon-aws-plain colored"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 mt-10">
+        <div class="p-6 rounded-3xl glass border border-white/50 dark:border-white/10">
+          <p class="text-sm mb-3 opacity-70 t" data-key="frontend">Front-end</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">React</span>
+            <span class="px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">Next.js</span>
+            <span class="px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">Tailwind</span>
+            <span class="px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">GSAP</span>
+            <span class="px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">Accessibility</span>
+          </div>
+        </div>
+        <div class="p-6 rounded-3xl glass border border-white/50 dark:border-white/10">
+          <p class="text-sm mb-3 opacity-70 t" data-key="backend">Back-end & Data</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Node.js</span>
+            <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Express</span>
+            <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">MongoDB</span>
+            <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">PostgreSQL</span>
+            <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">REST/GraphQL</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="exp" class="py-24">
+    <div class="container mx-auto px-6">
+      <h2 class="font-display text-3xl sm:text-4xl font-bold mb-10 t" data-key="expTitle">Kinh nghiệm</h2>
+      <div class="relative pl-6">
+        <div class="absolute left-2 top-0 bottom-0 w-[3px] bg-gradient-to-b from-primary/50 to-transparent"></div>
+
+        <div class="relative mb-10">
+          <div class="absolute -left-[7px] top-1 w-4 h-4 rounded-full bg-primary shadow-glow"></div>
+          <div class="p-6 rounded-3xl glass border border-white/50 dark:border-white/10">
+            <div class="flex flex-wrap items-center justify-between gap-4">
+              <div><p class="font-semibold">Senior Front-end — CreativeDev Studio</p><p class="text-sm text-zinc-500 dark:text-zinc-400">2023 — nay</p></div>
+              <div class="text-sm px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">Full-time</div>
+            </div>
+            <ul class="mt-4 list-disc pl-6 text-zinc-600 dark:text-zinc-400 space-y-2">
+              <li>Lighthouse 95+ cho 8 dự án thương mại.</li>
+              <li>Thiết kế UI Kit & guideline accessibility.</li>
+              <li>Lead 4 dev, review code, CI/CD.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="relative mb-10">
+          <div class="absolute -left-[7px] top-1 w-4 h-4 rounded-full bg-primary shadow-glow"></div>
+          <div class="p-6 rounded-3xl glass border border-white/50 dark:border-white/10">
+            <div class="flex flex-wrap items-center justify-between gap-4">
+              <div><p class="font-semibold">UI/UX Designer — Pixel Lab</p><p class="text-sm text-zinc-500 dark:text-zinc-400">2021 — 2023</p></div>
+              <div class="text-sm px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Hybrid</div>
+            </div>
+            <ul class="mt-4 list-disc pl-6 text-zinc-600 dark:text-zinc-400 space-y-2">
+              <li>Research, wireframe, prototype (Figma).</li>
+              <li>Motion & micro-interaction.</li>
+              <li>Handoff dev & usability test.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="py-24">
+    <div class="container mx-auto px-6">
+      <div class="flex items-end justify-between gap-4 mb-8">
+        <h2 class="font-display text-3xl sm:text-4xl font-bold t" data-key="projTitle">Dự án tiêu biểu</h2>
+        <a href="#" class="text-sm underline t" data-key="viewAll">Xem tất cả</a>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <a href="#" class="group rounded-3xl overflow-hidden border border-white/50 dark:border-white/10 glass block">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1400&auto=format&fit=crop" alt="Project" class="h-52 w-full object-cover group-hover:scale-105 transition">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent"></div>
+            <div class="absolute bottom-3 left-3 right-3"><span class="inline-block px-2 py-1 text-xs rounded-full bg-primary/20 text-primary border border-primary/30">React · GSAP</span></div>
+          </div>
+          <div class="p-5"><p class="font-semibold">Motion-first Landing</p><p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">Hiệu ứng nặng, 60fps, tối ưu performance.</p></div>
+        </a>
+
+        <a href="#" class="group rounded-3xl overflow-hidden border border-white/50 dark:border-white/10 glass block">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1400&auto=format&fit=crop" alt="Project" class="h-52 w-full object-cover group-hover:scale-105 transition">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent"></div>
+            <div class="absolute bottom-3 left-3 right-3"><span class="inline-block px-2 py-1 text-xs rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Next.js · SaaS</span></div>
+          </div>
+          <div class="p-5"><p class="font-semibold">Dashboard SaaS</p><p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">Dark mode, system design & i18n.</p></div>
+        </a>
+
+        <a href="#" class="group rounded-3xl overflow-hidden border border-white/50 dark:border-white/10 glass block">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1555421689-43cad7100751?q=80&w=1400&auto=format&fit=crop" alt="Project" class="h-52 w-full object-cover group-hover:scale-105 transition">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent"></div>
+            <div class="absolute bottom-3 left-3 right-3"><span class="inline-block px-2 py-1 text-xs rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">UI/UX · Fintech</span></div>
+          </div>
+          <div class="p-5"><p class="font-semibold">Fintech Mobile</p><p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">Prototype mobile, usability test 20 users.</p></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-24">
+    <div class="container mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-10 items-start">
+        <div>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold mb-6 t" data-key="contactTitle">Liên hệ</h2>
+          <p class="text-zinc-600 dark:text-zinc-400 t" data-key="contactDesc">Mô tả nhu cầu của bạn, tôi sẽ phản hồi trong 24h.</p>
+
+          <form class="mt-6 space-y-4" onsubmit="event.preventDefault(); alert(currentLang==='vi' ? 'Đã gửi! Cảm ơn bạn ♥' : 'Sent! Thank you ♥'); this.reset();">
+            <div class="grid sm:grid-cols-2 gap-4">
+              <input required type="text" placeholder="Họ tên" class="px-4 py-3 rounded-xl bg-white/70 dark:bg-zinc-900/60 border border-white/40 dark:border-white/10 w-full">
+              <input required type="email" placeholder="Email" class="px-4 py-3 rounded-xl bg-white/70 dark:bg-zinc-900/60 border border-white/40 dark:border-white/10 w-full">
+            </div>
+            <input type="text" placeholder="Chủ đề" class="px-4 py-3 rounded-xl bg-white/70 dark:bg-zinc-900/60 border border-white/40 dark:border-white/10 w-full">
+            <textarea rows="5" placeholder="Nội dung..." class="px-4 py-3 rounded-xl bg-white/70 dark:bg-zinc-900/60 border border-white/40 dark:border-white/10 w-full"></textarea>
+            <button class="px-5 py-3 rounded-full bg-primary text-white font-semibold hover:shadow-glow t" data-key="send">Gửi tin nhắn</button>
+          </form>
+        </div>
+        <div class="p-6 rounded-3xl glass border border-white/50 dark:border-white/10">
+          <h3 class="font-semibold mb-4 t" data-key="elsewhere">Ở nơi khác</h3>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
+            <a class="flex items-center gap-2 px-4 py-3 rounded-xl border border-white/40 dark:border-white/10 hover:bg-white/50 dark:hover:bg-white/10" href="#" target="_blank" rel="noreferrer"><i data-lucide="github"></i> GitHub</a>
+            <a class="flex items-center gap-2 px-4 py-3 rounded-xl border border-white/40 dark:border-white/10 hover:bg-white/50 dark:hover:bg-white/10" href="#" target="_blank" rel="noreferrer"><i data-lucide="dribbble"></i> Dribbble</a>
+            <a class="flex items-center gap-2 px-4 py-3 rounded-xl border border-white/40 dark:border-white/10 hover:bg-white/50 dark:hover:bg-white/10" href="#" target="_blank" rel="noreferrer"><i data-lucide="linkedin"></i> LinkedIn</a>
+          </div>
+          <div class="mt-6 text-xs text-zinc-500 dark:text-zinc-400">
+            <p>© <span id="year"></span> Alex Nguyen. All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10">
+    <div class="container mx-auto px-6 text-center text-xs text-zinc-500 dark:text-zinc-400">Built with Tailwind · GSAP · Lenis</div>
+  </footer>
+
+  <script>
+  ;(() => {
+    'use strict';
+
+    // ==== helpers
+    const $  = (s, r=document) => r.querySelector(s);
+    const $$ = (s, r=document) => r.querySelectorAll(s);
+    const safe = (fn) => { try { fn(); } catch {} };
+
+    // icons (không có cũng không crash)
+    safe(() => window.lucide?.createIcons?.());
+
+    // ==== i18n
+    const dict = {
+      vi:{available:'Đang nhận dự án freelance',titleA:'Front-end Developer',heroDesc:'Xây dựng trải nghiệm web nhanh, mượt, đậm chất riêng. Tôi biến wireframe thành sản phẩm sống động với motion “cực căng”.',btnProjects:'Xem dự án',btnContact:'Liên hệ',expYears:'4+ năm kinh nghiệm',skillsTitle:'Kĩ năng & Công nghệ',drag:'Hover để tạm dừng',frontend:'Front-end',backend:'Back-end & Data',expTitle:'Kinh nghiệm',projTitle:'Dự án tiêu biểu',viewAll:'Xem tất cả',contactTitle:'Liên hệ',contactDesc:'Mô tả nhu cầu của bạn, tôi sẽ phản hồi trong 24h.',send:'Gửi tin nhắn',elsewhere:'Ở nơi khác'},
+      en:{available:'Open for freelance',titleA:'Front-end Developer',heroDesc:'I craft fast, smooth, opinionated web experiences. I turn wireframes into lively products with bold motion.',btnProjects:'View projects',btnContact:'Contact',expYears:'4+ years experience',skillsTitle:'Skills & Stack',drag:'Hover to pause',frontend:'Front-end',backend:'Back-end & Data',expTitle:'Experience',projTitle:'Featured Projects',viewAll:'View all',contactTitle:'Contact',contactDesc:'Describe your needs; I reply within 24h.',send:'Send Message',elsewhere:'Elsewhere'}
+    };
+    window.currentLang = localStorage.getItem('lang') || 'vi';
+    function applyLang(lang){
+      window.currentLang = lang;
+      localStorage.setItem('lang', lang);
+      document.documentElement.setAttribute('lang', lang);
+      $$('.t').forEach(el => {
+        const k = el.getAttribute('data-key');
+        if (k && dict[lang][k]) el.textContent = dict[lang][k];
+      });
+      const langBtn = $('#langToggle'); if (langBtn) langBtn.textContent = lang.toUpperCase();
+    }
+    applyLang(window.currentLang);
+    $('#langToggle')?.addEventListener('click',()=>applyLang(window.currentLang==='vi'?'en':'vi'));
+
+    // ==== theme (Dark/Light)
+    const themeIcon = $('#themeIcon');
+    function setTheme(mode){
+      const dark = mode === 'dark';
+      document.documentElement.classList.toggle('dark', dark);
+      localStorage.setItem('theme', dark ? 'dark' : 'light');
+      themeIcon?.setAttribute('data-lucide', dark ? 'sun' : 'moon');
+      safe(()=> window.lucide?.createIcons?.());
+    }
+    setTheme(localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+    $('#themeToggle')?.addEventListener('click',()=>{
+      const darkNow = document.documentElement.classList.contains('dark');
+      setTheme(darkNow ? 'light' : 'dark');
+    });
+
+    // ==== menu responsive (mobile)
+    const menuBtn = $('#menuToggle');
+    const menu = $('#mainMenu');
+    const mql = window.matchMedia('(min-width: 640px)');
+
+    function syncMenu(){
+      if (!menu) return;
+      if (mql.matches){
+        menu.classList.remove('hidden'); menu.classList.add('flex');
+        menuBtn?.setAttribute('aria-expanded','false');
+      } else {
+        const open = menuBtn?.getAttribute('aria-expanded') === 'true';
+        menu.classList.toggle('hidden', !open);
+        menu.classList.toggle('flex', open);
+      }
+    }
+    syncMenu();
+
+    menuBtn?.addEventListener('click', ()=>{
+      const opened = menuBtn.getAttribute('aria-expanded') === 'true';
+      menuBtn.setAttribute('aria-expanded', String(!opened));
+      syncMenu();
+    });
+
+    mql.addEventListener?.('change', syncMenu);
+
+    // đóng menu khi click link (mobile)
+    $$('#mainMenu a').forEach(a=>a.addEventListener('click',()=>{
+      if(!mql.matches){ menuBtn?.setAttribute('aria-expanded','false'); syncMenu(); }
+    }));
+
+    // ==== Smooth scroll (native fallback; GSAP nếu có)
+    $$('.navlink, a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const href=a.getAttribute('href'); if(!href || !href.startsWith('#') || href.length<=1) return;
+        const el=document.querySelector(href); if(!el) return;
+        e.preventDefault();
+        if (window.gsap && window.ScrollToPlugin){
+          safe(()=>{ gsap.registerPlugin(ScrollToPlugin);
+            gsap.to(window,{duration:1,scrollTo:{y:el, offsetY:100},ease:'power3.out'}); });
+        } else {
+          el.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      });
+    });
+
+    // ==== Scroll spy
+    const sections=$$('section[id]'); const navlinks=$$('.navlink');
+    const spy=()=>{ const top=window.scrollY+120;
+      sections.forEach(sec=>{
+        if(top>=sec.offsetTop && top<sec.offsetTop+sec.offsetHeight){
+          navlinks.forEach(l=>l.classList.remove('text-primary'));
+          document.querySelector('.navlink[href="#'+sec.id+'"]')?.classList.add('text-primary');
+        }
+      });
+    };
+    window.addEventListener('scroll',spy); spy();
+
+    // ==== Lenis (optional)
+    safe(()=> {
+      if (window.Lenis){
+        const lenis=new Lenis({duration:1.2,smoothWheel:true});
+        const raf=(t)=>{ lenis.raf(t); requestAnimationFrame(raf); };
+        requestAnimationFrame(raf);
+      }
+    });
+
+    // ==== GSAP entrance (optional)
+    safe(()=> {
+      if (window.gsap){
+        if (window.ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
+        if (window.ScrollToPlugin) gsap.registerPlugin(ScrollToPlugin);
+
+        gsap.from('#home h1 span, #home p, #home .inline-flex, #home .mt-8 a', {
+          opacity:0, y:30, duration:.9, stagger:.08, ease:'power3.out', delay:.2
+        });
+        gsap.from('#home .avatar-wrap', { opacity:0, y:20, duration:1, ease:'power3.out', delay:.3 });
+
+        if (window.ScrollTrigger){
+          gsap.utils.toArray('section').forEach(sec=>{
+            const targets = sec.querySelectorAll('h2, h3, p, .glass, .group, li, .rounded-3xl, .rounded-2xl');
+            gsap.from(targets, {
+              opacity:0, y:24, duration:.7, stagger:.04, ease:'power3.out',
+              scrollTrigger:{ trigger:sec, start:'top 70%' }
+            });
+          });
+        }
+      }
+    });
+
+    // year
+    $('#year')?.textContent = new Date().getFullYear();
+
+    // cursor (optional)
+    const cursor=$('#cursor');
+    if(cursor){
+      document.addEventListener('mousemove',(e)=>{cursor.style.left=e.clientX+'px'; cursor.style.top=e.clientY+'px';});
+      $$('.group, a, button').forEach(el=>{
+        el.addEventListener('mouseenter',()=>cursor.classList.add('grow'));
+        el.addEventListener('mouseleave',()=>cursor.classList.remove('grow'));
+      });
+    }
+  })();
+  </script>
+</body>
+</html>

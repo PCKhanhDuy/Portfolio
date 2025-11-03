@@ -410,7 +410,7 @@
             <div class="avatar-frame border border-black/10 dark:border-white/15" >
               <div class="avatar-orbit"></div>
               <div class="avatar-mask relative duotone">
-                <img src="https://files.catbox.moe/t7w2kv.png" class="w-full h-full object-cover" alt="Avatar"/>
+                <img src="https://i.ibb.co/TMXKsN4w/per-3.png" class="w-full h-full object-cover" alt="Avatar"/>
               </div>
               <div class="absolute -top-4 -left-4">
                 <span class="px-3 py-1.5 text-xs rounded-full border border-black/10 dark:border-white/20 bg-white/80 dark:bg-black/40 glass">Figma</span>
@@ -420,7 +420,6 @@
               </div>
             </div>
           </div>
-          
         </div>
       </div>
     </section>
@@ -541,6 +540,7 @@
             </div>
           </div>
         </div>
+
         <div class="rounded-2xl border border-black/10 dark:border-white/15 bg-white/70 dark:bg-black/30 glass p-4">
           <div class="marquee">
             <div class="marquee__inner marquee__inner--rev">
@@ -602,7 +602,9 @@
     <!-- EXPERIENCE -->
     <section id="experience" class="py-12 md:py-16">
       <div class="container mx-auto px-5 md:px-8">
-        <h2 class="text-3xl md:text-4xl font-extrabold mb-4" data-i18n="exp.title">Kinh nghiệm</h2>
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-4" data-i18n="exp.title" >
+          Kinh nghiệm
+        </h2>
         <!-- tránh tràn lề do mốc timeline âm trái -->
         <ol class="relative border-s-2 border-neutral-300/60 dark:border-neutral-700/60 space-y-5 ps-6 overflow-hidden">
           <li>
@@ -1080,7 +1082,7 @@
 
   // detect devtools
   let devtoolsOpen = false;
-  function checkDevtools() {  
+  function checkDevtools() {
     const widthDiff = Math.abs(window.outerWidth - window.innerWidth);
     const heightDiff = Math.abs(window.outerHeight - window.innerHeight);
     const isOpen = widthDiff > DETECT_THRESHOLD || heightDiff > DETECT_THRESHOLD;
@@ -1094,6 +1096,7 @@
   setInterval(checkDevtools, 1000);
 })();
 </script>
+
 
   </body>
 </html>

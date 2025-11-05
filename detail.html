@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tất cả Dự án — Phan Chau Khanh Duy | Portfolio</title>
+  <meta name="description"
+    content="Dịch vụ thiết kế website, build & rebuild website chuẩn UI/UX. Phan Chau Khanh Duy — Front-end Developer & UI/UX Designer với kinh nghiệm xây dựng giao diện hiện đại, tốc độ và tối ưu SEO." />
+  <meta name="keywords"
+    content="thiết kế website, build website, rebuild website, website chuyên nghiệp, front-end developer, UI UX designer, web design, portfolio, responsive website, tối ưu SEO" />
+  <meta name="keywords"
+    content="freelancer thiết kế website, freelance web developer, build website chuyên nghiệp, thiết kế lại website, làm web công ty, web doanh nghiệp nhỏ, thiết kế giao diện web hiện đại, tư vấn thiết kế website miễn phí" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://pckhanhduy.github.io/Portfolio/assets/avt-2.png" />
+  <meta property="og:title" content="Thiết kế Website | Build & Rebuild Website — Phan Chau Khanh Duy">
+  <meta property="og:description"
+    content="Build & rebuild website chuẩn UI/UX, hiện đại và tốc độ. Portfolio cá nhân của Phan Chau Khanh Duy — Front-end Developer & UI/UX Designer.">
+  <meta property="og:image" content="https://pckhanhduy.github.io/Portfolio/assets/avt-2.png">
+  <meta property="og:url" content="https://pckhanhduy.github.io/Portfolio/assets/logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="vi_VN">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#C8F560">
+  <meta name="google-site-verification" content="lvMInMFuJHCi-l-jApcKs6XRxAiuRJcs5EN_rIryH4M" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Thiết kế Website | Build & Rebuild Website — Phan Chau Khanh Duy">
+  <meta name="twitter:description"
+    content="Dịch vụ thiết kế và rebuild website chuẩn UI/UX. Portfolio của Front-end Developer Phan Chau Khanh Duy.">
+  <meta name="twitter:image" content="https://pckhanhduy.github.io/Portfolio/assets/avt-2.png">
+  <link rel="icon" type="image/png" href="https://pckhanhduy.github.io/Portfolio/assets/logo.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="https://pckhanhduy.github.io/Portfolio/assets/css/main.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: [
+              "Manrope",
+              "Inter",
+              "system-ui",
+              "-apple-system",
+              "Segoe UI",
+              "Roboto",
+              "sans-serif",
+            ],
+          },
+          colors: { accent: { DEFAULT: "#C8F560" } },
+          boxShadow: {
+            island: "0 10px 30px rgba(0,0,0,.18)",
+            soft: "0 8px 24px rgba(0,0,0,.08)",
+          },
+        },
+      },
+    };
+  </script>
+</head>
+
+<body
+  class="font-sans bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 selection:bg-accent/50 selection:text-black overflow-x-hidden">
+  <!-- Subtle BG -->
+  <div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10">
+    <div class="absolute -top-40 -left-40 w-[420px] h-[420px] rounded-full blur-3xl opacity-20 dark:opacity-30"
+      style="background: radial-gradient(closest-side, #c8f560, transparent)"></div>
+    <div class="absolute -bottom-40 -right-40 w-[420px] h-[420px] rounded-full blur-3xl opacity-10 dark:opacity-20"
+      style="background: radial-gradient(closest-side, #7dd3fc, transparent)"></div>
+  </div>
+
+  <!-- Dynamic-Island Header -->
+  <header class="fixed z-50 left-1/2 -translate-x-1/2 top-3 md:top-5 w-full flex flex-col items-center">
+    <div id="island"
+      class="island island--closed flex items-center gap-2 px-2 md:px-3 shadow-island border border-black/10 dark:border-white/15 bg-white/70 dark:bg-black/40 glass">
+      <button id="islandToggle"
+        class="flex items-center gap-2 px-3 py-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition"
+        aria-expanded="false" aria-controls="islandMenu">
+        <span
+          class="inline-flex w-8 h-8 items-center justify-center rounded-full bg-accent text-black font-bold">◎</span>
+        <strong class="tracking-wide text-sm md:text-base">PORTFOLIO</strong>
+      </button>
+
+      <nav id="islandMenu" class="hidden md:flex items-center gap-1 text-sm">
+        <a class="nav-a" data-scroll="#home"><i class="fa-solid fa-house"></i><span data-i18n="nav.home">Trang
+            chủ</span></a>
+        <a class="nav-a" data-scroll="#about"><i class="fa-solid fa-user"></i><span data-i18n="nav.about">Giới
+            thiệu</span></a>
+        <a class="nav-a" data-scroll="#skills"><i class="fa-solid fa-screwdriver-wrench"></i><span
+            data-i18n="nav.skills">Kỹ năng</span></a>
+        <a class="nav-a" data-scroll="#experience"><i class="fa-solid fa-briefcase"></i><span
+            data-i18n="nav.experience">Kinh nghiệm</span></a>
+        <a class="nav-a" data-scroll="#projects"><i class="fa-solid fa-shapes"></i><span data-i18n="nav.projects">Dự
+            án</span></a>
+        <a class="nav-a" data-scroll="#contact"><i class="fa-solid fa-paper-plane"></i><span
+            data-i18n="nav.contact">Liên hệ</span></a>
+      </nav>
+
+      <div class="controls">
+        <div class="lang-btns" role="group" aria-label="Language switch EN/VN">
+          <button type="button" id="btnEN">EN</button>
+          <button type="button" id="btnVI">VN</button>
+        </div>
+        <label class="toggle-theme">
+          <input type="checkbox" id="themeSwitch" aria-label="Theme switch Dark/Light" />
+          <span class="track">
+            <i class="ico fa-regular fa-moon"></i>
+            <i class="ico fa-regular fa-sun"></i>
+            <span class="thumb"></span>
+          </span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Mobile panel -->
+    <div id="islandPanel"
+      class="md:hidden hidden mt-2 w-[92vw] max-w-[980px] mx-auto rounded-2xl border border-black/10 dark:border-white/15 bg-white/70 dark:bg-black/40 glass shadow-soft">
+      <nav class="grid grid-cols-2 gap-2 p-3 text-sm">
+        <a class="px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 nav-a" data-scroll="#home"><i
+            class="fa-solid fa-house"></i><span data-i18n="nav.home">Trang chủ</span></a>
+        <a class="px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 nav-a" data-scroll="#about"><i
+            class="fa-solid fa-user"></i><span data-i18n="nav.about">Giới thiệu</span></a>
+        <a class="px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 nav-a" data-scroll="#skills"><i
+            class="fa-solid fa-screwdriver-wrench"></i><span data-i18n="nav.skills">Kỹ năng</span></a>
+        <a class="px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 nav-a" data-scroll="#experience"><i
+            class="fa-solid fa-briefcase"></i><span data-i18n="nav.experience">Kinh nghiệm</span></a>
+        <a class="px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 nav-a" data-scroll="#projects"><i
+            class="fa-solid fa-shapes"></i><span data-i18n="nav.projects">Dự án</span></a>
+        <a class="px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 nav-a" data-scroll="#contact"><i
+            class="fa-solid fa-paper-plane"></i><span data-i18n="nav.contact">Liên hệ</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- DETAIL PROJECT -->
+  <main class="pt-32 pb-32">
+    <div class="container mx-auto px-5 md:px-8 space-y-16">
+      <!-- Nút quay lại -->
+      <div class="flex items-center justify-between">
+        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">
+          Chi tiết Dự án
+        </h1>
+        <a href="projects.html"
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-black/10 dark:border-white/20 bg-white/70 dark:bg-black/30 glass text-sm font-medium hover:-translate-x-1 hover:shadow-md hover:bg-accent/10 transition-all duration-300">
+          <i class="fa-solid fa-arrow-left-long text-accent"></i>
+          <span>Quay lại danh sách</span>
+        </a>
+      </div>
+
+      <!-- Hero Image -->
+      <div class="relative mb-12 rounded-3xl overflow-hidden shadow-soft">
+        <img src="assets/project-01.jpg" alt="Hotel Booking Demo" class="w-full max-h-[480px] object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+        <div class="absolute bottom-6 left-8 text-white">
+          <h2 class="text-3xl md:text-4xl font-bold mb-2">Hotel Travel Booking</h2>
+          <p class="opacity-80 text-sm md:text-base">ReactJS • TailwindCSS • Responsive • UX Optimized</p>
+        </div>
+      </div>
+
+      <!-- OVERVIEW -->
+      <section class="grid md:grid-cols-3 gap-10">
+        <div class="md:col-span-2 space-y-6">
+          <h2 class="text-3xl font-bold border-l-4 border-accent pl-4">Tổng quan dự án</h2>
+          <p class="opacity-90 leading-relaxed">Dự án <strong>Hotel Travel Booking</strong> được xây dựng nhằm tạo nên
+            nền tảng đặt phòng trực tuyến toàn diện — từ tìm kiếm, xem chi tiết đến thanh toán. Giao diện được thiết kế
+            theo chuẩn <strong>UI/UX thực chiến</strong> giúp người dùng thao tác nhanh, mượt và trực quan.</p>
+          <p class="opacity-90 leading-relaxed">Mục tiêu chính là cải thiện <strong>tỷ lệ chuyển đổi (conversion
+              rate)</strong>, giảm thời gian tải trang và nâng cao trải nghiệm người dùng qua các kỹ thuật tối ưu
+            <strong>Core Web Vitals</strong>.
+          </p>
+          <div class="flex gap-4 pt-4">
+            <a href="#"
+              class="px-6 py-3 bg-accent text-black rounded-full font-semibold flex items-center gap-2 hover:-translate-y-1 transition-all shadow-md hover:shadow-lg"><i
+                class="fa-solid fa-globe"></i> Website</a>
+            <a href="https://www.figma.com"
+              class="px-6 py-3 border border-accent text-accent rounded-full font-semibold flex items-center gap-2 hover:bg-accent/10 transition-all"><i
+                class="fa-brands fa-figma"></i> Figma Design</a>
+          </div>
+        </div>
+        <aside
+          class="bg-white/70 dark:bg-black/30 glass border border-black/10 dark:border-white/10 rounded-2xl p-6 shadow-soft h-fit text-sm backdrop-blur-xl">
+          <h3 class="text-lg font-semibold mb-4 flex items-center gap-2"><i
+              class="fa-solid fa-circle-info text-accent"></i> Thông tin dự án</h3>
+          <ul class="space-y-2 opacity-90">
+            <li>📅 Thời gian: <strong>3 tuần</strong></li>
+            <li>🧠 Phạm vi: Thiết kế + Phát triển Front-end</li>
+            <li>👨‍💻 Vai trò: Developer & Designer</li>
+            <li>⚙️ Công nghệ: ReactJS, TailwindCSS, GSAP</li>
+            <li>🚀 Trạng thái: <span class="text-green-500 font-semibold">Hoàn thành</span></li>
+          </ul>
+        </aside>
+      </section>
+
+      <!-- KEY FEATURES -->
+      <section>
+        <h2 class="text-3xl font-bold border-l-4 border-accent pl-4 mb-10">Tính năng nổi bật</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div
+            class="p-6 rounded-2xl bg-white/70 dark:bg-black/30 border border-black/10 dark:border-white/10 backdrop-blur-md hover:-translate-y-1 hover:shadow-lg transition-all">
+            <i class="fa-solid fa-magnifying-glass text-accent text-3xl mb-3"></i>
+            <h4 class="font-semibold mb-2">Tìm kiếm thông minh</h4>
+            <p class="text-sm opacity-80">Bộ lọc động và gợi ý realtime giúp người dùng nhanh chóng tìm khách sạn phù
+              hợp.</p>
+          </div>
+          <div
+            class="p-6 rounded-2xl bg-white/70 dark:bg-black/30 border border-black/10 dark:border-white/10 backdrop-blur-md hover:-translate-y-1 hover:shadow-lg transition-all">
+            <i class="fa-solid fa-calendar-check text-accent text-3xl mb-3"></i>
+            <h4 class="font-semibold mb-2">Đặt phòng trực tiếp</h4>
+            <p class="text-sm opacity-80">Tích hợp quy trình booking hoàn chỉnh, tối giản thao tác và tăng tỉ lệ hoàn
+              tất.</p>
+          </div>
+          <div
+            class="p-6 rounded-2xl bg-white/70 dark:bg-black/30 border border-black/10 dark:border-white/10 backdrop-blur-md hover:-translate-y-1 hover:shadow-lg transition-all">
+            <i class="fa-solid fa-mobile-screen text-accent text-3xl mb-3"></i>
+            <h4 class="font-semibold mb-2">Responsive & Animation</h4>
+            <p class="text-sm opacity-80">Tương thích 100% thiết bị, chuyển động GSAP nhẹ nhàng, tự nhiên.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- TECH STACK -->
+      <section>
+        <h2 class="text-3xl font-bold border-l-4 border-accent pl-4 mb-10">Tổng quan kỹ thuật</h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div
+            class="p-6 rounded-2xl bg-gradient-to-br from-white/70 to-accent/10 dark:from-neutral-900 dark:to-black/40 border border-black/10 dark:border-white/10 backdrop-blur-md">
+            <i class="fa-brands fa-react text-accent text-3xl mb-3"></i>
+            <h4 class="font-bold mb-1">React Components</h4>
+            <p class="opacity-80 text-sm">Xây dựng UI động với state, props, custom hook và context API.</p>
+          </div>
+          <div
+            class="p-6 rounded-2xl bg-gradient-to-br from-white/70 to-accent/10 dark:from-neutral-900 dark:to-black/40 border border-black/10 dark:border-white/10 backdrop-blur-md">
+            <i class="fa-brands fa-css3-alt text-accent text-3xl mb-3"></i>
+            <h4 class="font-bold mb-1">TailwindCSS</h4>
+            <p class="opacity-80 text-sm">Triển khai nhanh và dễ maintain nhờ cấu trúc utility-first.</p>
+          </div>
+          <div
+            class="p-6 rounded-2xl bg-gradient-to-br from-white/70 to-accent/10 dark:from-neutral-900 dark:to-black/40 border border-black/10 dark:border-white/10 backdrop-blur-md">
+            <i class="fa-solid fa-bolt text-accent text-3xl mb-3"></i>
+            <h4 class="font-bold mb-1">GSAP Motion</h4>
+            <p class="opacity-80 text-sm">Animation sống động cho giao diện: fade, parallax, smooth scroll.</p>
+          </div>
+          <div
+            class="p-6 rounded-2xl bg-gradient-to-br from-white/70 to-accent/10 dark:from-neutral-900 dark:to-black/40 border border-black/10 dark:border-white/10 backdrop-blur-md">
+            <i class="fa-solid fa-database text-accent text-3xl mb-3"></i>
+            <h4 class="font-bold mb-1">Mock API</h4>
+            <p class="opacity-80 text-sm">Mô phỏng dữ liệu thật để kiểm thử logic UX và giao diện người dùng.</p>
+          </div>
+          <div
+            class="p-6 rounded-2xl bg-gradient-to-br from-white/70 to-accent/10 dark:from-neutral-900 dark:to-black/40 border border-black/10 dark:border-white/10 backdrop-blur-md">
+            <i class="fa-solid fa-chart-line text-accent text-3xl mb-3"></i>
+            <h4 class="font-bold mb-1">SEO & Core Web Vitals</h4>
+            <p class="opacity-80 text-sm">Tối ưu hiệu suất: LCP <2.3s, CLS <0.03, điểm Lighthouse 98+</p>
+          </div>
+          <div
+            class="p-6 rounded-2xl bg-gradient-to-br from-white/70 to-accent/10 dark:from-neutral-900 dark:to-black/40 border border-black/10 dark:border-white/10 backdrop-blur-md">
+            <i class="fa-solid fa-cloud-arrow-up text-accent text-3xl mb-3"></i>
+            <h4 class="font-bold mb-1">Triển khai & CI/CD</h4>
+            <p class="opacity-80 text-sm">Deploy trên Vercel + GitHub Pages, auto build khi push code.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- DESIGN PROCESS -->
+      <section>
+        <h2 class="text-3xl font-bold border-l-4 border-accent pl-4 mb-10">Quy trình thiết kế & phát triển</h2>
+        <ol class="relative border-l border-accent/40 space-y-10 ml-4">
+          <li class="pl-6">
+            <span class="absolute -left-2 top-0 w-4 h-4 bg-accent rounded-full"></span>
+            <h4 class="font-semibold">1. Research & Wireframe</h4>
+            <p class="text-sm opacity-80">Nghiên cứu hành vi người dùng, tạo flow và wireframe tổng thể trước khi thiết
+              kế.</p>
+          </li>
+          <li class="pl-6">
+            <span class="absolute -left-2 top-0 w-4 h-4 bg-accent rounded-full"></span>
+            <h4 class="font-semibold">2. UI Design</h4>
+            <p class="text-sm opacity-80">Thiết kế hệ thống UI thống nhất, màu sắc hiện đại, component nhất quán.</p>
+          </li>
+          <li class="pl-6">
+            <span class="absolute -left-2 top-0 w-4 h-4 bg-accent rounded-full"></span>
+            <h4 class="font-semibold">3. Development & Animation</h4>
+            <p class="text-sm opacity-80">Code React component, animation bằng GSAP, responsive full thiết bị.</p>
+          </li>
+          <li class="pl-6">
+            <span class="absolute -left-2 top-0 w-4 h-4 bg-accent rounded-full"></span>
+            <h4 class="font-semibold">4. Testing & Optimization</h4>
+            <p class="text-sm opacity-80">Kiểm thử UX, SEO và hiệu năng thực tế trước khi release.</p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- GALLERY -->
+      <section>
+        <h2 class="text-3xl font-bold border-l-4 border-accent pl-4 mb-8">Hình ảnh thực tế</h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div
+            class="relative group cursor-pointer overflow-hidden rounded-3xl shadow-lg hover:shadow-accent/30 transition"
+            onclick="openPopup('https://cdn.dribbble.com/userupload/43200564/file/original-6bf94bda3fd3183bed8d944aba0f0a07.png')">
+            <img src="https://cdn.dribbble.com/userupload/43200564/file/original-6bf94bda3fd3183bed8d944aba0f0a07.png"
+              class="object-cover w-full h-[260px] transition-transform duration-700 group-hover:scale-105" />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 flex items-end p-5 text-white text-sm font-medium transition-all">
+              Trang quản lý khách sạn</div>
+          </div>
+          <div
+            class="relative group cursor-pointer overflow-hidden rounded-3xl shadow-lg hover:shadow-accent/30 transition"
+            onclick="openPopup('https://cdn.dribbble.com/userupload/18120975/file/original-fa44cf69151427050ead881f7c805174.png')">
+            <img src="https://cdn.dribbble.com/userupload/18120975/file/original-fa44cf69151427050ead881f7c805174.png"
+              class="object-cover w-full h-[260px] transition-transform duration-700 group-hover:scale-105" />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 flex items-end p-5 text-white text-sm font-medium transition-all">
+              Trang chủ — Hero Section</div>
+          </div>
+          <div
+            class="relative group cursor-pointer overflow-hidden rounded-3xl shadow-lg hover:shadow-accent/30 transition"
+            onclick="openPopup('https://cdn.dribbble.com/userupload/9761864/file/original-2f065b3a6288d9f2a8d8ad736e859449.jpg')">
+            <img src="https://cdn.dribbble.com/userupload/9761864/file/original-2f065b3a6288d9f2a8d8ad736e859449.jpg"
+              class="object-cover w-full h-[260px] transition-transform duration-700 group-hover:scale-105" />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 flex items-end p-5 text-white text-sm font-medium transition-all">
+              Trang chi tiết phòng</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESULTS -->
+      <section class="text-center max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold border-l-4 border-accent pl-4 mb-8 text-left">Kết quả & Tối ưu</h2>
+        <div class="grid sm:grid-cols-3 gap-8 mt-10">
+          <div>
+            <p class="text-4xl font-bold text-accent">+32%</p>
+            <p class="text-sm opacity-80">Tăng tỷ lệ chuyển đổi</p>
+          </div>
+          <div>
+            <p class="text-4xl font-bold text-accent">1.8s</p>
+            <p class="text-sm opacity-80">Thời gian tải trung bình</p>
+          </div>
+          <div>
+            <p class="text-4xl font-bold text-accent">98+</p>
+            <p class="text-sm opacity-80">SEO & Performance Score</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="text-center py-16">
+        <h2 class="text-3xl font-bold mb-4">Quan tâm đến dự án tương tự?</h2>
+        <p class="opacity-80 mb-6">Liên hệ với tôi để trao đổi ý tưởng hoặc hợp tác thiết kế, phát triển web.</p>
+        <a href="#contact"
+          class="inline-flex items-center gap-2 px-8 py-3 bg-accent text-black font-semibold rounded-full hover:-translate-y-1 hover:shadow-lg transition-all">
+          <i class="fa-solid fa-paper-plane"></i> Liên hệ ngay
+        </a>
+      </section>
+
+      <!-- NOTICE -->
+      <section
+        class="border border-yellow-300/40 bg-yellow-100/20 dark:bg-yellow-900/20 rounded-2xl p-10 text-center max-w-2xl mx-auto">
+        <i class="fa-solid fa-triangle-exclamation text-yellow-400 text-4xl mb-4"></i>
+        <h3 class="text-xl font-semibold mb-2">Dự án chưa được public</h3>
+        <p class="opacity-80 text-sm">Phiên bản demo hoặc source code sẽ được cập nhật sau khi hoàn thiện NDA & kiểm
+          thử. Cảm ơn bạn đã quan tâm 💛</p>
+      </section>
+
+    </div>
+
+  </main>
+
+
+  <!-- Popup ảnh -->
+  <div id="imgPopup" class="fixed inset-0 hidden items-center justify-center bg-black/80 backdrop-blur-sm z-[9999] p-4">
+    <button onclick="closePopup()" class="absolute top-5 right-5 text-white text-2xl hover:text-accent transition">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <img id="popupImg" src="" alt="Preview"
+      class="max-h-[90vh] max-w-[90vw] rounded-2xl shadow-2xl border border-white/10 object-contain opacity-0 scale-95 transition-all duration-300">
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="py-8 text-center border-t border-black/10 dark:border-white/15">
+    <p>© <span id="year"></span> <span>Phan Chau Khanh Duy</span> — <span data-i18n="footer.built">Built with Tailwind &
+        GSAP.</span></p>
+  </footer>
+
+  <script>
+    const popup = document.getElementById("imgPopup");
+    const img = document.getElementById("popupImg");
+
+    function openPopup(src) {
+      document.body.style.overflow = "hidden";
+      img.style.opacity = 0;
+      img.style.transform = "scale(0.97)";
+      img.style.filter = "blur(6px)";
+      img.src = src;
+
+      popup.classList.remove("hidden");
+      popup.classList.add("flex");
+
+      img.onload = () => {
+        // instant animation, cực nhanh
+        gsap.to(img, {
+          opacity: 1,
+          scale: 1,
+          filter: "blur(0px)",
+          duration: 0.18,
+          ease: "power1.out"
+        });
+      };
+    }
+
+    function closePopup() {
+      // close cực nhanh, không delay
+      gsap.to(img, {
+        opacity: 0,
+        scale: 0.95,
+        filter: "blur(6px)",
+        duration: 0.15,
+        ease: "power1.in"
+      });
+
+      gsap.to(popup, {
+        opacity: 0.8,
+        duration: 0.15,
+        ease: "none",
+        onComplete: () => {
+          popup.classList.remove("flex");
+          popup.classList.add("hidden");
+          popup.style.opacity = 1;
+          document.body.style.overflow = "";
+          img.src = "";
+        }
+      });
+    }
+    popup.addEventListener("click", (e) => {
+      if (e.target === e.currentTarget) closePopup();
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+  <!-- <script src="https://pckhanhduy.github.io/Portfolio/assets/js/main.js"></script> -->
+</body>
+
+</html>

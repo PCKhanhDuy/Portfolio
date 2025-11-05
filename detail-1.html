@@ -111,75 +111,94 @@
       </div>
     </header>
 
-    <!-- PROJECTS -->
-    <!-- PROJECTS -->
+    <!-- DETAIL PROJECTS -->
     <main class="pt-32 pb-20">
       <div class="container mx-auto px-5 md:px-8">
         <!-- Nút quay lại -->
         <div class="flex items-center justify-between mb-10">
-          <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">Tất cả Dự án</h1>
-          <a href="index.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-black/10 dark:border-white/20 bg-white/70 dark:bg-black/30 glass text-sm font-medium hover:-translate-x-1 hover:shadow-md hover:bg-accent/10 transition-all duration-300">
+          <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">
+            Chi tiết Dự án
+          </h1>
+          <a href="projects.html"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-black/10 dark:border-white/20 bg-white/70 dark:bg-black/30 glass text-sm font-medium hover:-translate-x-1 hover:shadow-md hover:bg-accent/10 transition-all duration-300">
             <i class="fa-solid fa-arrow-left-long text-accent"></i>
-            <span>Quay lại trang chính</span>
+            <span>Quay lại danh sách</span>
           </a>
         </div>
 
-        <!-- Lưới dự án -->
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- 1️⃣ -->
-          <article class="group rounded-2xl overflow-hidden border border-black/10 dark:border-white/15 bg-white/70 dark:bg-black/30 glass hover:-translate-y-1 hover:shadow-xl transition-all duration-300" >
-            <div class="relative overflow-hidden">
-              <img src="assets/project-01.jpg" alt="Hotel Booking" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500" />
-              <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity" ></div>
-            </div>
-            <div class="p-5">
-              <h3 class="font-bold text-lg mb-1">Hotel Travel Booking</h3>
-              <p class="text-sm opacity-80 mb-2">ReactJS • TailwindCSS</p>
-              <a href="#" class="inline-flex items-center gap-1 text-sm text-accent hover:gap-2 transition-all">
-                <span>Xem chi tiết</span><i class="fa-solid fa-arrow-right-long"></i>
+        <!-- Hero Image -->
+        <div class="relative mb-12 rounded-3xl overflow-hidden shadow-soft">
+          <img src="assets/project-01.jpg" alt="Hotel Booking Demo"
+            class="w-full max-h-[480px] object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+          <div class="absolute bottom-6 left-8 text-white">
+            <h2 class="text-3xl md:text-4xl font-bold mb-2">Hotel Travel Booking</h2>
+            <p class="opacity-80 text-sm md:text-base">ReactJS • TailwindCSS • Responsive • UX Optimized</p>
+          </div>
+        </div>
+
+        <!-- Info section -->
+        <section class="grid md:grid-cols-3 gap-8 mb-16">
+          <!-- Info left -->
+          <div class="md:col-span-2 space-y-6">
+            <h3 class="text-2xl font-bold border-l-4 border-accent pl-3">Thông tin dự án</h3>
+            <p class="leading-relaxed opacity-90">
+              Dự án <strong>Hotel Travel Booking</strong> được phát triển với mục tiêu
+              tạo trải nghiệm đặt phòng trực tuyến nhanh, trực quan và tối ưu tốc độ.
+              Giao diện được thiết kế theo chuẩn <strong>UI/UX hiện đại</strong>,
+              màu sắc thân thiện, chuyển động mượt mà và tối ưu cho <strong>Core Web Vitals</strong>.
+            </p>
+
+            <ul class="list-disc list-inside space-y-2 text-sm opacity-90">
+              <li>Thời gian thực hiện: <strong>3 tuần</strong></li>
+              <li>Vai trò: <strong>Front-end Developer & UI Designer</strong></li>
+              <li>Công nghệ: <strong>ReactJS, TailwindCSS, GSAP</strong></li>
+              <li>Tối ưu: <strong>LCP < 2.5s, CLS < 0.05, SEO score 98+</strong></li>
+            </ul>
+
+            <div class="flex flex-wrap gap-4 pt-4">
+              <a href="#" target="_blank"
+                class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-accent text-black font-semibold hover:bg-accent/80 transition">
+                <i class="fa-solid fa-globe"></i> <span>Xem Website</span>
+              </a>
+              <a href="https://www.figma.com/" target="_blank"
+                class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-accent text-accent hover:bg-accent/10 transition">
+                <i class="fa-brands fa-figma"></i> <span>Xem Design</span>
               </a>
             </div>
-          </article>
+          </div>
 
-          <!-- 2️⃣ -->
-          <article class="group rounded-2xl overflow-hidden border border-black/10 dark:border-white/15 bg-white/70 dark:bg-black/30 glass hover:-translate-y-1 hover:shadow-xl transition-all duration-300" >
-            <div class="relative overflow-hidden">
-              <img src="assets/project-02.jpg" alt="LoveBox Hotel" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500" />
-              <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity" ></div>
-            </div>
-            <div class="p-5">
-              <h3 class="font-bold text-lg mb-1">LoveBox Hotel</h3>
-              <p class="text-sm opacity-80 mb-2">Next.js • TailwindCSS • GSAP</p>
-              <a href="#" class="inline-flex items-center gap-1 text-sm text-accent hover:gap-2 transition-all" ><span>Xem chi tiết</span><i class="fa-solid fa-arrow-right-long"></i></a>
-            </div>
-          </article>
+          <!-- Info side -->
+          <aside
+            class="rounded-2xl border border-black/10 dark:border-white/15 bg-white/70 dark:bg-black/30 glass p-6 h-fit">
+            <h4 class="font-semibold text-lg mb-3">Tổng quan kỹ thuật</h4>
+            <ul class="space-y-2 text-sm opacity-90">
+              <li><i class="fa-brands fa-react text-accent"></i> React Components</li>
+              <li><i class="fa-solid fa-bolt text-accent"></i> GSAP Animation</li>
+              <li><i class="fa-brands fa-html5 text-accent"></i> Semantic HTML</li>
+              <li><i class="fa-brands fa-css3-alt text-accent"></i> TailwindCSS Utility</li>
+              <li><i class="fa-solid fa-chart-line text-accent"></i> SEO & Performance Optimized</li>
+            </ul>
+          </aside>
+        </section>
 
-          <!-- 3️⃣ -->
-          <article class="group rounded-2xl overflow-hidden border border-black/10 dark:border-white/15 bg-white/70 dark:bg-black/30 glass hover:-translate-y-1 hover:shadow-xl transition-all duration-300" >
-            <div class="relative overflow-hidden">
-              <img src="assets/project-03.jpg" alt="Movie Cinema" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500"/>
-              <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            </div>
-            <div class="p-5">
-              <h3 class="font-bold text-lg mb-1">Movie Cinema</h3>
-              <p class="text-sm opacity-80 mb-2">ReactJS • MySQL • Figma</p>
-              <a href="#" class="inline-flex items-center gap-1 text-sm text-accent hover:gap-2 transition-all"><span>Xem chi tiết</span><i class="fa-solid fa-arrow-right-long"></i></a>
-            </div>
-          </article>
+        <!-- Preview Gallery -->
+        <section class="mb-20">
+          <h3 class="text-2xl font-bold border-l-4 border-accent pl-3 mb-6">Giao diện thực tế</h3>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <img src="assets/project-01a.jpg" alt="" class="rounded-2xl object-cover shadow-soft hover:scale-[1.02] transition-transform">
+            <img src="assets/project-01b.jpg" alt="" class="rounded-2xl object-cover shadow-soft hover:scale-[1.02] transition-transform">
+            <img src="assets/project-01c.jpg" alt="" class="rounded-2xl object-cover shadow-soft hover:scale-[1.02] transition-transform">
+          </div>
+        </section>
 
-          <!-- 4️⃣ -->
-          <article class="group rounded-2xl overflow-hidden border border-black/10 dark:border-white/15 bg-white/70 dark:bg-black/30 glass hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
-            <div class="relative overflow-hidden">
-              <img src="assets/project-04.jpg" alt="Finance App" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500"/>
-              <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            </div>
-            <div class="p-5">
-              <h3 class="font-bold text-lg mb-1">Finance Management</h3>
-              <p class="text-sm opacity-80 mb-2">VueJS • Tailwind • Firebase</p>
-              <a href="#" class="inline-flex items-center gap-1 text-sm text-accent hover:gap-2 transition-all"><span>Xem chi tiết</span><i class="fa-solid fa-arrow-right-long"></i></a>
-            </div>
-          </article>
-        </div>
+        <!-- Nếu dự án chưa public -->
+        <section
+          class="mt-20 border border-yellow-300/40 bg-yellow-100/20 dark:bg-yellow-900/20 rounded-2xl p-8 text-center">
+          <i class="fa-solid fa-triangle-exclamation text-yellow-400 text-4xl mb-3"></i>
+          <h3 class="text-xl font-semibold mb-2">Dự án chưa được public</h3>
+          <p class="opacity-80 text-sm">Phiên bản demo hoặc source code sẽ được cập nhật sớm nhất. Vui lòng quay lại sau nhé 💡</p>
+        </section>
       </div>
     </main>
 

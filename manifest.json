@@ -1,0 +1,23 @@
+{
+  "name": "Phan Chau Khanh Duy — Portfolio",
+  "short_name": "PCKD Portfolio",
+  "start_url": "https://pckhanhduy.github.io/Portfolio/",
+  "scope": "https://pckhanhduy.github.io/Portfolio/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#000000",
+  "theme_color": "#C8F560",
+  "description": "Portfolio cá nhân của Phan Chau Khanh Duy — Front-end Developer & UI/UX Designer. Build & Rebuild Website chuyên nghiệp.",
+  "icons": [
+    {
+      "src": "assets/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,31 +1,35 @@
+<!DOCTYPE html>
+<html>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-
-  <!-- ✅ SEO CƠ BẢN -->
-  <title>Thiết kế Website | Build & Rebuild Website chuyên nghiệp — Phan Chau Khanh Duy</title>
+  <title>Freelancer Thiết kế Website | Build & Rebuild Website chuyên nghiệp — Phan Chau Khanh Duy</title>
   <meta name="description" content="Dịch vụ thiết kế website, build & rebuild website chuẩn UI/UX. Phan Chau Khanh Duy — Front-end Developer & UI/UX Designer với kinh nghiệm xây dựng giao diện hiện đại, tốc độ và tối ưu SEO." />
   <meta name="keywords" content="thiết kế website, build website, rebuild website, website chuyên nghiệp, front-end developer, UI UX designer, web design, portfolio, responsive website, tối ưu SEO" />
+  <meta name="keywords" content="freelancer thiết kế website, freelance web developer, build website chuyên nghiệp, thiết kế lại website, làm web công ty, web doanh nghiệp nhỏ, thiết kế giao diện web hiện đại, tư vấn thiết kế website miễn phí" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://pckhanhduy.github.io/Portfolio/assets/avt-2.png" />
-
-  <!-- ✅ MẠNG XÃ HỘI (Open Graph & Twitter) -->
   <meta property="og:title" content="Thiết kế Website | Build & Rebuild Website — Phan Chau Khanh Duy">
   <meta property="og:description" content="Build & rebuild website chuẩn UI/UX, hiện đại và tốc độ. Portfolio cá nhân của Phan Chau Khanh Duy — Front-end Developer & UI/UX Designer.">
   <meta property="og:image" content="https://pckhanhduy.github.io/Portfolio/assets/avt-2.png">
   <meta property="og:url" content="https://pckhanhduy.github.io/Portfolio/assets/logo.png">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="vi_VN">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#C8F560">
 
   <meta name="google-site-verification" content="lvMInMFuJHCi-l-jApcKs6XRxAiuRJcs5EN_rIryH4M" />
-
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Thiết kế Website | Build & Rebuild Website — Phan Chau Khanh Duy">
   <meta name="twitter:description" content="Dịch vụ thiết kế và rebuild website chuẩn UI/UX. Portfolio của Front-end Developer Phan Chau Khanh Duy.">
   <meta name="twitter:image" content="https://pckhanhduy.github.io/Portfolio/assets/avt-2.png">
 
   <link rel="icon" type="image/png" href="https://pckhanhduy.github.io/Portfolio/assets/logo.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -53,272 +57,290 @@
     };
   </script>
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
-
-    <style>
-      html,
-      body {
-        height: 100%;
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
+    html,
+    body {
+      overflow-x: hidden;
+    }
+    .glass {
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .island {
+      transition: width 0.24s ease, height 0.24s ease, border-radius 0.24s ease,
+        transform 0.18s;
+      align-items: center;
+    }
+    .island--closed {
+      width: max-content;
+      min-width: 220px;
+      height: 50px;
+      border-radius: 999px;
+      padding-left: 6px;
+      padding-right: 6px;
+    }
+    .island--open {
+      width: min(92vw, 980px);
+      height: 68px;
+      border-radius: 22px;
+    }
+    .nav-a {
+      position: relative;
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 999px;
+    }
+    .nav-a:after {
+      content: "";
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 0.35rem;
+      height: 2px;
+      background: currentColor;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.2s;
+    }
+    .nav-a:hover:after,
+    .nav-a.active:after {
+      transform: scaleX(1);
+    }
+    section {
+      scroll-margin-top: 88px;
+    }
+    .avatar-frame {
+      position: relative;
+      border-radius: 28px;
+      padding: 10px;
+      background: linear-gradient(135deg, #111, transparent);
+      box-shadow: var(--avatar-shadow, 0 12px 40px rgba(0, 0, 0, 0.22));
+    }
+    .avatar-orbit {
+      position: absolute;
+      inset: -2px;
+      border-radius: 30px;
+      background: conic-gradient(from 0deg, #c8f560, #8affd1, #7dd3fc, #c8f560);
+      filter: blur(8px);
+      opacity: 0.7;
+      animation: spin 9s linear infinite;
+    }
+    @keyframes spin {
+      to {
+        transform: rotate(1turn);
       }
-      html,
-      body {
-        overflow-x: hidden;
-      }
-      .glass {
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-      }
-      .island {
-        transition: width 0.24s ease, height 0.24s ease,
-          border-radius 0.24s ease, transform 0.18s;
-        align-items: center;
-      }
-      .island--closed {
-        width: max-content;
-        min-width: 220px;
-        height: 50px;
-        border-radius: 999px;
-        padding-left: 6px;
-        padding-right: 6px;
-      }
-      .island--open {
-        width: min(92vw, 980px);
-        height: 68px;
-        border-radius: 22px;
-      }
-      .nav-a {
-        position: relative;
-        padding: 0.5rem 1rem;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        border-radius: 999px;
-      }
-      .nav-a:after {
-        content: "";
-        position: absolute;
-        left: 14px;
-        right: 14px;
-        bottom: 0.35rem;
-        height: 2px;
-        background: currentColor;
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform 0.2s;
-      }
-      .nav-a:hover:after,
-      .nav-a.active:after {
-        transform: scaleX(1);
-      }
-      section {
-        scroll-margin-top: 88px;
-      }
-      .avatar-frame {
-        position: relative;
-        border-radius: 28px;
-        padding: 10px;
-        background: linear-gradient(135deg, #111, transparent);
-        box-shadow: var(--avatar-shadow, 0 12px 40px rgba(0, 0, 0, 0.22));
-      }
-      .avatar-orbit {
-        position: absolute;
-        inset: -2px;
-        border-radius: 30px;
-        background: conic-gradient(
-          from 0deg,
-          #c8f560,
-          #8affd1,
-          #7dd3fc,
-          #c8f560
+    }
+    .avatar-mask {
+      clip-path: polygon(10% 0%, 90% 4%, 100% 60%, 85% 100%, 0% 90%, 4% 20%);
+      border-radius: 24px;
+      overflow: hidden;
+    }
+    .duotone img {
+      filter: grayscale(100%) contrast(1.1) brightness(0.95);
+    }
+    .duotone:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      mix-blend-mode: screen;
+      background: radial-gradient(
+          120% 120% at 10% 10%,
+          rgba(200, 245, 96, 0.35),
+          transparent 50%
+        ),
+        radial-gradient(
+          100% 100% at 90% 80%,
+          rgba(125, 211, 252, 0.25),
+          transparent 50%
         );
-        filter: blur(8px);
-        opacity: 0.7;
-        animation: spin 9s linear infinite;
-      }
-      @keyframes spin {
-        to {
-          transform: rotate(1turn);
-        }
-      }
-      .avatar-mask {
-        clip-path: polygon(10% 0%, 90% 4%, 100% 60%, 85% 100%, 0% 90%, 4% 20%);
-        border-radius: 24px;
-        overflow: hidden;
-      }
-      .duotone img {
-        filter: grayscale(100%) contrast(1.1) brightness(0.95);
-      }
-      .duotone:before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        mix-blend-mode: screen;
-        background: radial-gradient(
-            120% 120% at 10% 10%,
-            rgba(200, 245, 96, 0.35),
-            transparent 50%
-          ),
-          radial-gradient(
-            100% 100% at 90% 80%,
-            rgba(125, 211, 252, 0.25),
-            transparent 50%
-          );
-      }
-      .marquee {
-        display: flex;
-        overflow: hidden;
-        gap: 28px;
-      }
-      .marquee__inner {
-        display: flex;
-        gap: 28px;
-        min-width: max-content;
-        animation: scroll 22s linear infinite;
-      }
-      .marquee__inner--rev {
-        animation-direction: reverse;
-        animation-duration: 26s;
-      }
-      @keyframes scroll {
-        from {
-          transform: translateX(0);
-        }
-        to {
-          transform: translateX(-50%);
-        }
-      }
-      .skill-chip {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.6rem 0.9rem;
-        border-radius: 999px;
-        border: 1px solid rgba(0, 0, 0, 0.08);
-        background: rgba(255, 255, 255, 0.7);
-      }
-      .dark .skill-chip {
-        border-color: rgba(255, 255, 255, 0.14);
-        background: rgba(0, 0, 0, 0.3);
-      }
-      /* Buttons */
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.6rem;
-        padding: 0.8rem 1.1rem;
-        border-radius: 999px;
-      }
-
-      .island .controls {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        margin-left: auto;
-      }
-      #islandToggle {
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
-      }
-      .dark #islandToggle {
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
-      }
-
-      .lang-btns {
-        display: flex;
-        gap: 6px;
-        padding: 2px;
-        border: 1px solid rgba(0, 0, 0, 0.12);
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.8);
-      }
-      .dark .lang-btns {
-        border-color: rgba(255, 255, 255, 0.18);
-        background: rgba(0, 0, 0, 0.35);
-      }
-      .lang-btns button {
-        flex: 1;
-        padding: 4px 10px;
-        border-radius: 999px;
-        font-size: 12px;
-        font-weight: 600;
-        transition: 0.2s;
-      }
-      .lang-btns button.active {
-        background: #c8f560;
-        color: #000;
-      }
-
-      /* ---------- Theme switch: ☾ / ☼ ---------- */
-      .toggle-theme {
-        position: relative;
-        display: inline-block;
-      }
-      .toggle-theme input {
-        position: absolute;
-        inset: 0;
-        opacity: 0;
-        pointer-events: none;
-      }
-      .toggle-theme .track {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 66px;
-        height: 34px;
-        padding: 0 8px;
-        border-radius: 999px;
-        border: 1px solid rgba(0, 0, 0, 0.12);
-        background: rgba(255, 255, 255, 0.8);
-      }
-      .dark .toggle-theme .track {
-        border-color: rgba(255, 255, 255, 0.18);
-        background: rgba(0, 0, 0, 0.35);
-      }
-      .toggle-theme .ico {
-        font-size: 14px;
-        opacity: 0.6;
-      }
-      .toggle-theme .thumb {
-        position: absolute;
-        top: 3px;
-        left: 3px;
-        width: 28px;
-        height: 28px;
-        border-radius: 999px;
-        background: #fff;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .marquee {
+      display: flex;
+      overflow: hidden;
+      gap: 28px;
+    }
+    .marquee__inner {
+      display: flex;
+      gap: 28px;
+      min-width: max-content;
+      animation: scroll 22s linear infinite;
+    }
+    .marquee__inner--rev {
+      animation-direction: reverse;
+      animation-duration: 26s;
+    }
+    @keyframes scroll {
+      from {
         transform: translateX(0);
-        transition: transform 0.22s ease;
       }
-      .dark .toggle-theme .thumb {
-        background: #111;
+      to {
+        transform: translateX(-50%);
       }
-      .toggle-theme input:checked + .track .thumb {
-        transform: translateX(32px);
-      }
+    }
+    .skill-chip {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      background: rgba(255, 255, 255, 0.7);
+    }
+    .dark .skill-chip {
+      border-color: rgba(255, 255, 255, 0.14);
+      background: rgba(0, 0, 0, 0.3);
+    }
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.8rem 1.1rem;
+      border-radius: 999px;
+    }
 
-      /* Menu desktop thoáng hơn khi mở */
-      #islandMenu a.nav-a {
-        padding: 0.55rem 1rem;
-      }
-    </style>
+    .island .controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: auto;
+    }
+    #islandToggle {
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    }
+    .dark #islandToggle {
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
 
-  </head>
+    .lang-btns {
+      display: flex;
+      gap: 6px;
+      padding: 2px;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.8);
+    }
+    .dark .lang-btns {
+      border-color: rgba(255, 255, 255, 0.18);
+      background: rgba(0, 0, 0, 0.35);
+    }
+    .lang-btns button {
+      flex: 1;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+    .lang-btns button.active {
+      background: #c8f560;
+      color: #000;
+    }
+
+    /* ---------- Theme switch: ☾ / ☼ ---------- */
+    .toggle-theme {
+      position: relative;
+      display: inline-block;
+    }
+    .toggle-theme input {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .toggle-theme .track {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 66px;
+      height: 34px;
+      padding: 0 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      background: rgba(255, 255, 255, 0.8);
+    }
+    .dark .toggle-theme .track {
+      border-color: rgba(255, 255, 255, 0.18);
+      background: rgba(0, 0, 0, 0.35);
+    }
+    .toggle-theme .ico {
+      font-size: 14px;
+      opacity: 0.6;
+    }
+    .toggle-theme .thumb {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transform: translateX(0);
+      transition: transform 0.22s ease;
+    }
+    .dark .toggle-theme .thumb {
+      background: #111;
+    }
+    .toggle-theme input:checked + .track .thumb {
+      transform: translateX(32px);
+    }
+
+    /* Menu desktop thoáng hơn khi mở */
+    #islandMenu a.nav-a {
+      padding: 0.55rem 1rem;
+    }
+  </style>
+
+  <style>
+    .__protect_banner {
+      position: fixed;
+      left: 12px;
+      bottom: 12px;
+      z-index: 99999;
+      background: rgba(0, 0, 0, 0.85);
+      color: white;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+        Arial;
+      font-size: 14px;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      animation: fadeIn 0.25s ease;
+    }
+    .__protect_banner button {
+      background: rgba(255, 255, 255, 0.12);
+      color: white;
+      border: 0;
+      padding: 6px 8px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .__protect_banner button:hover {
+      opacity: 0.95;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+
+</head>
 
   <body class="font-sans bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 selection:bg-accent/50 selection:text-black overflow-x-hidden" >
-    <!-- Theme init -->
-    <script>
-      const root = document.documentElement;
-      const pref =
-        localStorage.getItem("theme") ??
-        (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-      if (pref === "dark") root.classList.add("dark");
-      document.documentElement.lang = localStorage.getItem("lang") || "vi";
-    </script>
-
     <!-- Subtle BG -->
     <div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10">
       <div class="absolute -top-40 -left-40 w-[420px] h-[420px] rounded-full blur-3xl opacity-20 dark:opacity-30" style="background: radial-gradient(closest-side, #c8f560, transparent)"></div>
@@ -334,19 +356,12 @@
         </button>
 
         <nav id="islandMenu" class="hidden md:flex items-center gap-1 text-sm">
-          <a class="nav-a" data-scroll="#home">
-            <i class="fa-solid fa-house"></i>
-            <span data-i18n="nav.home">Trang chủ</span></a>
-          <a class="nav-a" data-scroll="#about"><i class="fa-solid fa-user"></i>
-            <span data-i18n="nav.about">Giới thiệu</span></a>
-          <a class="nav-a" data-scroll="#skills"><i class="fa-solid fa-screwdriver-wrench"></i>
-            <span data-i18n="nav.skills">Kỹ năng</span></a>
-          <a class="nav-a" data-scroll="#experience"><i class="fa-solid fa-briefcase"></i>
-            <span data-i18n="nav.experience">Kinh nghiệm</span></a>
-          <a class="nav-a" data-scroll="#projects"><i class="fa-solid fa-shapes"></i>
-            <span data-i18n="nav.projects">Dự án</span></a>
-          <a class="nav-a" data-scroll="#contact"><i class="fa-solid fa-paper-plane"></i>
-            <span data-i18n="nav.contact">Liên hệ</span></a>
+          <a class="nav-a" data-scroll="#home"><i class="fa-solid fa-house"></i><span data-i18n="nav.home">Trang chủ</span></a>
+          <a class="nav-a" data-scroll="#about"><i class="fa-solid fa-user"></i><span data-i18n="nav.about">Giới thiệu</span></a>
+          <a class="nav-a" data-scroll="#skills"><i class="fa-solid fa-screwdriver-wrench"></i><span data-i18n="nav.skills">Kỹ năng</span></a>
+          <a class="nav-a" data-scroll="#experience"><i class="fa-solid fa-briefcase"></i><span data-i18n="nav.experience">Kinh nghiệm</span></a>
+          <a class="nav-a" data-scroll="#projects"><i class="fa-solid fa-shapes"></i><span data-i18n="nav.projects">Dự án</span></a>
+          <a class="nav-a" data-scroll="#contact"><i class="fa-solid fa-paper-plane"></i><span data-i18n="nav.contact">Liên hệ</span></a>
         </nav>
 
         <div class="controls">
@@ -369,18 +384,12 @@
       <!-- Mobile panel -->
       <div id="islandPanel" class="md:hidden hidden mt-2 w-[92vw] max-w-[980px] mx-auto rounded-2xl border border-black/10 dark:border-white/15 bg-white/70 dark:bg-black/40 glass shadow-soft">
         <nav class="grid grid-cols-2 gap-2 p-3 text-sm">
-          <a class="px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 nav-a" data-scroll="#home"><i class="fa-solid fa-house"></i>
-            <span data-i18n="nav.home">Trang chủ</span></a>
-          <a class="px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 nav-a" data-scroll="#about"><i class="fa-solid fa-user"></i>
-            <span data-i18n="nav.about">Giới thiệu</span></a>
-          <a class="px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 nav-a" data-scroll="#skills"><i class="fa-solid fa-screwdriver-wrench"></i>
-            <span data-i18n="nav.skills">Kỹ năng</span></a>
-          <a class="px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 nav-a" data-scroll="#experience"><i class="fa-solid fa-briefcase"></i>
-            <span data-i18n="nav.experience">Kinh nghiệm</span></a>
-          <a class="px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 nav-a" data-scroll="#projects"><i class="fa-solid fa-shapes"></i>
-            <span data-i18n="nav.projects">Dự án</span></a>
-          <a class="px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 nav-a" data-scroll="#contact"><i class="fa-solid fa-paper-plane"></i>
-            <span data-i18n="nav.contact">Liên hệ</span></a>
+          <a class="px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 nav-a" data-scroll="#home"><i class="fa-solid fa-house"></i><span data-i18n="nav.home">Trang chủ</span></a>
+          <a class="px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 nav-a" data-scroll="#about"><i class="fa-solid fa-user"></i><span data-i18n="nav.about">Giới thiệu</span></a>
+          <a class="px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 nav-a" data-scroll="#skills"><i class="fa-solid fa-screwdriver-wrench"></i><span data-i18n="nav.skills">Kỹ năng</span></a>
+          <a class="px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 nav-a" data-scroll="#experience"><i class="fa-solid fa-briefcase"></i><span data-i18n="nav.experience">Kinh nghiệm</span></a>
+          <a class="px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 nav-a" data-scroll="#projects"><i class="fa-solid fa-shapes"></i><span data-i18n="nav.projects">Dự án</span></a>
+          <a class="px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 nav-a" data-scroll="#contact"><i class="fa-solid fa-paper-plane"></i><span data-i18n="nav.contact">Liên hệ</span></a>
         </nav>
       </div>
     </header>
@@ -394,28 +403,21 @@
               <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
               <span data-i18n="hero.badge">Sẵn sàng bùng nổ</span>
             </span>
-            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
-              Front-end Developer <span class="text-accent">×</span> UI·UX
-              Designer
-            </h1>
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">Front-end Developer <span class="text-accent">×</span> UI·UX Designer</h1>
             <p class="text-base md:text-lg opacity-85 max-w-xl" data-i18n="hero.subtitle" >
-              Nhanh, mượt, có gu. Ưu tiên CWV, A11y, motion tinh — đẹp & hiệu
-              quả.
+              Nhanh, mượt, có gu. Ưu tiên CWV, A11y, motion tinh — đẹp & hiệu quả.
             </p>
             <div class="flex flex-wrap gap-3">
               <a data-scroll="#projects" class="btn bg-black text-white dark:bg-white dark:text-black">
-                <span data-i18n="hero.cta.projects">Xem dự án</span>
-                <i class="fa-solid fa-arrow-right-long"></i>
+                <span data-i18n="hero.cta.projects">Xem dự án</span><i class="fa-solid fa-arrow-right-long"></i>
               </a>
-              <a data-scroll="#contact" class="btn border border-black/15 dark:border-white/20" data-i18n="hero.cta.contact" >
-                Liên hệ
-              </a>
+              <a data-scroll="#contact" class="btn border border-black/15 dark:border-white/20" data-i18n="hero.cta.contact" >Liên hệ</a>
             </div>
             <div class="grid grid-cols-3 gap-3 pt-2">
               <div class="p-4 rounded-2xl border border-black/10 dark:border-white/15 bg-white/70 dark:bg-black/30 glass text-center" >
                 <div class="text-3xl font-black">2+</div>
                 <div class="text-xs opacity-70" data-i18n="hero.stats.years">Năm KN</div>
-              </div>
+              </div>  
               <div class="p-4 rounded-2xl border border-black/10 dark:border-white/15 bg-white/70 dark:bg-black/30 glass text-center" >
                 <div class="text-3xl font-black">10+</div>
                 <div class="text-xs opacity-70" data-i18n="hero.stats.projects">Dự án</div>
@@ -450,17 +452,13 @@
     <!-- ABOUT -->
     <section id="about" class="py-12 md:py-16">
       <div class="container mx-auto px-5 md:px-8 grid lg:grid-cols-12 gap-8 md:gap-10">
-        
       <div class="lg:col-span-5">
-        <h2 class="text-3xl md:text-4xl font-extrabold mb-2" data-i18n="about.title">
-          Về tôi
-        </h2>
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-2" data-i18n="about.title">Về tôi</h2>
         <p class="opacity-85" data-i18n="about.text">
           Mình là <strong>Phan Chau Khanh Duy</strong>, 21 tuổi, sống tại <strong>TP.HCM</strong>. 
           Sinh ngày <strong>19/11/2003</strong>. 
           Tốt nghiệp loại giỏi<strong> FPT Polytechnic</strong>, chuyên ngành <strong>Công nghệ thông tin – Lập trình Website (Front-end)</strong>.
         </p>
-
         <ul class="mt-4 space-y-2 text-sm">
           <li>
             <span class="opacity-60" data-i18n="about.emailLabel">Email:</span>
@@ -482,7 +480,6 @@
             <span class="opacity-60" data-i18n="about.facebookLabel">Facebook:</span>
             <a class="underline underline-offset-4" href="https://www.facebook.com/phanchaukhanhduyy/" target="_blank">facebook.com/phanchaukhanhduyy</a>
           </li>
-          
         </ul>
       </div>
 
@@ -494,23 +491,15 @@
             <div class="grid sm:grid-cols-3 gap-3">
               <div class="p-4 rounded-xl border border-black/10 dark:border-white/15" >
                 <h4 class="font-semibold" data-i18n="about.focus.performance">Performance</h4>
-                <p class="text-sm opacity-80" data-i18n="about.focus.performanceDesc" >
-                  CWV, split, lazy.
-                </p>
+                <p class="text-sm opacity-80" data-i18n="about.focus.performanceDesc" >CWV, split, lazy.</p>
               </div>
               <div class="p-4 rounded-xl border border-black/10 dark:border-white/15" >
                 <h4 class="font-semibold" data-i18n="about.focus.a11y">A11y</h4>
-                <p class="text-sm opacity-80" data-i18n="about.focus.a11yDesc">
-                  ARIA, keyboard-first.
-                </p>
+                <p class="text-sm opacity-80" data-i18n="about.focus.a11yDesc">ARIA, keyboard-first.</p>
               </div>
               <div class="p-4 rounded-xl border border-black/10 dark:border-white/15" >
-                <h4 class="font-semibold" data-i18n="about.focus.motion">
-                  Motion
-                </h4>
-                <p class="text-sm opacity-80" data-i18n="about.focus.motionDesc" >
-                  Micro-interaction có ý nghĩa.
-                </p>
+                <h4 class="font-semibold" data-i18n="about.focus.motion">Motion</h4>
+                <p class="text-sm opacity-80" data-i18n="about.focus.motionDesc" >Micro-interaction có ý nghĩa.</p>
               </div>
             </div>
           </div>
@@ -521,9 +510,7 @@
     <!-- SKILLS (Marquee) -->
     <section id="skills" class="py-12 md:py-16">
       <div class="container mx-auto px-5 md:px-8">
-        <h2 class="text-3xl md:text-4xl font-extrabold mb-4" data-i18n="skills.title">
-          Kỹ năng
-        </h2>
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-4" data-i18n="skills.title">Kỹ năng</h2>
         <div class="rounded-2xl border border-black/10 dark:border-white/15 bg-white/70 dark:bg-black/30 glass p-4 mb-3">
           <div class="marquee">
             <div class="marquee__inner">
@@ -636,126 +623,96 @@
         </div>
       </div>
 
-<div class="container mx-auto px-5 md:px-8">
-  <div class="grid md:grid-cols-2 gap-8 mt-10">
-    
-    <!-- Front-end -->
-    <div class="p-8 rounded-2xl border border-white/20 bg-gradient-to-br from-white/70 to-white/30 dark:from-white/5 dark:to-white/0 backdrop-blur-md shadow-lg hover:shadow-xl transition-shadow duration-300">
-      <p class="text-base font-semibold mb-5 text-gray-700 dark:text-gray-200 tracking-wide" data-key="frontend">Front-end</p>
-      <div class="flex flex-wrap gap-3">
-        <span class="px-4 py-1.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 hover:bg-sky-500/20 transition-colors duration-200">React</span>
-        <span class="px-4 py-1.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 hover:bg-sky-500/20 transition-colors duration-200">Next.js</span>
-        <span class="px-4 py-1.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 hover:bg-sky-500/20 transition-colors duration-200">Tailwind</span>
-        <span class="px-4 py-1.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 hover:bg-sky-500/20 transition-colors duration-200">GSAP</span>
-        <span class="px-4 py-1.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 hover:bg-sky-500/20 transition-colors duration-200">Accessibility</span>
+      <div class="container mx-auto px-5 md:px-8">
+        <div class="grid md:grid-cols-2 gap-8 mt-10">
+          <!-- Front-end -->
+          <div class="p-8 rounded-2xl border border-white/20 bg-gradient-to-br from-white/70 to-white/30 dark:from-white/5 dark:to-white/0 backdrop-blur-md shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <p class="text-base font-semibold mb-5 text-gray-700 dark:text-gray-200 tracking-wide" data-key="frontend">Front-end</p>
+            <div class="flex flex-wrap gap-3">
+              <span class="px-4 py-1.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 hover:bg-sky-500/20 transition-colors duration-200">React</span>
+              <span class="px-4 py-1.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 hover:bg-sky-500/20 transition-colors duration-200">Next.js</span>
+              <span class="px-4 py-1.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 hover:bg-sky-500/20 transition-colors duration-200">Tailwind</span>
+              <span class="px-4 py-1.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 hover:bg-sky-500/20 transition-colors duration-200">GSAP</span>
+              <span class="px-4 py-1.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 hover:bg-sky-500/20 transition-colors duration-200">Accessibility</span>
+            </div>
+          </div>
+
+          <!-- Back-end & Data -->
+          <div class="p-8 rounded-2xl border border-white/20 bg-gradient-to-br from-white/70 to-white/30 dark:from-white/5 dark:to-white/0 backdrop-blur-md shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <p class="text-base font-semibold mb-5 text-gray-700 dark:text-gray-200 tracking-wide" data-key="backend">Back-end & Data</p>
+            <div class="flex flex-wrap gap-3">
+              <span class="px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors duration-200">Node.js</span>
+              <span class="px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors duration-200">Express</span>
+              <span class="px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors duration-200">MongoDB</span>
+              <span class="px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors duration-200">PostgreSQL</span>
+              <span class="px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors duration-200">REST / GraphQL</span>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <!-- Back-end & Data -->
-    <div class="p-8 rounded-2xl border border-white/20 bg-gradient-to-br from-white/70 to-white/30 dark:from-white/5 dark:to-white/0 backdrop-blur-md shadow-lg hover:shadow-xl transition-shadow duration-300">
-      <p class="text-base font-semibold mb-5 text-gray-700 dark:text-gray-200 tracking-wide" data-key="backend">Back-end & Data</p>
-      <div class="flex flex-wrap gap-3">
-        <span class="px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors duration-200">Node.js</span>
-        <span class="px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors duration-200">Express</span>
-        <span class="px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors duration-200">MongoDB</span>
-        <span class="px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors duration-200">PostgreSQL</span>
-        <span class="px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors duration-200">REST / GraphQL</span>
-      </div>
-    </div>
-
-  </div>
-</div>
-
       
     </section>
 
-    
-
     <!-- EXPERIENCE -->
-<section id="experience" class="py-12 md:py-16">
-  <div class="container mx-auto px-5 md:px-8">
-    <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Kinh nghiệm</h2>
+    <section id="experience" class="py-12 md:py-16">
+      <div class="container mx-auto px-5 md:px-8">
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Kinh nghiệm</h2>
 
-    <!-- Timeline -->
-<ol class="relative border-s-2 border-neutral-300/60 dark:border-neutral-700/60 ps-6 space-y-8 overflow-visible">
+        <!-- Timeline -->
+        <ol class="relative border-s-2 border-neutral-300/60 dark:border-neutral-700/60 ps-6 space-y-8 overflow-visible">
+          <!-- 1️⃣ Web Developer -->
+          <li class="relative group transition-all duration-300">
+            <div class="absolute -start-[31px] top-[0px] w-3 h-3 rounded-full bg-[#C8F560] ring-2 ring-[#C8F56055] group-hover:scale-125 group-hover:shadow-[0_0_10px_#C8F560AA] transition-all duration-300">
+            </div>
+            <h3 class="font-bold">Web Developer — Vietnam Furniture Resources</h3>
+            <p class="text-sm opacity-70">10/2023 – nay • HCM City</p>
+            <ul class="list-disc ms-5 mt-2 text-sm opacity-90 space-y-1">
+              <li>Xây dựng và tối ưu giao diện web nội bộ cho hệ thống ERP và ticket.</li>
+              <li>Tích hợp và fetch API từ hệ thống ERP để hiển thị dữ liệu động.</li>
+              <li>Thiết kế và chuyển file design sang HTML/CSS để gửi email marketing.</li>
+              <li>Tối ưu CSS, responsive layout và hiệu năng trang.</li>
+            </ul>
+            <p class="text-xs mt-2 opacity-70 italic">
+              ⚙️ Công nghệ & phần mềm: HTML, CSS, Bootstrap, Tailwind, JavaScript, PHP (Yii Framework), Git, Figma, OpenCart, Laravel, ReactJS, Angular, InDesign, Illustrator, Photoshop
+            </p>
+          </li>
 
-  <!-- 1️⃣ Web Developer -->
-  <li class="relative group transition-all duration-300">
-    <div
-      class="absolute -start-[31px] top-[0px] w-3 h-3 rounded-full bg-[#C8F560] ring-2 ring-[#C8F56055]
-      group-hover:scale-125 group-hover:shadow-[0_0_10px_#C8F560AA]
-      transition-all duration-300">
-    </div>
-    <h3 class="font-bold">Web Developer — Vietnam Furniture Resources</h3>
-    <p class="text-sm opacity-70">10/2023 – nay • HCM City</p>
-    <ul class="list-disc ms-5 mt-2 text-sm opacity-90 space-y-1">
-      <li>Xây dựng và tối ưu giao diện web nội bộ cho hệ thống ERP và ticket.</li>
-      <li>Tích hợp và fetch API từ hệ thống ERP để hiển thị dữ liệu động.</li>
-      <li>Thiết kế và chuyển file design sang HTML/CSS để gửi email marketing.</li>
-      <li>Tối ưu CSS, responsive layout và hiệu năng trang.</li>
-    </ul>
-    <p class="text-xs mt-2 opacity-70 italic">
-      ⚙️ Công nghệ & phần mềm: HTML, CSS, Bootstrap, Tailwind, JavaScript, PHP (Yii Framework), 
-      Git, Figma, OpenCart, Laravel, ReactJS, Angular, InDesign, Illustrator, Photoshop
-    </p>
-  </li>
+          <!-- 2️⃣ UI/UX Designer -->
+          <li class="relative group transition-all duration-300">
+            <div class="absolute -start-[31px] top-[0px] w-3 h-3 rounded-full bg-neutral-900 dark:bg-neutral-100 ring-2 ring-neutral-300/30 dark:ring-white/20 group-hover:scale-125 group-hover:shadow-[0_0_10px_rgba(0,0,0,0.3)] dark:group-hover:shadow-[0_0_10px_rgba(255,255,255,0.4)] transition-all duration-300"></div>
+            <h3 class="font-bold">UI/UX Designer + Front-end Developer — Annam Software Company</h3>
+            <p class="text-sm opacity-70">02/2023 – 07/2023 • HCM City</p>
+            <ul class="list-disc ms-5 mt-2 text-sm opacity-90 space-y-1">
+              <li>Thiết kế và hiện thực hóa giao diện sản phẩm SaaS từ Figma sang HTML/CSS.</li>
+              <li>Xây dựng hệ thống component và prototype UI/UX.</li>
+              <li>Chuyển thiết kế pixel-perfect, tối ưu hiển thị trên desktop & mobile.</li>
+              <li>Hỗ trợ team cải thiện UX thông qua feedback và A/B testing.</li>
+            </ul>
+            <p class="text-xs mt-2 opacity-70 italic">🎨 Công nghệ & phần mềm: Figma, Adobe XD, HTML, CSS, JavaScript, Bootstrap, Git</p>
+          </li>
 
-  <!-- 2️⃣ UI/UX Designer -->
-  <li class="relative group transition-all duration-300">
-    <div
-      class="absolute -start-[31px] top-[0px] w-3 h-3 rounded-full bg-neutral-900 dark:bg-neutral-100
-      ring-2 ring-neutral-300/30 dark:ring-white/20
-      group-hover:scale-125 group-hover:shadow-[0_0_10px_rgba(0,0,0,0.3)] dark:group-hover:shadow-[0_0_10px_rgba(255,255,255,0.4)]
-      transition-all duration-300">
-    </div>
-
-    <h3 class="font-bold">UI/UX Designer + Front-end Developer — Annam Software Company</h3>
-    <p class="text-sm opacity-70">02/2023 – 07/2023 • HCM City</p>
-    <ul class="list-disc ms-5 mt-2 text-sm opacity-90 space-y-1">
-      <li>Thiết kế và hiện thực hóa giao diện sản phẩm SaaS từ Figma sang HTML/CSS.</li>
-      <li>Xây dựng hệ thống component và prototype UI/UX.</li>
-      <li>Chuyển thiết kế pixel-perfect, tối ưu hiển thị trên desktop & mobile.</li>
-      <li>Hỗ trợ team cải thiện UX thông qua feedback và A/B testing.</li>
-    </ul>
-    <p class="text-xs mt-2 opacity-70 italic">
-      🎨 Công nghệ & phần mềm: Figma, Adobe XD, HTML, CSS, JavaScript, Bootstrap, Git
-    </p>
-  </li>
-
-  <!-- 3️⃣ Freelance -->
-  <li class="relative group transition-all duration-300">
-    <div
-      class="absolute -start-[31px] top-[0px] w-3 h-3 rounded-full bg-neutral-400 ring-2 ring-neutral-300/30
-      group-hover:scale-125 group-hover:shadow-[0_0_10px_rgba(156,163,175,0.6)]
-      transition-all duration-300">
-    </div>
-
-    <h3 class="font-bold">Freelance</h3>
-    <p class="text-sm opacity-70">2024 – nay • Global</p>
-    <ul class="list-disc ms-5 mt-2 text-sm opacity-90 space-y-1">
-      <li>Thực hiện các dự án front-end, landing page và portfolio website.</li>
-      <li>Thiết kế UI/UX và giao diện theo yêu cầu với Tailwind hoặc ReactJS.</li>
-      <li>Thiết kế banner, catalogue và mockup sản phẩm cho marketing.</li>
-      <li>Tối ưu UI/UX và hiệu năng website cho khách hàng toàn cầu.</li>
-    </ul>
-    <p class="text-xs mt-2 opacity-70 italic">
-      🧰 Công nghệ & phần mềm: Figma, Photoshop, Illustrator, ReactJS, Tailwind CSS, GitHub
-    </p>
-  </li>
-
-</ol>
-
-
-  </div>
-</section>
+          <!-- 3️⃣ Freelance -->
+          <li class="relative group transition-all duration-300">
+            <div class="absolute -start-[31px] top-[0px] w-3 h-3 rounded-full bg-neutral-400 ring-2 ring-neutral-300/30 group-hover:scale-125 group-hover:shadow-[0_0_10px_rgba(156,163,175,0.6)] transition-all duration-300"></div>
+            <h3 class="font-bold">Freelance</h3>
+            <p class="text-sm opacity-70">2024 – nay • Global</p>
+            <ul class="list-disc ms-5 mt-2 text-sm opacity-90 space-y-1">
+              <li>Thực hiện các dự án front-end, landing page và portfolio website.</li>
+              <li>Thiết kế UI/UX và giao diện theo yêu cầu với Tailwind hoặc ReactJS.</li>
+              <li>Thiết kế banner, catalogue và mockup sản phẩm cho marketing.</li>
+              <li>Tối ưu UI/UX và hiệu năng website cho khách hàng toàn cầu.</li>
+            </ul>
+            <p class="text-xs mt-2 opacity-70 italic">🧰 Công nghệ & phần mềm: Figma, Photoshop, Illustrator, ReactJS, Tailwind CSS, GitHub</p>
+          </li>
+        </ol>
+      </div>
+    </section>
 
     <!-- PROJECTS -->
     <section id="projects" class="py-12 md:py-16">
       <div class="container mx-auto px-5 md:px-8">
         <div class="flex items-end justify-between mb-4">
-          <h2 class="text-3xl md:text-4xl font-extrabold" data-i18n="proj.title">
-            Dự án nổi bật
-          </h2>
+          <h2 class="text-3xl md:text-4xl font-extrabold" data-i18n="proj.title">Dự án nổi bật</h2>
           <a href="#" class="text-sm underline underline-offset-4" data-i18n="proj.viewAll">Xem tất cả</a>
         </div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -765,12 +722,8 @@
             </div>
             <div class="p-4">
               <h3 class="font-semibold">Hotel</h3>
-              <p class="text-sm opacity-80" data-i18n="proj.p1.desc">
-                Hotel Travel Booking
-              </p>
-              <div class="text-xs opacity-60 mt-1">
-                React Js • Tailwind 
-              </div>
+              <p class="text-sm opacity-80" data-i18n="proj.p1.desc">Hotel Travel Booking</p>
+              <div class="text-xs opacity-60 mt-1">React Js • Tailwind </div>
             </div>
           </article>
           <article class="rounded-2xl overflow-hidden border border-black/10 dark:border-white/15 bg-white/70 dark:bg-black/30 glass" >
@@ -779,9 +732,7 @@
             </div>
             <div class="p-4">
               <h3 class="font-semibold">Hotel</h3>
-              <p class="text-sm opacity-80" data-i18n="proj.p2.desc">
-                LoveBox Hotel
-              </p>
+              <p class="text-sm opacity-80" data-i18n="proj.p2.desc">LoveBox Hotel</p>
               <div class="text-xs opacity-60 mt-1">React Js • Tailwind </div>
             </div>
           </article>
@@ -791,12 +742,8 @@
             </div>
             <div class="p-4">
               <h3 class="font-semibold">Movie Cinema</h3>
-              <p class="text-sm opacity-80" data-i18n="proj.p3.desc">
-                Movie Cinema Booking Ticket
-              </p>
-              <div class="text-xs opacity-60 mt-1">
-                React JC • MySql • Figma
-              </div>
+              <p class="text-sm opacity-80" data-i18n="proj.p3.desc">Movie Cinema Booking Ticket</p>
+              <div class="text-xs opacity-60 mt-1">React JC • MySql • Figma</div>
             </div>
           </article>
         </div>
@@ -807,13 +754,8 @@
     <section id="contact" class="py-12 md:py-16">
       <div class="container mx-auto px-5 md:px-8 grid lg:grid-cols-2 gap-6">
         <div class="rounded-2xl p-5 border border-black/10 dark:border-white/15 bg-white/70 dark:bg-black/30 glass">
-          <h2 class="text-3xl md:text-4xl font-extrabold mb-2" data-i18n="contact.title">
-            Liên hệ
-          </h2>
-          <p class="opacity-80 mb-4" data-i18n="contact.text">
-            Ưu tiên consumer, SaaS, fintech & giáo dục. On-site HCMC hoặc
-            remote.
-          </p>
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-2" data-i18n="contact.title">Liên hệ</h2>
+          <p class="opacity-80 mb-4" data-i18n="contact.text">Ưu tiên consumer, SaaS, fintech & giáo dục. On-site HCMC hoặc remote.</p>
           <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
             <a href="https://www.facebook.com/phanchaukhanhduyy/" class="flex items-center gap-3 p-3 rounded-xl border border-black/10 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/10 transition">
               <i class="fa-brands fa-facebook text-[#1877F2] text-xl"></i><span>Facebook</span>
@@ -840,23 +782,23 @@
           <div class="grid sm:grid-cols-2 gap-3">
             <label class="text-sm block">
               <span class="opacity-80" data-i18n="form.name">Họ tên</span>
-              <input required class="mt-1 w-full px-4 py-3 rounded-xl border border-black/10 dark:border-white/15 bg-white/80 dark:bg-black/40 outline-none focus:ring-2 focus:ring-accent/60"/>
+              <input name="from_name" required class="mt-1 w-full px-4 py-3 rounded-xl border border-black/10 dark:border-white/15 bg-white/80 dark:bg-black/40 outline-none focus:ring-2 focus:ring-accent/60"/>
             </label>
             <label class="text-sm block">
               <span class="opacity-80" data-i18n="form.email">Email</span>
-              <input type="email" required class="mt-1 w-full px-4 py-3 rounded-xl border border-black/10 dark:border-white/15 bg-white/80 dark:bg-black/40 outline-none focus:ring-2 focus:ring-accent/60"/>
+              <input name="from_email" type="email" required class="mt-1 w-full px-4 py-3 rounded-xl border border-black/10 dark:border-white/15 bg-white/80 dark:bg-black/40 outline-none focus:ring-2 focus:ring-accent/60"/>
             </label>
           </div>
           <label class="text-sm block">
             <span class="opacity-80" data-i18n="form.message">Nội dung</span>
-            <textarea rows="5" required class="mt-1 w-full px-4 py-3 rounded-xl border border-black/10 dark:border-white/15 bg-white/80 dark:bg-black/40 outline-none focus:ring-2 focus:ring-accent/60">
-            </textarea>
+            <textarea name="message" rows="5" required class="mt-1 w-full px-4 py-3 rounded-xl border border-black/10 dark:border-white/15 bg-white/80 dark:bg-black/40 outline-none focus:ring-2 focus:ring-accent/60"></textarea>
           </label>
           <div class="flex items-center justify-between">
             <a href="mailto:phanchaukhanhduy@gmail.com" class="text-sm underline underline-offset-4" data-i18n="form.orEmail">hoặc email: phanchaukhanhduy@gmail.com</a>
             <button type="submit" class="btn bg-black text-white dark:bg-white dark:text-black" data-i18n="form.submit">Gửi</button>
           </div>
         </form>
+
       </div>
     </section>
 
@@ -866,6 +808,25 @@
     </footer>
 
     <!-- Scripts -->
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./sw.js')
+          .then(() => console.log('✅ Service Worker registered!'))
+          .catch(err => console.log('❌ SW registration failed:', err));
+      }
+    </script>
+
+
+    <script>
+      const root = document.documentElement;
+      const pref =
+        localStorage.getItem("theme") ??
+        (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      if (pref === "dark") root.classList.add("dark");
+      document.documentElement.lang = localStorage.getItem("lang") || "vi";
+    </script>
+
     <script>
       const I18N = {
         vi: {
@@ -1094,49 +1055,19 @@
         if (el) io.observe(el);
       });
 
-      document.getElementById("form")?.addEventListener("submit", (e) => {
-        e.preventDefault();
-        alert(
-          (localStorage.getItem("lang") || "vi") === "vi"
-            ? "Đã gửi! Mình sẽ phản hồi sớm."
-            : "Sent! I’ll get back soon."
-        );
-        e.target.reset();
-      });
+      // document.getElementById("form")?.addEventListener("submit", (e) => {
+      //   e.preventDefault();
+      //   alert(
+      //     (localStorage.getItem("lang") || "vi") === "vi"
+      //       ? "Đã gửi! Mình sẽ phản hồi sớm."
+      //       : "Sent! I’ll get back soon."
+      //   );
+      //   e.target.reset();
+      // });
 
     </script>
 
-    <style>
-    .__protect_banner {
-      position: fixed;
-      left: 12px;
-      bottom: 12px;
-      z-index: 99999;
-      background: rgba(0,0,0,0.85);
-      color: white;
-      padding: 10px 14px;
-      border-radius: 12px;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      font-size: 14px;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.35);
-      display: flex;
-      gap: 8px;
-      align-items: center;
-      animation: fadeIn .25s ease;
-    }
-    .__protect_banner button {
-      background: rgba(255,255,255,0.12);
-      color: white;
-      border: 0;
-      padding: 6px 8px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    .__protect_banner button:hover { opacity: .95; }
-    @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
-    </style>
-
-    <!-- <script>
+    <script>
     (function () {
       const DETECT_THRESHOLD = 160;
 
@@ -1192,7 +1123,33 @@
       }
       setInterval(checkDevtools, 1000);
     })();
-    </script> -->
+    </script>
+    <!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+  (function() {
+    // ⚙️ Khởi tạo EmailJS với public key của bạn
+    emailjs.init("IqJ4jX6ETicc5oahF");
+  })();
+
+  // Gửi form
+  document.getElementById("form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    // Gửi form bằng EmailJS
+    emailjs.sendForm("service_yskpcmg", "template_t0ji4yj", this)
+      .then(() => {
+        alert("✅ Đã gửi thành công! Mình sẽ phản hồi sớm nhất.");
+        e.target.reset();
+      })
+      .catch((error) => {
+        console.error("EmailJS Error:", error);
+        alert("❌ Có lỗi khi gửi, vui lòng thử lại sau.");
+      });
+  });
+</script>
+
 
   </body>
 </html>

@@ -1,0 +1,311 @@
+html,
+body {
+    height: 100%;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+.glass {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.island {
+    transition: width 0.24s ease, height 0.24s ease, border-radius 0.24s ease,
+        transform 0.18s;
+    align-items: center;
+}
+
+.island--closed {
+    width: max-content;
+    min-width: 220px;
+    height: 50px;
+    border-radius: 999px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.island--open {
+    width: min(92vw, 980px);
+    height: 68px;
+    border-radius: 22px;
+}
+
+.nav-a {
+    position: relative;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border-radius: 999px;
+}
+
+.nav-a:after {
+    content: "";
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 0.35rem;
+    height: 2px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s;
+}
+
+.nav-a:hover:after,
+.nav-a.active:after {
+    transform: scaleX(1);
+}
+
+section {
+    scroll-margin-top: 88px;
+}
+
+.avatar-frame {
+    position: relative;
+    border-radius: 28px;
+    padding: 10px;
+    background: linear-gradient(135deg, #111, transparent);
+    box-shadow: var(--avatar-shadow, 0 12px 40px rgba(0, 0, 0, 0.22));
+}
+
+.avatar-orbit {
+    position: absolute;
+    inset: -2px;
+    border-radius: 30px;
+    background: conic-gradient(from 0deg, #c8f560, #8affd1, #7dd3fc, #c8f560);
+    filter: blur(8px);
+    opacity: 0.7;
+    animation: spin 9s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+.avatar-mask {
+    clip-path: polygon(10% 0%, 90% 4%, 100% 60%, 85% 100%, 0% 90%, 4% 20%);
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+.duotone img {
+    filter: grayscale(100%) contrast(1.1) brightness(0.95);
+}
+
+.duotone:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    mix-blend-mode: screen;
+    background: radial-gradient(120% 120% at 10% 10%,
+            rgba(200, 245, 96, 0.35),
+            transparent 50%),
+        radial-gradient(100% 100% at 90% 80%,
+            rgba(125, 211, 252, 0.25),
+            transparent 50%);
+}
+
+.marquee {
+    display: flex;
+    overflow: hidden;
+    gap: 28px;
+}
+
+.marquee__inner {
+    display: flex;
+    gap: 28px;
+    min-width: max-content;
+    animation: scroll 22s linear infinite;
+}
+
+.marquee__inner--rev {
+    animation-direction: reverse;
+    animation-duration: 26s;
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.skill-chip {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.dark .skill-chip {
+    border-color: rgba(255, 255, 255, 0.14);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.8rem 1.1rem;
+    border-radius: 999px;
+}
+
+.island .controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+}
+
+#islandToggle {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.dark #islandToggle {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.lang-btns {
+    display: flex;
+    gap: 6px;
+    padding: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.dark .lang-btns {
+    border-color: rgba(255, 255, 255, 0.18);
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.lang-btns button {
+    flex: 1;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.lang-btns button.active {
+    background: #c8f560;
+    color: #000;
+}
+
+/* ---------- Theme switch: ☾ / ☼ ---------- */
+.toggle-theme {
+    position: relative;
+    display: inline-block;
+}
+
+.toggle-theme input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.toggle-theme .track {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 66px;
+    height: 34px;
+    padding: 0 8px;
+    border-radius: 999px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.dark .toggle-theme .track {
+    border-color: rgba(255, 255, 255, 0.18);
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.toggle-theme .ico {
+    font-size: 14px;
+    opacity: 0.6;
+}
+
+.toggle-theme .thumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateX(0);
+    transition: transform 0.22s ease;
+}
+
+.dark .toggle-theme .thumb {
+    background: #111;
+}
+
+.toggle-theme input:checked+.track .thumb {
+    transform: translateX(32px);
+}
+
+/* Menu desktop thoáng hơn khi mở */
+#islandMenu a.nav-a {
+    padding: 0.55rem 1rem;
+}
+
+.__protect_banner {
+    position: fixed;
+    left: 12px;
+    bottom: 12px;
+    z-index: 99999;
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+        Arial;
+    font-size: 14px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    animation: fadeIn 0.25s ease;
+}
+
+.__protect_banner button {
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    border: 0;
+    padding: 6px 8px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.__protect_banner button:hover {
+    opacity: 0.95;
+}
+    
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

@@ -315,3 +315,49 @@ if ("serviceWorker" in navigator) {
   }
   setInterval(checkDevtools, 1000);
 })();
+
+/* ============ HELLO INTRO ============ */
+window.addEventListener("DOMContentLoaded", () => {
+  const hello = document.getElementById("hello");
+  const main = document.getElementById("mainContent");
+  const svg = document.getElementById("logo");
+  const flash = document.getElementById("flash");
+  if (!hello || !main || !svg || !flash) return;
+
+  // Nếu đã hiển thị intro trong tab này → bỏ qua
+  if (sessionStorage.getItem("helloShown")) {
+    hello.style.display = "none";
+    main.classList.add("visible");
+    return;
+  }
+
+  sessionStorage.setItem("helloShown", "1"); // đánh dấu intro đã chạy
+
+  const pref =
+    localStorage.getItem("theme") ??
+    (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+
+  const totalTime = 2400;
+
+  setTimeout(() => {
+    svg.style.filter =
+      pref === "dark"
+        ? "drop-shadow(0 0 120px rgba(255,255,255,1))"
+        : "drop-shadow(0 0 100px rgba(0,0,0,0.8))";
+    flash.classList.add("active");
+  }, totalTime);
+
+  setTimeout(() => {
+    svg.style.opacity = "0";
+  }, totalTime + 200);
+
+  setTimeout(() => {
+    flash.classList.add("fadeout");
+    hello.style.opacity = "0";
+  }, totalTime + 600);
+
+  setTimeout(() => {
+    hello.style.display = "none";
+    main.classList.add("visible");
+  }, totalTime + 1200);
+});

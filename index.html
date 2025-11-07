@@ -145,7 +145,6 @@
     transition: opacity 1s ease-in-out;
   }
 
-  /* Ẩn main ban đầu */
   #mainContent {
     opacity: 0;
     transition: opacity 1s ease-in-out;
@@ -644,44 +643,6 @@
       </footer>
     </div>
 
-    <!-- Scripts -->
-    <!-- ⚙️ Hello Animation Script -->
-    <script>
-      const root = document.documentElement;
-      const pref =
-        localStorage.getItem("theme") ??
-        (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-      if (pref === "dark") root.classList.add("dark");
-      else root.classList.add("light");
-
-      const svg = document.getElementById("logo");
-      const flash = document.getElementById("flash");
-      const hello = document.getElementById("hello");
-      const main = document.getElementById("mainContent");
-      const totalTime = 2400;
-
-      setTimeout(() => {
-        svg.style.filter =
-          pref === "dark"
-            ? "drop-shadow(0 0 120px rgba(255,255,255,1))"
-            : "drop-shadow(0 0 100px rgba(0,0,0,0.8))";
-        flash.classList.add("active");
-      }, totalTime);
-
-      setTimeout(() => {
-        svg.style.opacity = "0";
-      }, totalTime + 200);
-
-      setTimeout(() => {
-        flash.classList.add("fadeout");
-        hello.style.opacity = "0";
-      }, totalTime + 600);
-
-      setTimeout(() => {
-        hello.style.display = "none";
-        main.classList.add("visible");
-      }, totalTime + 1200);
-    </script>
     <!-- SDK EmailJS -->
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <!-- File JS riêng -->

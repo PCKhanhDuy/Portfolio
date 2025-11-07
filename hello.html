@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tất cả Dự án — Phan Chau Khanh Duy | Portfolio</title>
+  <meta name="description" content="Dịch vụ thiết kế website, build & rebuild website chuẩn UI/UX. Phan Chau Khanh Duy — Front-end Developer & UI/UX Designer với kinh nghiệm xây dựng giao diện hiện đại, tốc độ và tối ưu SEO." />
+  <meta name="keywords" content="thiết kế website, build website, rebuild website, website chuyên nghiệp, front-end developer, UI UX designer, web design, portfolio, responsive website, tối ưu SEO" />
+  <meta name="keywords" content="freelancer thiết kế website, freelance web developer, build website chuyên nghiệp, thiết kế lại website, làm web công ty, web doanh nghiệp nhỏ, thiết kế giao diện web hiện đại, tư vấn thiết kế website miễn phí" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://pckhanhduy.github.io/Portfolio/assets/avt-2.png" />
+  <meta property="og:title" content="Thiết kế Website | Build & Rebuild Website — Phan Chau Khanh Duy">
+  <meta property="og:description" content="Build & rebuild website chuẩn UI/UX, hiện đại và tốc độ. Portfolio cá nhân của Phan Chau Khanh Duy — Front-end Developer & UI/UX Designer.">
+  <meta property="og:image" content="https://pckhanhduy.github.io/Portfolio/assets/avt-2.png">
+  <meta property="og:url" content="https://pckhanhduy.github.io/Portfolio/assets/logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="vi_VN">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#C8F560">
+  <meta name="google-site-verification" content="lvMInMFuJHCi-l-jApcKs6XRxAiuRJcs5EN_rIryH4M" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Thiết kế Website | Build & Rebuild Website — Phan Chau Khanh Duy">
+  <meta name="twitter:description" content="Dịch vụ thiết kế và rebuild website chuẩn UI/UX. Portfolio của Front-end Developer Phan Chau Khanh Duy.">
+  <meta name="twitter:image" content="https://pckhanhduy.github.io/Portfolio/assets/avt-2.png">
+  <link rel="icon" type="image/png" href="https://pckhanhduy.github.io/Portfolio/assets/logo.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="https://pckhanhduy.github.io/Portfolio/assets/css/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --bg-color: black;
+            --text-color: white;
+            --flash-color: white;
+            --glow-color: rgba(255, 255, 255, 0.9);
+        }
+
+        html.light {
+            --bg-color: white;
+            --text-color: black;
+            --flash-color: black;
+            --glow-color: rgba(0, 0, 0, 0.7);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            transition: background-color 0.3s ease;
+        }
+
+        svg {
+            width: 80%;
+            max-width: 600px;
+            stroke: var(--text-color);
+            fill: none;
+            stroke-width: 10;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            filter: drop-shadow(0 0 20px var(--glow-color));
+            transition: opacity 0.6s ease-in-out, filter 0.5s ease-in-out;
+        }
+
+        svg path {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: draw 0.8s ease forwards;
+        }
+
+        @keyframes draw {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        /* delay từng path */
+        path:nth-of-type(1) {
+            animation-delay: 0s;
+        }
+
+        path:nth-of-type(2) {
+            animation-delay: 0.25s;
+        }
+
+        path:nth-of-type(3) {
+            animation-delay: 0.5s;
+        }
+
+        path:nth-of-type(4) {
+            animation-delay: 0.75s;
+        }
+
+        path:nth-of-type(5) {
+            animation-delay: 1s;
+        }
+
+        path:nth-of-type(6) {
+            animation-delay: 1.25s;
+        }
+
+        path:nth-of-type(7) {
+            animation-delay: 1.5s;
+        }
+
+        path:nth-of-type(8) {
+            animation-delay: 1.75s;
+        }
+
+        path:nth-of-type(9) {
+            animation-delay: 2s;
+        }
+
+        path:nth-of-type(10) {
+            animation-delay: 2.25s;
+        }
+
+        /* dấu chấm chữ i */
+        circle {
+            opacity: 0;
+            animation: showDot 0.25s ease forwards;
+            animation-delay: 0.4s;
+        }
+
+        @keyframes showDot {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* flash layer */
+        #flash {
+            position: fixed;
+            inset: 0;
+            background: var(--flash-color);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.9s ease-in-out;
+        }
+
+        #flash.active {
+            opacity: 1;
+        }
+
+        #flash.fadeout {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <svg id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1009 200">
+        <path d="M102.233 96.2277C75.6823 127.245 45.1612 158.759 11.4143 190.521" />
+        <path
+            d="M7.69214 116.575C9.67725 105.16 16.8733 95.7311 28.5358 95.7311C40.4465 95.7311 46.8981 105.408 53.3497 124.019C56.7409 133.283 60.1322 142.547 63.5234 151.81C73.689 179.58 81.1988 191.513 100.855 191.513C128.722 191.513 154.043 159.148 161.595 118.502C162.929 111.321 164.774 103.736 166.043 96.2273" />
+        <path
+            d="M166.043 96.2273C163.191 113.101 160.565 126.997 158.92 139.404C157.989 147.592 157.544 154.54 157.596 161.488C157.729 179.354 164.764 191.513 182.695 191.513C209.39 191.513 236.181 159.123 243.73 118.5C245.064 111.321 247.012 103.759 248.139 96.2273" />
+        <circle cx="173" cy="65" r="5" fill="var(--text-color)" />
+        <path d="M248.139 96.2278C243.424 127.741 239.454 158.759 234.491 190.272" />
+        <path
+            d="M237.873 167.951C244.704 121.32 265.508 94.2422 290.322 94.2422C307.692 94.2422 316.625 106.153 315.136 123.026C313.896 135.681 309.677 150.322 308.685 162.729C307.444 179.85 316.499 191.513 330.769 191.513C348.722 191.513 359.309 179.314 364.143 165.965" />
+        <path
+            d="M535.91 109.876C531.265 100.446 520.943 93.4984 505.459 93.4984C476.516 93.4984 462.044 117.816 462.044 143.374C462.044 171.503 482.265 192.506 511.307 192.506C559.762 192.506 592.902 136.708 621.581 97.8807C640.764 71.9101 649.874 49.2359 650.372 31.1674C650.62 17.7684 644.168 7.60362 632.01 7.60362C618.61 7.60362 610.173 17.7684 604.963 41.1011C599.255 66.7441 595.037 96.1684 584.367 190.521" />
+        <path
+            d="M585.413 181.299C590.677 135.025 611.663 98.2125 638.213 98.2125C654.094 98.2125 664.187 110.868 661.321 128.982C659.708 139.652 656.794 152.059 655.128 164.217C653.102 179.602 658.89 191.513 676.813 191.513C702.178 191.513 717.375 164.077 725.613 135.196" />
+        <path
+            d="M803.871 112.995C799.007 101.8 788.666 94.2423 772.207 94.2423C744.912 94.2423 724.398 121.538 723.052 150.818C721.878 177.617 734.244 192.681 751.857 192.505C776.858 192.255 795.234 167.699 803.437 115.742C804.449 109.332 805.498 102.638 806.51 96.2274" />
+        <path
+            d="M806.51 96.2274C805.486 102.73 804.461 109.232 803.436 115.735C798.955 144.175 796.887 155.395 797.109 162.729C797.628 179.85 803.785 191.513 820.064 191.513C842.563 191.513 860.966 164.721 870.266 138.289C879.653 111.612 891.315 94.9867 915.633 94.9867C935.732 94.9867 951.613 109.875 951.613 137.915C951.613 168.932 931.489 192.257 906.059 192.505C883.681 192.753 868.983 174.639 870.471 147.344C872.208 117.071 890.571 94.9867 914.64 94.9867C928.536 94.9867 940.207 101.164 949.38 107.89C974.247 126.031 993.407 114.82 1000.74 96.8832" />
+        <path d="M763.027 19.3039C768.734 34.6886 780.397 48.3362 792.059 55.5322" />
+    </svg>
+
+    <div id="flash"></div>
+
+    <script>
+        const root = document.documentElement;
+        const pref =
+            localStorage.getItem("theme") ??
+            (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+
+        if (pref === "dark") root.classList.add("dark");
+        else root.classList.add("light");
+
+        const svg = document.getElementById("logo");
+        const flash = document.getElementById("flash");
+        const totalTime = 2400;
+
+        setTimeout(() => {
+            svg.style.filter =
+                pref === "dark"
+                    ? "drop-shadow(0 0 120px rgba(255,255,255,1))"
+                    : "drop-shadow(0 0 100px rgba(0,0,0,0.8))";
+            flash.classList.add("active");
+        }, totalTime);
+
+        setTimeout(() => {
+            svg.style.opacity = "0";
+        }, totalTime + 300);
+
+        setTimeout(() => {
+            flash.classList.add("fadeout");
+        }, totalTime + 800);
+
+        setTimeout(() => {
+            window.location.href = "index.html";
+        }, totalTime + 1700);
+    </script>
+</body>
+
+</html>

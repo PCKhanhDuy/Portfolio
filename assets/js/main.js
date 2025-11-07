@@ -317,7 +317,7 @@ if ("serviceWorker" in navigator) {
 })();
 
 /* ============ HELLO INTRO ============ */
-window.addEventListener("DOMContentLoaded", () => {
+window.onload = () => {
   const hello = document.getElementById("hello");
   const main = document.getElementById("mainContent");
   const svg = document.getElementById("logo");
@@ -331,7 +331,8 @@ window.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  sessionStorage.setItem("helloShown", "1"); // đánh dấu intro đã chạy
+  // Ghi lại rằng intro đã hiển thị trong phiên hiện tại
+  sessionStorage.setItem("helloShown", "1");
 
   const pref =
     localStorage.getItem("theme") ??
@@ -339,6 +340,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   const totalTime = 2400;
 
+  // Bắt đầu animation
   setTimeout(() => {
     svg.style.filter =
       pref === "dark"
@@ -360,4 +362,4 @@ window.addEventListener("DOMContentLoaded", () => {
     hello.style.display = "none";
     main.classList.add("visible");
   }, totalTime + 1200);
-});
+};

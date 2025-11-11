@@ -1,5 +1,4 @@
-  <div class="fixed inset-0 z-[9999] flex items-center justify-center bg-white text-black dark:bg-black dark:text-white"
-    style="opacity:1"><svg class="h-20 w-2/3 max-w-[600px] text-black dark:text-white"
+    <svg class="h-20 w-2/3 max-w-[600px] text-black dark:text-white"
         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1009 200" fill="none" stroke="currentColor"
         stroke-width="14.8883" style="opacity: 0.581342;">
         <path d="M102.233 96.2277C75.6823 127.245 45.1612 158.759 11.4143 190.521" opacity="1" pathLength="1"
@@ -39,4 +38,4 @@
         <path class="stroke-black dark:stroke-white"
             d="M763.027 19.3039C768.734 34.6886 780.397 48.3362 792.059 55.5322" opacity="1" pathLength="1"
             stroke-dashoffset="0px" stroke-dasharray="1px 1px" style="stroke-linecap:round"></path>
-    </svg></div>
+    </svg>

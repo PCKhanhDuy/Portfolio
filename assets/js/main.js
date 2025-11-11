@@ -331,7 +331,6 @@ window.onload = () => {
     return;
   }
 
-  // Ghi lại rằng intro đã hiển thị trong phiên hiện tại
   sessionStorage.setItem("helloShown", "1");
 
   const pref =

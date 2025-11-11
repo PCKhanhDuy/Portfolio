@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S STUDIO COMMERCIAL - Premium Fashion Photography</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        .font-serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        .hero-overlay {
+            background: linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.8) 100%);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .slide-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: all 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .slide-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .slide-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: all 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .slide-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .scale-up {
+            opacity: 0;
+            transform: scale(0.95);
+            transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .scale-up.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .portfolio-item {
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .portfolio-item img {
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .portfolio-item:hover img {
+            transform: scale(1.08);
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10,10,10,0.95) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 2rem;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 1px;
+            background: #fff;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .btn-primary {
+            background: #fff;
+            color: #0a0a0a;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #e5e5e5;
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+        
+        .btn-primary:hover::before {
+            left: 0;
+        }
+        
+        .btn-outline {
+            border: 1px solid #fff;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline:hover {
+            background: #fff;
+            color: #0a0a0a;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .float {
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #222;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: #444;
+            background: #141414;
+        }
+        
+        .parallax-section {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .text-accent {
+            color: #ff6b6b;
+        }
+        
+        .bg-accent {
+            background: #ff6b6b;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #fff 0%, #888 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .grid-pattern {
+            background-image: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        
+        .testimonial-card {
+            background: #111;
+            border: 1px solid #222;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            border-color: #333;
+            transform: translateY(-5px);
+        }
+        
+        .masonry-grid {
+            column-count: 3;
+            column-gap: 1.5rem;
+        }
+        
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+        
+        @media (max-width: 1024px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .masonry-grid {
+                column-count: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-xl border-b border-white/10">
+        <div class="container mx-auto px-6 lg:px-12 py-5">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold tracking-tight">
+                    <span class="font-serif">S STUDIO</span>
+                    <span class="text-xs ml-2 text-gray-400 font-light">COMMERCIAL</span>
+                </div>
+                
+                <div class="hidden lg:flex items-center space-x-10">
+                    <a href="#home" class="nav-link text-xs uppercase tracking-widest font-medium">Home</a>
+                    <a href="#about" class="nav-link text-xs uppercase tracking-widest font-medium">About</a>
+                    <a href="#services" class="nav-link text-xs uppercase tracking-widest font-medium">Services</a>
+                    <a href="#portfolio" class="nav-link text-xs uppercase tracking-widest font-medium">Portfolio</a>
+                    <a href="#contact" class="nav-link text-xs uppercase tracking-widest font-medium">Contact</a>
+                </div>
+                
+                <button class="btn-primary px-8 py-3 text-xs uppercase tracking-widest font-semibold">
+                    Book Session
+                </button>
+                
+                <button class="lg:hidden text-xl" id="menuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobileMenu" class="hidden lg:hidden bg-black/95 border-t border-white/10">
+            <div class="container mx-auto px-6 py-8 flex flex-col space-y-4">
+                <a href="#home" class="text-sm uppercase tracking-widest">Home</a>
+                <a href="#about" class="text-sm uppercase tracking-widest">About</a>
+                <a href="#services" class="text-sm uppercase tracking-widest">Services</a>
+                <a href="#portfolio" class="text-sm uppercase tracking-widest">Portfolio</a>
+                <a href="#contact" class="text-sm uppercase tracking-widest">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=1920&q=80" alt="Hero" class="w-full h-full object-cover">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+        
+        <div class="relative z-10 container mx-auto px-6 lg:px-12 text-center">
+            <div class="fade-in">
+                <div class="text-xs uppercase tracking-[0.3em] mb-8 text-gray-300">Premium Fashion Photography</div>
+                <h1 class="font-serif text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-light mb-8 leading-none">
+                    Capturing<br>
+                    <span class="font-bold italic">Elegance</span>
+                </h1>
+                <p class="text-base md:text-lg text-gray-300 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
+                    We create timeless visual narratives for luxury fashion brands through exceptional photography and creative direction.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
+                    <button class="btn-primary px-10 py-4 text-xs uppercase tracking-widest font-semibold">
+                        Explore Work
+                    </button>
+                    <button class="btn-outline px-10 py-4 text-xs uppercase tracking-widest font-semibold">
+                        Get in Touch
+                    </button>
+                </div>
+            </div>
+            
+            <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 float">
+                <i class="fas fa-chevron-down text-2xl opacity-60"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="py-24 bg-black border-y border-white/10">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-12">
+                <div class="text-center fade-in">
+                    <div class="text-5xl lg:text-6xl font-light mb-3 font-serif">500<span class="text-accent">+</span></div>
+                    <p class="text-xs uppercase tracking-widest text-gray-400">Projects</p>
+                </div>
+                <div class="text-center fade-in">
+                    <div class="text-5xl lg:text-6xl font-light mb-3 font-serif">150<span class="text-accent">+</span></div>
+                    <p class="text-xs uppercase tracking-widest text-gray-400">Clients</p>
+                </div>
+                <div class="text-center fade-in">
+                    <div class="text-5xl lg:text-6xl font-light mb-3 font-serif">25<span class="text-accent">+</span></div>
+                    <p class="text-xs uppercase tracking-widest text-gray-400">Awards</p>
+                </div>
+                <div class="text-center fade-in">
+                    <div class="text-5xl lg:text-6xl font-light mb-3 font-serif">10<span class="text-accent">+</span></div>
+                    <p class="text-xs uppercase tracking-widest text-gray-400">Years</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-32 bg-black grid-pattern">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div class="slide-left">
+                    <div class="text-xs uppercase tracking-[0.3em] mb-6 text-accent">About Studio</div>
+                    <h2 class="font-serif text-5xl lg:text-6xl font-light mb-8 leading-tight">
+                        Where Art Meets<br>
+                        <span class="font-bold italic">Commerce</span>
+                    </h2>
+                    <div class="w-20 h-px bg-white mb-8"></div>
+                    <p class="text-gray-400 leading-relaxed mb-6 font-light">
+                        S STUDIO COMMERCIAL is a boutique photography studio dedicated to creating exceptional visual content for fashion and lifestyle brands. We believe in the power of imagery to tell compelling stories and build lasting connections.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed mb-10 font-light">
+                        Our team combines technical expertise with artistic vision to deliver photographs that not only showcase your products but elevate your brand's narrative in the competitive luxury market.
+                    </p>
+                    <div class="grid grid-cols-2 gap-8">
+                        <div>
+                            <i class="fas fa-star text-3xl mb-4 text-accent"></i>
+                            <h4 class="text-sm uppercase tracking-wider mb-2 font-semibold">Premium Quality</h4>
+                            <p class="text-xs text-gray-500">Industry-leading standards</p>
+                        </div>
+                        <div>
+                            <i class="fas fa-crown text-3xl mb-4 text-accent"></i>
+                            <h4 class="text-sm uppercase tracking-wider mb-2 font-semibold">Luxury Focus</h4>
+                            <p class="text-xs text-gray-500">High-end brand expertise</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slide-right">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-4">
+                            <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&q=80" alt="About 1" class="w-full h-72 object-cover scale-up">
+                            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80" alt="About 2" class="w-full h-96 object-cover scale-up">
+                        </div>
+                        <div class="space-y-4 mt-12">
+                            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80" alt="About 3" class="w-full h-96 object-cover scale-up">
+                            <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=600&q=80" alt="About 4" class="w-full h-72 object-cover scale-up">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-32 bg-neutral-950">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="text-center mb-20 fade-in">
+                <div class="text-xs uppercase tracking-[0.3em] mb-6 text-accent">Services</div>
+                <h2 class="font-serif text-5xl lg:text-6xl font-light mb-6">
+                    What We <span class="font-bold italic">Offer</span>
+                </h2>
+                <div class="w-20 h-px bg-white mx-auto mb-8"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto font-light">
+                    Comprehensive photography solutions tailored for luxury fashion brands
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="service-card bg-black p-10 fade-in">
+                    <div class="w-16 h-16 bg-accent/10 flex items-center justify-center mb-8">
+                        <i class="fas fa-camera text-2xl text-accent"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-light mb-4">Studio Sessions</h3>
+                    <p class="text-gray-500 mb-6 text-sm font-light leading-relaxed">
+                        Professional studio photography with controlled lighting and premium equipment for perfect product and editorial shoots.
+                    </p>
+                    <ul class="space-y-3 text-gray-600 text-xs">
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Product Photography</li>
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Editorial Shoots</li>
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Catalog Production</li>
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Lookbook Creation</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card bg-black p-10 fade-in">
+                    <div class="w-16 h-16 bg-accent/10 flex items-center justify-center mb-8">
+                        <i class="fas fa-mountain text-2xl text-accent"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-light mb-4">On Location</h3>
+                    <p class="text-gray-500 mb-6 text-sm font-light leading-relaxed">
+                        Dynamic outdoor photography capturing your brand in stunning natural environments and urban landscapes.
+                    </p>
+                    <ul class="space-y-3 text-gray-600 text-xs">
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Beach & Nature</li>
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Urban Settings</li>
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Lifestyle Imagery</li>
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Travel Campaigns</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card bg-black p-10 fade-in">
+                    <div class="w-16 h-16 bg-accent/10 flex items-center justify-center mb-8">
+                        <i class="fas fa-paint-brush text-2xl text-accent"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-light mb-4">Creative Direction</h3>
+                    <p class="text-gray-500 mb-6 text-sm font-light leading-relaxed">
+                        Full-service creative solutions including concept development, styling, and post-production excellence.
+                    </p>
+                    <ul class="space-y-3 text-gray-600 text-xs">
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Art Direction</li>
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Styling Services</li>
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Retouching</li>
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Brand Strategy</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio" class="py-32 bg-black">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="text-center mb-20 fade-in">
+                <div class="text-xs uppercase tracking-[0.3em] mb-6 text-accent">Portfolio</div>
+                <h2 class="font-serif text-5xl lg:text-6xl font-light mb-6">
+                    Featured <span class="font-bold italic">Work</span>
+                </h2>
+                <div class="w-20 h-px bg-white mx-auto"></div>
+            </div>
+            
+            <div class="masonry-grid">
+                <div class="masonry-item portfolio-item scale-up">
+                    <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800&q=80" alt="Portfolio 1" class="w-full">
+                    <div class="portfolio-overlay">
+                        <div>
+                            <h4 class="text-xl font-light mb-1">Summer Essence</h4>
+                            <p class="text-xs text-gray-400 uppercase tracking-wider">Beach Campaign</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="masonry-item portfolio-item scale-up">
+                    <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=800&q=80" alt="Portfolio 2" class="w-full">
+                    <div class="portfolio-overlay">
+                        <div>
+                            <h4 class="text-xl font-light mb-1">Urban Chic</h4>
+                            <p class="text-xs text-gray-400 uppercase tracking-wider">Street Fashion</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="masonry-item portfolio-item scale-up">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&q=80" alt="Portfolio 3" class="w-full">
+                    <div class="portfolio-overlay">
+                        <div>
+                            <h4 class="text-xl font-light mb-1">Luxury Edit</h4>
+                            <p class="text-xs text-gray-400 uppercase tracking-wider">Studio</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="masonry-item portfolio-item scale-up">
+                    <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=800&q=80" alt="Portfolio 4" class="w-full">
+                    <div class="portfolio-overlay">
+                        <div>
+                            <h4 class="text-xl font-light mb-1">Coastal Dreams</h4>
+                            <p class="text-xs text-gray-400 uppercase tracking-wider">On Location</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="masonry-item portfolio-item scale-up">
+                    <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=800&q=80" alt="Portfolio 5" class="w-full">
+                    <div class="portfolio-overlay">
+                        <div>
+                            <h4 class="text-xl font-light mb-1">Minimal Beauty</h4>
+                            <p class="text-xs text-gray-400 uppercase tracking-wider">Editorial</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="masonry-item portfolio-item scale-up">
+                    <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=800&q=80" alt="Portfolio 6" class="w-full">
+                    <div class="portfolio-overlay">
+                        <div>
+                            <h4 class="text-xl font-light mb-1">Golden Hour</h4>
+                            <p class="text-xs text-gray-400 uppercase tracking-wider">Sunset Series</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="masonry-item portfolio-item scale-up">
+                    <img src="https://images.unsplash.com/photo-1558769132-cb1aea3c8565?w=800&q=80" alt="Portfolio 7" class="w-full">
+                    <div class="portfolio-overlay">
+                        <div>
+                            <h4 class="text-xl font-light mb-1">Modern Edge</h4>
+                            <p class="text-xs text-gray-400 uppercase tracking-wider">Contemporary</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="masonry-item portfolio-item scale-up">
+                    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&q=80" alt="Portfolio 8" class="w-full">
+                    <div class="portfolio-overlay">
+                        <div>
+                            <h4 class="text-xl font-light mb-1">Classic Style</h4>
+                            <p class="text-xs text-gray-400 uppercase tracking-wider">Timeless</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="masonry-item portfolio-item scale-up">
+                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&q=80" alt="Portfolio 9" class="w-full">
+                    <div class="portfolio-overlay">
+                        <div>
+                            <h4 class="text-xl font-light mb-1">Vibrant Life</h4>
+                            <p class="text-xs text-gray-400 uppercase tracking-wider">Lifestyle</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-32 bg-neutral-950">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="text-center mb-20 fade-in">
+                <div class="text-xs uppercase tracking-[0.3em] mb-6 text-accent">Testimonials</div>
+                <h2 class="font-serif text-5xl lg:text-6xl font-light">
+                    Client <span class="font-bold italic">Stories</span>
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="testimonial-card p-10 fade-in">
+                    <div class="flex mb-6">
+                        <i class="fas fa-star text-accent text-sm"></i>
+                        <i class="fas fa-star text-accent text-sm ml-1"></i>
+                        <i class="fas fa-star text-accent text-sm ml-1"></i>
+                        <i class="fas fa-star text-accent text-sm ml-1"></i>
+                        <i class="fas fa-star text-accent text-sm ml-1"></i>
+                    </div>
+                    <p class="text-gray-400 mb-8 font-light text-sm leading-relaxed italic">
+                        "Exceptional quality and professionalism. S Studio completely transformed our brand imagery with their artistic vision and technical excellence."
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://i.pravatar.cc/100?img=1" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="text-sm font-medium">Sarah Mitchell</h4>
+                            <p class="text-xs text-gray-500">Creative Director, LUXE</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card p-10 fade-in">
+                    <div class="flex mb-6">
+                        <i class="fas fa-star text-accent text-sm"></i>
+                        <i class="fas fa-star text-accent text-sm ml-1"></i>
+                        <i class="fas fa-star text-accent text-sm ml-1"></i>
+                        <i class="fas fa-star text-accent text-sm ml-1"></i>
+                        <i class="fas fa-star text-accent text-sm ml-1"></i>
+                    </div>
+                    <p class="text-gray-400 mb-8 font-light text-sm leading-relaxed italic">
+                        "Working with S Studio was a dream. They understood our aesthetic perfectly and delivered stunning visuals that exceeded expectations."
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://i.pravatar.cc/100?img=5" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="text-sm font-medium">David Chen</h4>
+                            <p class="text-xs text-gray-500">Brand Manager, ELITE</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card p-10 fade-in">
+                    <div class="flex mb-6">
+                        <i class="fas fa-star text-accent text-sm"></i>
+                        <i class="fas fa-star text-accent text-sm ml-1"></i>
+                        <i class="fas fa-star text-accent text-sm ml-1"></i>
+                        <i class="fas fa-star text-accent text-sm ml-1"></i>
+                        <i class="fas fa-star text-accent text-sm ml-1"></i>
+                    </div>
+                    <p class="text-gray-400 mb-8 font-light text-sm leading-relaxed italic">
+                        "Incredible attention to detail and creative direction. The team brought our collection to life in ways we never imagined possible."
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://i.pravatar.cc/100?img=9" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="text-sm font-medium">Emma Laurent</h4>
+                            <p class="text-xs text-gray-500">CEO, PRESTIGE</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="py-32 bg-black">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="text-center mb-20 fade-in">
+                <div class="text-xs uppercase tracking-[0.3em] mb-6 text-accent">Process</div>
+                <h2 class="font-serif text-5xl lg:text-6xl font-light">
+                    How We <span class="font-bold italic">Work</span>
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-12">
+                <div class="text-center fade-in">
+                    <div class="w-20 h-20 border border-white/20 flex items-center justify-center text-3xl font-serif font-light mx-auto mb-8">
+                        01
+                    </div>
+                    <h3 class="text-lg font-medium mb-4 uppercase tracking-wider">Discovery</h3>
+                    <p class="text-gray-500 text-sm font-light leading-relaxed">
+                        Understanding your brand vision, target audience, and project objectives through detailed consultation.
+                    </p>
+                </div>
+                
+                <div class="text-center fade-in">
+                    <div class="w-20 h-20 border border-white/20 flex items-center justify-center text-3xl font-serif font-light mx-auto mb-8">
+                        02
+                    </div>
+                    <h3 class="text-lg font-medium mb-4 uppercase tracking-wider">Planning</h3>
+                    <p class="text-gray-500 text-sm font-light leading-relaxed">
+                        Creating comprehensive mood boards, shot lists, and production schedules tailored to your needs.
+                    </p>
+                </div>
+                
+                <div class="text-center fade-in">
+                    <div class="w-20 h-20 border border-white/20 flex items-center justify-center text-3xl font-serif font-light mx-auto mb-8">
+                        03
+                    </div>
+                    <h3 class="text-lg font-medium mb-4 uppercase tracking-wider">Production</h3>
+                    <p class="text-gray-500 text-sm font-light leading-relaxed">
+                        Professional execution with expert team, premium equipment, and meticulous attention to detail.
+                    </p>
+                </div>
+                
+                <div class="text-center fade-in">
+                    <div class="w-20 h-20 border border-white/20 flex items-center justify-center text-3xl font-serif font-light mx-auto mb-8">
+                        04
+                    </div>
+                    <h3 class="text-lg font-medium mb-4 uppercase tracking-wider">Delivery</h3>
+                    <p class="text-gray-500 text-sm font-light leading-relaxed">
+                        Expertly retouched high-resolution images delivered on time in your preferred formats.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-32 bg-accent">
+        <div class="container mx-auto px-6 lg:px-12 text-center">
+            <div class="fade-in">
+                <h2 class="font-serif text-5xl lg:text-6xl font-light text-black mb-8">
+                    Let's Create Something<br>
+                    <span class="font-bold italic">Extraordinary</span>
+                </h2>
+                <p class="text-black/70 text-lg mb-12 max-w-2xl mx-auto font-light">
+                    Ready to elevate your brand with stunning photography? Get in touch to discuss your next project.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
+                    <button class="bg-black text-white px-10 py-4 text-xs uppercase tracking-widest font-semibold hover:bg-black/90 transition">
+                        Start Your Project
+                    </button>
+                    <button class="border border-black text-black px-10 py-4 text-xs uppercase tracking-widest font-semibold hover:bg-black hover:text-white transition">
+                        View Packages
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-32 bg-neutral-950">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="grid lg:grid-cols-2 gap-20">
+                <div class="slide-left">
+                    <div class="text-xs uppercase tracking-[0.3em] mb-6 text-accent">Contact</div>
+                    <h2 class="font-serif text-5xl lg:text-6xl font-light mb-8 leading-tight">
+                        Get in <span class="font-bold italic">Touch</span>
+                    </h2>
+                    <div class="w-20 h-px bg-white mb-10"></div>
+                    <p class="text-gray-400 mb-12 font-light leading-relaxed">
+                        Let's discuss how we can bring your vision to life. Contact us for project inquiries, quotes, or collaborations.
+                    </p>
+                    
+                    <div class="space-y-8">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-accent text-xl mr-6 mt-1"></i>
+                            <div>
+                                <h4 class="text-sm uppercase tracking-wider mb-2 font-medium">Studio</h4>
+                                <p class="text-gray-500 text-sm font-light">123 Fashion Street, District 1<br>Ho Chi Minh City, Vietnam</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fas fa-phone text-accent text-xl mr-6 mt-1"></i>
+                            <div>
+                                <h4 class="text-sm uppercase tracking-wider mb-2 font-medium">Phone</h4>
+                                <p class="text-gray-500 text-sm font-light">+84 123 456 789</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fas fa-envelope text-accent text-xl mr-6 mt-1"></i>
+                            <div>
+                                <h4 class="text-sm uppercase tracking-wider mb-2 font-medium">Email</h4>
+                                <p class="text-gray-500 text-sm font-light">hello@sstudiocommercial.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fas fa-clock text-accent text-xl mr-6 mt-1"></i>
+                            <div>
+                                <h4 class="text-sm uppercase tracking-wider mb-2 font-medium">Hours</h4>
+                                <p class="text-gray-500 text-sm font-light">Mon - Fri: 9:00 AM - 6:00 PM<br>Sat: 10:00 AM - 4:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12">
+                        <h4 class="text-sm uppercase tracking-wider mb-6 font-medium">Follow</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-12 h-12 border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition">
+                                <i class="fab fa-behance"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition">
+                                <i class="fab fa-pinterest"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slide-right">
+                    <form class="bg-black border border-white/10 p-10">
+                        <div class="mb-6">
+                            <label class="block text-xs uppercase tracking-wider mb-3 font-medium">Name</label>
+                            <input type="text" class="w-full bg-neutral-950 border border-white/10 px-5 py-4 text-sm focus:outline-none focus:border-accent transition" placeholder="Your name">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-xs uppercase tracking-wider mb-3 font-medium">Email</label>
+                            <input type="email" class="w-full bg-neutral-950 border border-white/10 px-5 py-4 text-sm focus:outline-none focus:border-accent transition" placeholder="your@email.com">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-xs uppercase tracking-wider mb-3 font-medium">Phone</label>
+                            <input type="tel" class="w-full bg-neutral-950 border border-white/10 px-5 py-4 text-sm focus:outline-none focus:border-accent transition" placeholder="+84 123 456 789">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-xs uppercase tracking-wider mb-3 font-medium">Service</label>
+                            <select class="w-full bg-neutral-950 border border-white/10 px-5 py-4 text-sm focus:outline-none focus:border-accent transition">
+                                <option>Studio Photography</option>
+                                <option>On Location Shoot</option>
+                                <option>Creative Direction</option>
+                                <option>Full Package</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-8">
+                            <label class="block text-xs uppercase tracking-wider mb-3 font-medium">Message</label>
+                            <textarea rows="5" class="w-full bg-neutral-950 border border-white/10 px-5 py-4 text-sm focus:outline-none focus:border-accent transition" placeholder="Tell us about your project..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-white text-black py-4 text-xs uppercase tracking-widest font-semibold hover:bg-gray-200 transition">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-white/10 py-16">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="text-2xl font-bold font-serif mb-6">S STUDIO</div>
+                    <p class="text-gray-500 text-xs font-light leading-relaxed">
+                        Premium fashion photography for luxury brands worldwide.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-xs uppercase tracking-wider mb-6 font-medium">Navigation</h4>
+                    <ul class="space-y-3 text-gray-500 text-xs">
+                        <li><a href="#home" class="hover:text-white transition">Home</a></li>
+                        <li><a href="#about" class="hover:text-white transition">About</a></li>
+                        <li><a href="#services" class="hover:text-white transition">Services</a></li>
+                        <li><a href="#portfolio" class="hover:text-white transition">Portfolio</a></li>
+                        <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xs uppercase tracking-wider mb-6 font-medium">Services</h4>
+                    <ul class="space-y-3 text-gray-500 text-xs">
+                        <li><a href="#" class="hover:text-white transition">Studio Sessions</a></li>
+                        <li><a href="#" class="hover:text-white transition">On Location</a></li>
+                        <li><a href="#" class="hover:text-white transition">Creative Direction</a></li>
+                        <li><a href="#" class="hover:text-white transition">Post Production</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xs uppercase tracking-wider mb-6 font-medium">Newsletter</h4>
+                    <p class="text-gray-500 text-xs mb-4 font-light">
+                        Get updates on our latest work
+                    </p>
+                    <div class="flex">
+                        <input type="email" placeholder="Email" class="bg-neutral-950 border border-white/10 px-4 py-3 text-xs flex-1 focus:outline-none focus:border-accent">
+                        <button class="bg-accent text-black px-5 hover:bg-accent/90 transition">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-600 text-xs">
+                <p>&copy; 2024 S Studio Commercial. All rights reserved.</p>
+                <p class="mt-4 md:mt-0">Designed for luxury fashion brands</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Scroll Animations
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -80px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in, .slide-left, .slide-right, .scale-up').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+        
+        // Navbar on Scroll
+        let lastScroll = 0;
+        const nav = document.querySelector('nav');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                nav.style.padding = '1rem 0';
+            } else {
+                nav.style.padding = '1.25rem 0';
+            }
+            
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>

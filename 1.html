@@ -1,165 +1,793 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>S STUDIO COMMERCIAL | Fashion Visual Agency</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Freelancer Thiết kế Website | Build & Rebuild Website chuyên nghiệp — Phan Chau Khanh Duy</title>
+  <meta name="description" content="Dịch vụ thiết kế website, build & rebuild website chuẩn UI/UX. Phan Chau Khanh Duy — Front-end Developer & UI/UX Designer với kinh nghiệm xây dựng giao diện hiện đại, tốc độ và tối ưu SEO." />
+  <meta name="keywords" content="thiết kế website, build website, rebuild website, website chuyên nghiệp, front-end developer, UI UX designer, web design, portfolio, responsive website, tối ưu SEO" />
+  <meta name="keywords" content="freelancer thiết kế website, freelance web developer, build website chuyên nghiệp, thiết kế lại website, làm web công ty, web doanh nghiệp nhỏ, thiết kế giao diện web hiện đại, tư vấn thiết kế website miễn phí" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://pckhanhduy.github.io/Portfolio/" />
+  <meta property="og:title" content="Thiết kế Website | Build & Rebuild Website — Phan Chau Khanh Duy">
+  <meta property="og:description" content="Build & rebuild website chuẩn UI/UX, hiện đại và tốc độ. Portfolio cá nhân của Phan Chau Khanh Duy — Front-end Developer & UI/UX Designer.">
+  <meta property="og:image" content="https://pckhanhduy.github.io/Portfolio/assets/avt-2.png">
+  <meta property="og:url" content="https://pckhanhduy.github.io/Portfolio/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="vi_VN">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#C8F560">
+  <meta name="google-site-verification" content="lvMInMFuJHCi-l-jApcKs6XRxAiuRJcs5EN_rIryH4M" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Thiết kế Website | Build & Rebuild Website — Phan Chau Khanh Duy">
+  <meta name="twitter:description" content="Dịch vụ thiết kế và rebuild website chuẩn UI/UX. Portfolio của Front-end Developer Phan Chau Khanh Duy.">
+  <meta name="twitter:image" content="https://pckhanhduy.github.io/Portfolio/assets/avt-2.png">
 
-<!-- Tailwind -->
-<script src="https://cdn.tailwindcss.com"></script>
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-<!-- Icons -->
-<link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="https://pckhanhduy.github.io/Portfolio/assets/logo.png">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" /> -->
+  <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+          
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="https://pckhanhduy.github.io/Portfolio/assets/css/main.css" />
 
-<style>
-body{background:#0a0a0a;color:#fff;font-family:'Inter',sans-serif;overflow-x:hidden;scroll-behavior:smooth}
-h1,h2,h3,h4{font-family:'Playfair Display',serif}
-.overlay{background:rgba(0,0,0,.6)}
-.brand-track{animation:slide 20s linear infinite}
-@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.menu-open{transform:translateY(0);opacity:1}
-.menu-closed{transform:translateY(-100%);opacity:0}
-.transition-menu{transition:all .4s ease}
-.fade{transition:all .5s ease}
-.fade:hover{opacity:.85;transform:scale(1.05)}
-</style>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: [
+              "Manrope",
+              "Inter",
+              "system-ui",
+              "-apple-system",
+              "Segoe UI",
+              "Roboto",
+              "sans-serif",
+            ],
+          },
+          colors: { accent: { DEFAULT: "#C8F560" } },
+          boxShadow: {
+            island: "0 10px 30px rgba(0,0,0,.18)",
+            soft: "0 8px 24px rgba(0,0,0,.08)",
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    /* Hello animation theme vars */
+    :root {
+      --bg-color: black;
+      --text-color: white;
+      --flash-color: white;
+      --glow-color: rgba(255, 255, 255, 0.9);
+    }
+
+    html.light {
+      --bg-color: white;
+      --text-color: black;
+      --flash-color: black;
+      --glow-color: rgba(0, 0, 0, 0.7);
+    }
+
+    /* Hello screen */
+    #hello {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--bg-color);
+      z-index: 9999;
+      transition: opacity 0.8s ease-in-out;
+    }
+
+    #hello svg {
+      width: 80%;
+      max-width: 600px;
+      stroke: var(--text-color);
+      fill: none;
+      stroke-width: 10;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      filter: drop-shadow(0 0 20px var(--glow-color));
+      transition: opacity 0.6s ease-in-out, filter 0.5s ease-in-out;
+    }
+
+    #hello svg path {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: draw 0.8s ease forwards;
+    }
+
+    @keyframes draw {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    /* delay từng nét */
+    #hello path:nth-of-type(1) { animation-delay: 0s; }
+    #hello path:nth-of-type(2) { animation-delay: 0.25s; }
+    #hello path:nth-of-type(3) { animation-delay: 0.5s; }
+    #hello path:nth-of-type(4) { animation-delay: 0.75s; }
+    #hello path:nth-of-type(5) { animation-delay: 1s; }
+    #hello path:nth-of-type(6) { animation-delay: 1.25s; }
+    #hello path:nth-of-type(7) { animation-delay: 1.5s; }
+    #hello path:nth-of-type(8) { animation-delay: 1.75s; }
+    #hello path:nth-of-type(9) { animation-delay: 2s; }
+    #hello path:nth-of-type(10) { animation-delay: 2.25s; }
+
+    #hello circle {
+      opacity: 0;
+      animation: showDot 0.25s ease forwards;
+      animation-delay: 0.4s;
+    }
+
+    @keyframes showDot {
+      to { opacity: 1; }
+    }
+
+    #flash {
+      position: fixed;
+      inset: 0;
+      background: var(--flash-color);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.6s ease-in-out;
+    }
+    #flash.active { opacity: 1; }
+    #flash.fadeout {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    #mainContent {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    #mainContent.visible {
+      opacity: 1;
+    }
+  </style>
+
 </head>
 
-<body>
-
-<!-- NAV -->
-<nav class="fixed top-0 left-0 w-full z-50 bg-black/60 backdrop-blur-md border-b border-gray-800 flex justify-between items-center px-6 md:px-12 py-4 text-sm uppercase tracking-wider">
-  <h1 class="text-xl font-semibold">S STUDIO COMMERCIAL</h1>
-  <ul class="hidden md:flex space-x-10">
-    <li><a href="#about" class="hover:text-gray-400">About</a></li>
-    <li><a href="#works" class="hover:text-gray-400">Works</a></li>
-    <li><a href="#studio" class="hover:text-gray-400">Studio</a></li>
-    <li><a href="#contact" class="hover:text-gray-400">Contact</a></li>
-  </ul>
-  <button id="menuBtn" class="md:hidden text-3xl"><i class="ri-menu-3-line"></i></button>
-</nav>
-
-<!-- MOBILE MENU -->
-<div id="mobileMenu" class="fixed top-0 left-0 w-full h-screen bg-black flex flex-col justify-center items-center text-2xl space-y-10 uppercase transition-menu menu-closed z-40">
-  <a href="#about" class="hover:text-gray-400">About</a>
-  <a href="#works" class="hover:text-gray-400">Works</a>
-  <a href="#studio" class="hover:text-gray-400">Studio</a>
-  <a href="#contact" class="hover:text-gray-400">Contact</a>
-  <button id="closeMenu" class="absolute top-6 right-6 text-3xl text-gray-400"><i class="ri-close-line"></i></button>
-</div>
-
-<!-- HERO -->
-<section class="relative h-screen flex flex-col items-center justify-center text-center">
-  <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
-    <source src="https://cdn.pixabay.com/video/2019/03/06/21625-320717148_large.mp4" type="video/mp4">
-  </video>
-  <div class="absolute inset-0 overlay"></div>
-  <div class="relative z-10 px-6">
-    <h2 class="text-5xl md:text-7xl font-bold mb-6">Visuals That Define Luxury</h2>
-    <p class="text-gray-300 max-w-xl mx-auto mb-8">Cinematic photography & fashion campaigns for global brands.</p>
-    <a href="#works" class="border border-white px-8 py-3 rounded-full hover:bg-white hover:text-black transition">Explore Works</a>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="py-32 px-6 md:px-20 text-center bg-[#0e0e0e]">
-  <h3 class="text-5xl mb-8">Art Direction. Cinematic Taste. Modern Identity.</h3>
-  <p class="text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed">
-    We transform fashion brands into living imagery.  
-    Through light, texture, and movement, S STUDIO COMMERCIAL creates stories that transcend trends and connect emotion with design.
-  </p>
-  <div class="grid md:grid-cols-3 gap-8 mt-12 text-gray-400">
-    <div><i class="ri-camera-lens-line text-4xl mb-3"></i><p>Editorial Photography</p></div>
-    <div><i class="ri-film-line text-4xl mb-3"></i><p>Fashion Film & Motion</p></div>
-    <div><i class="ri-brush-line text-4xl mb-3"></i><p>Creative Direction</p></div>
-  </div>
-</section>
-
-<!-- WORKS -->
-<section id="works" class="py-28 px-4 md:px-10 bg-black">
-  <h3 class="text-center text-5xl mb-16">Selected Works</h3>
-  <div class="grid md:grid-cols-6 gap-4">
-    <div class="md:col-span-3 row-span-2 overflow-hidden rounded-xl">
-      <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover fade">
+  <body class="font-sans bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 selection:bg-accent/50 selection:text-black overflow-x-hidden" >
+    
+    <div id="hello">
+      <svg id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1009 200">
+        <path d="M102.233 96.2277C75.6823 127.245 45.1612 158.759 11.4143 190.521"/>
+        <path d="M7.69214 116.575C9.67725 105.16 16.8733 95.7311 28.5358 95.7311C40.4465 95.7311 46.8981 105.408 53.3497 124.019C56.7409 133.283 60.1322 142.547 63.5234 151.81C73.689 179.58 81.1988 191.513 100.855 191.513C128.722 191.513 154.043 159.148 161.595 118.502C162.929 111.321 164.774 103.736 166.043 96.2273"/>
+        <path d="M166.043 96.2273C163.191 113.101 160.565 126.997 158.92 139.404C157.989 147.592 157.544 154.54 157.596 161.488C157.729 179.354 164.764 191.513 182.695 191.513C209.39 191.513 236.181 159.123 243.73 118.5C245.064 111.321 247.012 103.759 248.139 96.2273"/>
+        <circle cx="173" cy="65" r="5" fill="var(--text-color)" />
+        <path d="M248.139 96.2278C243.424 127.741 239.454 158.759 234.491 190.272"/>
+        <path d="M237.873 167.951C244.704 121.32 265.508 94.2422 290.322 94.2422C307.692 94.2422 316.625 106.153 315.136 123.026C313.896 135.681 309.677 150.322 308.685 162.729C307.444 179.85 316.499 191.513 330.769 191.513C348.722 191.513 359.309 179.314 364.143 165.965"/>
+        <path d="M535.91 109.876C531.265 100.446 520.943 93.4984 505.459 93.4984C476.516 93.4984 462.044 117.816 462.044 143.374C462.044 171.503 482.265 192.506 511.307 192.506C559.762 192.506 592.902 136.708 621.581 97.8807C640.764 71.9101 649.874 49.2359 650.372 31.1674C650.62 17.7684 644.168 7.60362 632.01 7.60362C618.61 7.60362 610.173 17.7684 604.963 41.1011C599.255 66.7441 595.037 96.1684 584.367 190.521"/>
+        <path d="M585.413 181.299C590.677 135.025 611.663 98.2125 638.213 98.2125C654.094 98.2125 664.187 110.868 661.321 128.982C659.708 139.652 656.794 152.059 655.128 164.217C653.102 179.602 658.89 191.513 676.813 191.513C702.178 191.513 717.375 164.077 725.613 135.196"/>
+        <path d="M803.871 112.995C799.007 101.8 788.666 94.2423 772.207 94.2423C744.912 94.2423 724.398 121.538 723.052 150.818C721.878 177.617 734.244 192.681 751.857 192.505C776.858 192.255 795.234 167.699 803.437 115.742C804.449 109.332 805.498 102.638 806.51 96.2274"/>
+        <path d="M806.51 96.2274C805.486 102.73 804.461 109.232 803.436 115.735C798.955 144.175 796.887 155.395 797.109 162.729C797.628 179.85 803.785 191.513 820.064 191.513C842.563 191.513 860.966 164.721 870.266 138.289C879.653 111.612 891.315 94.9867 915.633 94.9867C935.732 94.9867 951.613 109.875 951.613 137.915C951.613 168.932 931.489 192.257 906.059 192.505C883.681 192.753 868.983 174.639 870.471 147.344C872.208 117.071 890.571 94.9867 914.64 94.9867C928.536 94.9867 940.207 101.164 949.38 107.89C974.247 126.031 993.407 114.82 1000.74 96.8832"/>
+        <path d="M763.027 19.3039C768.734 34.6886 780.397 48.3362 792.059 55.5322"/>
+      </svg>
+      <div id="flash"></div>
     </div>
-    <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=80" class="rounded-xl fade">
-    <img src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=800&q=80" class="rounded-xl fade">
-    <div class="md:col-span-2 row-span-2 overflow-hidden rounded-xl">
-      <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=900&q=80" class="object-cover w-full h-full fade">
+
+    <div id="mainContent">
+      <!-- Subtle BG -->
+      <div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10">
+        <div class="absolute -top-40 -left-40 w-[420px] h-[420px] rounded-full blur-3xl opacity-20 dark:opacity-30" style="background: radial-gradient(closest-side, #c8f560, transparent)"></div>
+        <div class="absolute -bottom-40 -right-40 w-[420px] h-[420px] rounded-full blur-3xl opacity-10 dark:opacity-20" style="background: radial-gradient(closest-side, #7dd3fc, transparent)"></div>
+      </div>
+  
+      <!-- Dynamic-Island Header -->
+      <header class="fixed z-50 left-1/2 -translate-x-1/2 top-3 md:top-5 w-full flex flex-col items-center" >
+        <div id="island" class="island island--closed flex items-center gap-2 px-2 md:px-3 shadow-island border border-black/10 dark:border-white/15 bg-white/70 dark:bg-black/40 glass" >
+          <button id="islandToggle" class="flex items-center gap-2 px-3 py-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition" aria-expanded="false" aria-controls="islandMenu" >
+            <span class="inline-flex w-8 h-8 items-center justify-center rounded-full bg-accent text-black font-bold" >◎</span>
+            <strong class="tracking-wide text-sm md:text-base">PORTFOLIO</strong>
+          </button>
+  
+          <nav id="islandMenu" class="hidden md:flex items-center gap-1 text-sm">
+            <a class="nav-a" data-scroll="#home"><i class="fa-solid fa-house"></i><span data-i18n="nav.home">Trang chủ</span></a>
+            <a class="nav-a" data-scroll="#about"><i class="fa-solid fa-user"></i><span data-i18n="nav.about">Giới thiệu</span></a>
+            <a class="nav-a" data-scroll="#skills"><i class="fa-solid fa-screwdriver-wrench"></i><span data-i18n="nav.skills">Kỹ năng</span></a>
+            <a class="nav-a" data-scroll="#experience"><i class="fa-solid fa-briefcase"></i><span data-i18n="nav.experience">Kinh nghiệm</span></a>
+            <a class="nav-a" data-scroll="#projects"><i class="fa-solid fa-shapes"></i><span data-i18n="nav.projects">Dự án</span></a>
+            <a class="nav-a" data-scroll="#contact"><i class="fa-solid fa-paper-plane"></i><span data-i18n="nav.contact">Liên hệ</span></a>
+          </nav>
+  
+          <div class="controls">
+            <div class="lang-btns" role="group" aria-label="Language switch EN/VN" >
+              <button type="button" id="btnEN">EN</button>
+              <button type="button" id="btnVI">VN</button>
+            </div>
+            <!-- Dark / Light switch -->
+            <label class="toggle-theme">
+              <input type="checkbox" id="themeSwitch" aria-label="Theme switch Dark/Light"/>
+              <span class="track">
+                <i class="ico fa-regular fa-moon"></i>
+                <i class="ico fa-regular fa-sun"></i>
+                <span class="thumb"></span>
+              </span>
+            </label>
+          </div>
+        </div>
+  
+        <!-- Mobile panel -->
+        <div id="islandPanel" class="md:hidden hidden mt-2 w-[92vw] max-w-[980px] mx-auto rounded-2xl border border-black/10 dark:border-white/15 bg-white/70 dark:bg-black/40 glass shadow-soft">
+          <nav class="grid grid-cols-2 gap-2 p-3 text-sm">
+            <a class="px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 nav-a" data-scroll="#home"><i class="fa-solid fa-house"></i><span data-i18n="nav.home">Trang chủ</span></a>
+            <a class="px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 nav-a" data-scroll="#about"><i class="fa-solid fa-user"></i><span data-i18n="nav.about">Giới thiệu</span></a>
+            <a class="px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 nav-a" data-scroll="#skills"><i class="fa-solid fa-screwdriver-wrench"></i><span data-i18n="nav.skills">Kỹ năng</span></a>
+            <a class="px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 nav-a" data-scroll="#experience"><i class="fa-solid fa-briefcase"></i><span data-i18n="nav.experience">Kinh nghiệm</span></a>
+            <a class="px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 nav-a" data-scroll="#projects"><i class="fa-solid fa-shapes"></i><span data-i18n="nav.projects">Dự án</span></a>
+            <a class="px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 nav-a" data-scroll="#contact"><i class="fa-solid fa-paper-plane"></i><span data-i18n="nav.contact">Liên hệ</span></a>
+          </nav>
+        </div>
+
+      </header>
+      
+      <!-- HERO -->
+      <section id="home" class="min-h-[88vh] pt-28 md:pt-36">
+        <div class="container mx-auto px-5 md:px-8">
+          <div class="grid lg:grid-cols-2 gap-8 md:gap-10 items-center">
+            <div class="space-y-5">
+              <span class="inline-flex items-center gap-2 text-[11px] uppercase tracking-[.2em]" >
+                <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+                <span data-i18n="hero.badge">Sẵn sàng bùng nổ</span>
+              </span>
+              <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">Front-end Developer <span class="text-accent">×</span> UI·UX Designer</h1>
+              <p class="text-base md:text-lg opacity-85 max-w-xl" data-i18n="hero.subtitle" >
+                Nhanh, mượt, có gu. Ưu tiên CWV, A11y, motion tinh — đẹp & hiệu quả.
+              </p>
+              <div class="flex flex-wrap gap-3">
+                <a data-scroll="#projects" class="btn bg-black text-white dark:bg-white dark:text-black">
+                  <span data-i18n="hero.cta.projects">Xem dự án</span><i class="fa-solid fa-arrow-right-long"></i>
+                </a>
+                <a data-scroll="#contact" class="btn border border-black/15 dark:border-white/20" data-i18n="hero.cta.contact" >Liên hệ</a>
+              </div>
+              <div class="grid grid-cols-3 gap-3 pt-2">
+                <div class="p-4 rounded-2xl border border-black/10 dark:border-white/15 bg-white/70 dark:bg-black/30 glass text-center" >
+                  <div class="text-3xl font-black">2+</div>
+                  <div class="text-xs opacity-70" data-i18n="hero.stats.years">Năm KN</div>
+                </div>  
+                <div class="p-4 rounded-2xl border border-black/10 dark:border-white/15 bg-white/70 dark:bg-black/30 glass text-center" >
+                  <div class="text-3xl font-black">10+</div>
+                  <div class="text-xs opacity-70" data-i18n="hero.stats.projects">Dự án</div>
+                </div>
+                <div class="p-4 rounded-2xl border border-black/10 dark:border-white/15 bg-white/70 dark:bg-black/30 glass text-center" >
+                  <div class="text-3xl font-black">2</div>
+                  <div class="text-xs opacity-70" data-i18n="hero.stats.awards"> Giải thưởng </div>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Avatar -->
+            <div class="relative max-w-[520px] mx-auto">
+              <div class="avatar-frame border border-black/10 dark:border-white/15" >
+                <div class="avatar-orbit"></div>
+                <div class="avatar-mask relative duotone">
+                  <img src="https://pckhanhduy.github.io/Portfolio/assets/avt-2.png" class="w-full h-full object-cover" alt="Avatar - Phan Châu Khánh Duy"/>
+                </div>
+                <div class="absolute -top-4 -left-4">
+                  <span class="px-3 py-1.5 text-xs rounded-full border border-black/10 dark:border-white/20 bg-white/80 dark:bg-black/40 glass">Figma</span>
+                </div>
+                <div class="absolute -bottom-4 -right-4">
+                  <span class="px-3 py-1.5 text-xs rounded-full border border-black/10 dark:border-white/20 bg-white/80 dark:bg-black/40 glass" >React/Next</span >
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+  
+      <!-- ABOUT -->
+      <section id="about" class="py-12 md:py-16">
+        <div class="container mx-auto px-5 md:px-8 grid lg:grid-cols-12 gap-8 md:gap-10">
+        <div class="lg:col-span-5">
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-2" data-i18n="about.title">Về tôi</h2>
+          <p class="opacity-85" data-i18n="about.text">
+            Mình là <strong>Phan Chau Khanh Duy</strong>, 21 tuổi, sống tại <strong>TP.HCM</strong>. 
+            Sinh ngày <strong>19/11/2003</strong>. 
+            Tốt nghiệp loại giỏi<strong> FPT Polytechnic</strong>, chuyên ngành <strong>Công nghệ thông tin – Lập trình Website (Front-end)</strong>.
+          </p>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li>
+              <span class="opacity-60" data-i18n="about.emailLabel">Email:</span>
+              <a class="underline underline-offset-4" href="mailto:phanchaukhanhduy@gmail.com">phanchaukhanhduy@gmail.com</a>
+            </li>
+            <li>
+              <span class="opacity-60" data-i18n="about.phoneLabel">Số điện thoại:</span>
+              <strong>0344 697 253</strong>
+            </li>
+            <li>
+              <span class="opacity-60" data-i18n="about.locLabel">Nơi ở:</span>
+              <strong>TP.HCM, Việt Nam</strong>
+            </li>
+            <li>
+              <span class="opacity-60" data-i18n="about.dateLabel">Năm sinh:</span>
+              <strong>19/11/2003</strong>
+            </li>
+            <li>
+              <span class="opacity-60" data-i18n="about.facebookLabel">Facebook:</span>
+              <a class="underline underline-offset-4" href="https://www.facebook.com/phanchaukhanhduyy/" target="_blank">facebook.com/phanchaukhanhduyy</a>
+            </li>
+          </ul>
+        </div>
+  
+          <div class="lg:col-span-7">
+            <div class="rounded-2xl p-5 border border-black/10 dark:border-white/15 bg-white/70 dark:bg-black/30 glass" >
+              <h3 class="font-semibold mb-3" data-i18n="about.focus">
+                Tập trung
+              </h3>
+              <div class="grid sm:grid-cols-3 gap-3">
+                <div class="p-4 rounded-xl border border-black/10 dark:border-white/15" >
+                  <h4 class="font-semibold" data-i18n="about.focus.performance">Performance</h4>
+                  <p class="text-sm opacity-80" data-i18n="about.focus.performanceDesc" >CWV, split, lazy.</p>
+                </div>
+                <div class="p-4 rounded-xl border border-black/10 dark:border-white/15" >
+                  <h4 class="font-semibold" data-i18n="about.focus.a11y">A11y</h4>
+                  <p class="text-sm opacity-80" data-i18n="about.focus.a11yDesc">ARIA, keyboard-first.</p>
+                </div>
+                <div class="p-4 rounded-xl border border-black/10 dark:border-white/15" >
+                  <h4 class="font-semibold" data-i18n="about.focus.motion">Motion</h4>
+                  <p class="text-sm opacity-80" data-i18n="about.focus.motionDesc" >Micro-interaction có ý nghĩa.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <!-- SKILLS (Marquee) -->
+      <section id="skills" class="py-12 md:py-16">
+        <div class="container mx-auto px-5 md:px-8">
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-4" data-i18n="skills.title">Kỹ năng</h2>
+          <div class="rounded-2xl border border-black/10 dark:border-white/15 bg-white/70 dark:bg-black/30 glass p-4 mb-3">
+            <div class="marquee">
+              <div class="marquee__inner">
+                <div class="flex items-center gap-3 skill-chip">
+                  <i class="devicon-figma-plain colored"></i><span>Figma</span>
+                </div>
+                <div class="flex items-center gap-3 skill-chip">
+                  <i class="devicon-html5-plain-wordmark colored"></i><span>HTML5</span>
+                </div>
+                <div class="flex items-center gap-3 skill-chip">
+                  <i class="devicon-css3-plain-wordmark colored"></i><span>CSS3</span>
+                </div>
+                <div class="flex items-center gap-3 skill-chip">
+                  <i class="devicon-javascript-plain colored"></i><span>JavaScript</span>
+                </div>
+                <div class="flex items-center gap-3 skill-chip">
+                  <i class="devicon-typescript-plain colored"></i><span>TypeScript</span>
+                </div>
+                <div class="flex items-center gap-3 skill-chip">
+                  <i class="devicon-react-original colored"></i><span>React</span>
+                </div>
+                <div class="flex items-center gap-3 skill-chip">
+                  <i class="devicon-nextjs-original"></i><span>Next.js</span>
+                </div>
+                <div class="flex items-center gap-3 skill-chip">
+                  <i class="devicon-tailwindcss-plain colored"></i><span>Tailwind</span>
+                </div>
+                <!-- repeat -->
+                <div class="flex items-center gap-3 skill-chip">
+                  <i class="devicon-figma-plain colored"></i><span>Figma</span>
+                </div>
+                <div class="flex items-center gap-3 skill-chip">
+                  <i class="devicon-html5-plain-wordmark colored"></i><span>HTML5</span>
+                </div>
+                <div class="flex items-center gap-3 skill-chip">
+                  <i class="devicon-css3-plain-wordmark colored"></i><span>CSS3</span>
+                </div>
+                <div class="flex items-center gap-3 skill-chip">
+                  <i class="devicon-javascript-plain colored"></i><span>JavaScript</span>
+                </div>
+                <div class="flex items-center gap-3 skill-chip">
+                  <i class="devicon-typescript-plain colored"></i><span>TypeScript</span>
+                </div>
+                <div class="flex items-center gap-3 skill-chip">
+                  <i class="devicon-react-original colored"></i><span>React</span>
+                </div>
+                <div class="flex items-center gap-3 skill-chip">
+                  <i class="devicon-nextjs-original"></i><span>Next.js</span>
+                </div>
+                <div class="flex items-center gap-3 skill-chip">
+                  <i class="devicon-tailwindcss-plain colored"></i><span>Tailwind</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="rounded-2xl border border-black/10 dark:border-white/15 bg-white/70 dark:bg-black/30 glass p-4">
+            <div class="marquee">
+              <div class="marquee__inner marquee__inner--rev">
+                <div class="flex items-center gap-3 skill-chip">
+                  <i class="devicon-mysql-plain-wordmark colored"></i><span>MySQL</span>
+                </div>
+                <div class="flex items-center gap-3 skill-chip">
+                  <i class="devicon-angular-plain colored"></i><span>Angular</span>
+                </div>
+                <div class="flex items-center gap-3 skill-chip">
+                  <i class="devicon-nodejs-plain colored"></i><span>Node.js</span>
+                </div>
+                <div class="flex items-center gap-3 skill-chip">
+                  <i class="devicon-php-plain colored"></i><span>PHP</span>
+                </div>
+                <div class="flex items-center gap-3 skill-chip">
+                  <i class="devicon-mongodb-plain colored"></i><span>MongoDB</span>
+                </div>
+                <div class="flex items-center gap-3 skill-chip">
+                  <i class="devicon-docker-plain colored"></i><span>Docker</span>
+                </div>
+                <div class="flex items-center gap-3 skill-chip">
+                  <i class="devicon-graphql-plain colored"></i><span>GraphQL</span>
+                </div>
+                <!-- repeat -->
+                <div class="flex items-center gap-3 skill-chip">
+                  <i class="devicon-mysql-plain-wordmark colored"></i><span>MySQL</span>
+                </div>
+                <div class="flex items-center gap-3 skill-chip">
+                  <i class="devicon-angular-plain colored"></i><span>Angular</span>
+                </div>
+                <div class="flex items-center gap-3 skill-chip">
+                  <i class="devicon-nodejs-plain colored"></i><span>Node.js</span>
+                </div>
+                <div class="flex items-center gap-3 skill-chip">
+                  <i class="devicon-php-plain colored"></i><span>PHP</span>
+                </div>
+                <div class="flex items-center gap-3 skill-chip">
+                  <i class="devicon-mongodb-plain colored"></i><span>MongoDB</span>
+                </div>
+                <div class="flex items-center gap-3 skill-chip">
+                  <i class="devicon-docker-plain colored"></i><span>Docker</span>
+                </div>
+                <div class="flex items-center gap-3 skill-chip">
+                  <i class="devicon-graphql-plain colored"></i><span>GraphQL</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="container mx-auto px-5 md:px-8">
+          <div class="grid md:grid-cols-2 gap-8 mt-10">
+            <!-- Front-end -->
+            <div class="p-8 rounded-2xl border border-white/20 bg-gradient-to-br from-white/70 to-white/30 dark:from-white/5 dark:to-white/0 backdrop-blur-md shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <p class="text-base font-semibold mb-5 text-gray-700 dark:text-gray-200 tracking-wide" data-key="frontend">Front-end</p>
+              <div class="flex flex-wrap gap-3">
+                <span class="px-4 py-1.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 hover:bg-sky-500/20 transition-colors duration-200">React</span>
+                <span class="px-4 py-1.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 hover:bg-sky-500/20 transition-colors duration-200">Next.js</span>
+                <span class="px-4 py-1.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 hover:bg-sky-500/20 transition-colors duration-200">Tailwind</span>
+                <span class="px-4 py-1.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 hover:bg-sky-500/20 transition-colors duration-200">GSAP</span>
+                <span class="px-4 py-1.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 hover:bg-sky-500/20 transition-colors duration-200">Accessibility</span>
+              </div>
+            </div>
+  
+            <!-- Back-end & Data -->
+            <div class="p-8 rounded-2xl border border-white/20 bg-gradient-to-br from-white/70 to-white/30 dark:from-white/5 dark:to-white/0 backdrop-blur-md shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <p class="text-base font-semibold mb-5 text-gray-700 dark:text-gray-200 tracking-wide" data-key="backend">Back-end & Data</p>
+              <div class="flex flex-wrap gap-3">
+                <span class="px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors duration-200">Node.js</span>
+                <span class="px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors duration-200">PHP</span>
+                <span class="px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors duration-200">MongoDB</span>
+                <span class="px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors duration-200">PostgreSQL</span>
+                <span class="px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors duration-200">REST / GraphQL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </section>
+  
+    <!-- EXPERIENCE -->
+    <section id="experience" class="py-12 md:py-16">
+      <div class="container mx-auto px-5 md:px-8">
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-4" data-i18n="experience.title">
+          Kinh nghiệm
+        </h2>
+
+        <!-- Timeline -->
+        <ol class="relative border-s-2 border-neutral-300/60 dark:border-neutral-700/60 ps-6 space-y-8 overflow-visible">
+
+          <!-- 1️⃣ Web Developer -->
+          <li class="relative group transition-all duration-300">
+            <div class="absolute -start-[31px] top-[0px] w-3 h-3 rounded-full bg-[#C8F560] ring-2 ring-[#C8F56055] group-hover:scale-125 group-hover:shadow-[0_0_10px_#C8F560AA] transition-all duration-300"></div>
+
+            <h3 class="font-bold" data-i18n="exp.1.role">Web Developer — Vietnam Furniture Resources</h3>
+            <p class="text-sm opacity-70" data-i18n="exp.1.time">10/2023 – nay • HCM City</p>
+
+            <ul class="list-disc ms-5 mt-2 text-sm opacity-90 space-y-1">
+              <li data-i18n="exp.1.li1">Xây dựng và tối ưu giao diện web nội bộ...</li>
+              <li data-i18n="exp.1.li2">Tích hợp và fetch API từ hệ thống ERP...</li>
+              <li data-i18n="exp.1.li3">Thiết kế và chuyển file design sang HTML/CSS...</li>
+              <li data-i18n="exp.1.li4">Tối ưu CSS, responsive layout...</li>
+            </ul>
+
+            <p class="text-xs mt-2 opacity-70 italic" data-i18n="exp.1.tech">
+              ⚙️ Công nghệ & phần mềm...
+            </p>
+          </li>
+
+          <!-- 2️⃣ UI/UX Designer -->
+          <li class="relative group transition-all duration-300">
+            <div class="absolute -start-[31px] top-[0px] w-3 h-3 rounded-full bg-neutral-900 dark:bg-neutral-100 ring-2 ring-neutral-300/30 dark:ring-white/20 group-hover:scale-125 group-hover:shadow-[0_0_10px_rgba(0,0,0,0.3)] dark:group-hover:shadow-[0_0_10px_rgba(255,255,255,0.4)] transition-all duration-300"></div>
+
+            <h3 class="font-bold" data-i18n="exp.2.role">UI/UX Designer + Front-end Developer — Annam Software Company</h3>
+            <p class="text-sm opacity-70" data-i18n="exp.2.time">02/2023 – 07/2023 • HCM City</p>
+
+            <ul class="list-disc ms-5 mt-2 text-sm opacity-90 space-y-1">
+              <li data-i18n="exp.2.li1">Thiết kế và hiện thực hóa giao diện...</li>
+              <li data-i18n="exp.2.li2">Xây dựng hệ thống component...</li>
+              <li data-i18n="exp.2.li3">Chuyển thiết kế pixel-perfect...</li>
+              <li data-i18n="exp.2.li4">Hỗ trợ team cải thiện UX...</li>
+            </ul>
+
+            <p class="text-xs mt-2 opacity-70 italic" data-i18n="exp.2.tech">
+              🎨 Công nghệ & phần mềm...
+            </p>
+          </li>
+
+          <!-- 3️⃣ Freelance -->
+          <li class="relative group transition-all duration-300">
+            <div class="absolute -start-[31px] top-[0px] w-3 h-3 rounded-full bg-neutral-400 ring-2 ring-neutral-300/30 group-hover:scale-125 group-hover:shadow-[0_0_10px_rgba(156,163,175,0.6)] transition-all duration-300"></div>
+
+            <h3 class="font-bold" data-i18n="exp.3.role">Freelance</h3>
+            <p class="text-sm opacity-70" data-i18n="exp.3.time">2024 – nay • Global</p>
+
+            <ul class="list-disc ms-5 mt-2 text-sm opacity-90 space-y-1">
+              <li data-i18n="exp.3.li1">Thực hiện các dự án front-end...</li>
+              <li data-i18n="exp.3.li2">Thiết kế UI/UX theo yêu cầu...</li>
+              <li data-i18n="exp.3.li3">Thiết kế banner, catalogue...</li>
+              <li data-i18n="exp.3.li4">Tối ưu UI/UX và hiệu năng...</li>
+            </ul>
+
+            <p class="text-xs mt-2 opacity-70 italic" data-i18n="exp.3.tech">
+              🧰 Công nghệ & phần mềm...
+            </p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="py-12 md:py-16">
+      <div class="container mx-auto px-5 md:px-8">
+        <div class="flex items-end justify-between mb-4">
+          <h2 class="text-3xl md:text-4xl font-extrabold" data-i18n="proj.title">Dự án nổi bật</h2>
+          <a href="projects.html" class="text-sm underline underline-offset-4" data-i18n="proj.viewAll">Xem tất cả</a>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+          <!-- Project 1 -->
+          <article class="rounded-2xl overflow-hidden border border-black/10 dark:border-white/15 bg-white/70 dark:bg-black/30 glass">
+            <div>
+              <img class="w-full h-full object-cover" src="https://pckhanhduy.github.io/Portfolio/assets/project-01.jpg" alt="Hotel" />
+            </div>
+            <div class="p-4">
+              <h3 class="font-semibold" data-i18n="proj.p1.title">Hotel</h3>
+              <p class="text-sm opacity-80" data-i18n="proj.p1.desc">Hotel Travel Booking</p>
+              <div class="text-xs opacity-60 mt-1" data-i18n="proj.stack.hotel">React Js • Tailwind</div>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="rounded-2xl overflow-hidden border border-black/10 dark:border-white/15 bg-white/70 dark:bg-black/30 glass">
+            <div>
+              <img class="w-full h-full object-cover" src="https://pckhanhduy.github.io/Portfolio/assets/project-02.jpg" alt="Pulse Analytics" />
+            </div>
+            <div class="p-4">
+              <h3 class="font-semibold" data-i18n="proj.p2.title">Hotel</h3>
+              <p class="text-sm opacity-80" data-i18n="proj.p2.desc">LoveBox Hotel</p>
+              <div class="text-xs opacity-60 mt-1" data-i18n="proj.stack.hotel">React Js • Tailwind</div>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="rounded-2xl overflow-hidden border border-black/10 dark:border-white/15 bg-white/70 dark:bg-black/30 glass">
+            <div>
+              <img class="w-full h-full object-cover" src="https://pckhanhduy.github.io/Portfolio/assets/project-03.jpg" alt="Movie Cinema" />
+            </div>
+            <div class="p-4">
+              <h3 class="font-semibold" data-i18n="proj.p3.title">Movie Cinema</h3>
+              <p class="text-sm opacity-80" data-i18n="proj.p3.desc">Movie Cinema Booking Ticket</p>
+              <div class="text-xs opacity-60 mt-1" data-i18n="proj.stack.movie">React JC • MySql • Figma</div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  
+      <!-- CONTACT -->
+      <section id="contact" class="py-12 md:py-16">
+        <div class="container mx-auto px-5 md:px-8 grid lg:grid-cols-2 gap-6">
+          <div class="rounded-2xl p-5 border border-black/10 dark:border-white/15 bg-white/70 dark:bg-black/30 glass">
+            <h2 class="text-3xl md:text-4xl font-extrabold mb-2" data-i18n="contact.title">Liên hệ</h2>
+            <p class="opacity-80 mb-4" data-i18n="contact.text">Ưu tiên consumer, SaaS, fintech & giáo dục. On-site HCMC hoặc remote.</p>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              <a href="https://www.facebook.com/phanchaukhanhduyy/" class="flex items-center gap-3 p-3 rounded-xl border border-black/10 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/10 transition">
+                <i class="fa-brands fa-facebook text-[#1877F2] text-xl"></i><span>Facebook</span>
+              </a>
+              <a href="https://github.com/PCKhanhDuy/" class="flex items-center gap-3 p-3 rounded-xl border border-black/10 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/10 transition">
+                <i class="fa-brands fa-github text-xl"></i><span>GitHub</span>
+              </a>
+              <a href="https://www.instagram.com/pckd_19/" class="flex items-center gap-3 p-3 rounded-xl border border-black/10 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/10 transition">
+                <i class="fa-brands fa-instagram text-[#E4405F] text-xl"></i><span>Instagram</span>
+              </a>
+              <!-- <a href="#" class="flex items-center gap-3 p-3 rounded-xl border border-black/10 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/10 transition">
+                <i class="fa-brands fa-linkedin text-[#0A66C2] text-xl"></i><span>LinkedIn</span>
+              </a>
+              <a href="#" class="flex items-center gap-3 p-3 rounded-xl border border-black/10 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/10 transition">
+                <i class="fa-brands fa-behance text-[#1769FF] text-xl"></i><span>Behance</span>
+              </a>
+              <a href="#" class="flex items-center gap-3 p-3 rounded-xl border border-black/10 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/10 transition">
+                <i class="fa-brands fa-dribbble text-[#EA4C89] text-xl"></i><span>Dribbble</span>
+              </a> -->
+            </div>
+          </div>
+  
+          <form id="form" class="rounded-2xl p-5 border border-black/10 dark:border-white/15 bg-white/70 dark:bg-black/30 glass space-y-3 mb-0">
+            <div class="grid sm:grid-cols-2 gap-3">
+              <label class="text-sm block">
+                <span class="opacity-80" data-i18n="form.name">Họ tên</span>
+                <input name="from_name" required class="mt-1 w-full px-4 py-3 rounded-xl border border-black/10 dark:border-white/15 bg-white/80 dark:bg-black/40 outline-none focus:ring-2 focus:ring-accent/60"/>
+              </label>
+              <label class="text-sm block">
+                <span class="opacity-80" data-i18n="form.email">Email</span>
+                <input name="from_email" type="email" required class="mt-1 w-full px-4 py-3 rounded-xl border border-black/10 dark:border-white/15 bg-white/80 dark:bg-black/40 outline-none focus:ring-2 focus:ring-accent/60"/>
+              </label>
+            </div>
+            <label class="text-sm block">
+              <span class="opacity-80" data-i18n="form.message">Nội dung</span>
+              <textarea name="message" rows="5" required class="mt-1 w-full px-4 py-3 rounded-xl border border-black/10 dark:border-white/15 bg-white/80 dark:bg-black/40 outline-none focus:ring-2 focus:ring-accent/60"></textarea>
+            </label>
+            <div class="flex items-center justify-between">
+              <a href="mailto:phanchaukhanhduy@gmail.com" class="text-sm underline underline-offset-4" data-i18n="form.orEmail">hoặc email: phanchaukhanhduy@gmail.com</a>
+              <button type="submit" class="btn bg-black text-white dark:bg-white dark:text-black" data-i18n="form.submit">Gửi</button>
+            </div>
+          </form>
+  
+        </div>
+      </section>
+  
+      <!-- FOOTER -->
+      <footer class="py-8 text-center border-t border-black/10 dark:border-white/15">
+        <p>© <span id="year"></span> <span>Phan Chau Khanh Duy</span> — <span data-i18n="footer.built">Built with Tailwind & GSAP.</span></p>
+      </footer>
     </div>
-    <img src="https://images.unsplash.com/photo-1600181952424-b1e2e2cba8c5?auto=format&fit=crop&w=900&q=80" class="rounded-xl fade">
-    <img src="https://images.unsplash.com/photo-1573497019563-8f9534e2f4b0?auto=format&fit=crop&w=900&q=80" class="rounded-xl fade">
-  </div>
-</section>
+    
+    <style>
+      #cookie-banner {
+        transform: translateY(20px);
+        opacity: 0;
+        transition: all 0.4s ease;
+      }
+      #cookie-banner:not(.hidden) {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      #spotify-box {
+        opacity: 0;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+      }
+      #spotify-box:not(.hidden) {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
-<!-- STUDIO -->
-<section id="studio" class="py-32 px-6 md:px-20 bg-[#0c0c0c]">
-  <div class="grid md:grid-cols-2 gap-16 items-center">
-    <div>
-      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1000&q=80" class="rounded-xl shadow-lg fade">
+    </style>
+    <div id="cookie-banner" class="fixed bottom-4 right-4 z-[1000] max-w-sm w-[92vw] sm:w-96 p-4 rounded-2xl border border-black/10 dark:border-white/15 bg-white/90 dark:bg-black/70 backdrop-blur-md shadow-lg hidden">
+      <h3 class="font-semibold mb-1">Cookie & Quyền riêng tư</h3>
+      <p class="text-sm opacity-80 mb-3">Chúng tôi sử dụng cookie để cải thiện trải nghiệm của bạn.</p>
+      <div class="flex items-center justify-end gap-2">
+        <button id="cookie-decline" class="px-3 py-1.5 text-sm rounded-lg border border-black/10 dark:border-white/20 hover:bg-black/5 dark:hover:bg-white/10 transition">Từ chối</button>
+        <button id="cookie-accept" class="px-3 py-1.5 text-sm rounded-lg bg-accent text-black font-medium hover:opacity-90 transition">Đồng ý tất cả</button>
+      </div>
     </div>
-    <div>
-      <h3 class="text-5xl mb-6">The Studio & Process</h3>
-      <p class="text-gray-400 mb-8 leading-relaxed">
-        Our creative space merges design sensibility with technical mastery.  
-        We orchestrate shoots from concept to retouch, ensuring every frame speaks your brand’s essence.
-      </p>
-      <a href="#contact" class="border border-white px-8 py-3 rounded-full hover:bg-white hover:text-black transition">Work With Us</a>
+
+    <!-- Spotify Widget -->
+    <div id="spotify-widget" class="fixed bottom-5 right-5 z-[999]">
+      <!-- Nút mở -->
+      <button id="spotify-toggle" class="p-3 rounded-full bg-accent text-black shadow-md hover:scale-105 transition-transform" title="Nghe nhạc">
+        <i class="fa-brands fa-spotify text-xl"></i>
+      </button>
+
+      <!-- Hộp player -->
+      <div id="spotify-box" class="hidden absolute bottom-14 right-0 w-[300px] rounded-2xl overflow-hidden shadow-lg border border-black/10 dark:border-white/15 bg-white/90 dark:bg-black/80 backdrop-blur-lg transition-all">
+        <div class="flex items-center justify-between px-3 py-2 border-b border-black/10 dark:border-white/15">
+          <span class="text-sm font-semibold flex items-center gap-2">
+            <i class="fa-brands fa-spotify text-green-500"></i> Đang phát
+          </span>
+          <button id="spotify-close" class="text-sm opacity-70 hover:opacity-100"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <iframe style="border-radius:0;" src="https://open.spotify.com/embed/album/7heesEqGdTK3syn99rbbTy?utm_source=generator" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+
+      <!-- Popup hỏi -->
+      <div id="spotify-consent" class="hidden absolute bottom-14 right-0 w-64 p-4 rounded-xl border border-black/10 dark:border-white/15 bg-white/90 dark:bg-black/70 backdrop-blur-md shadow-lg">
+        <p class="text-sm mb-3">Phát nhạc Spotify khi vào trang?</p>
+        <div class="flex justify-end gap-2">
+          <button id="spotify-no" class="px-3 py-1.5 text-sm rounded-lg border border-black/10 dark:border-white/20 hover:bg-black/5 dark:hover:bg-white/10 transition">Không</button>
+          <button id="spotify-yes" class="px-3 py-1.5 text-sm rounded-lg bg-accent text-black font-medium hover:opacity-90 transition">Có</button>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
 
-<!-- BRAND SCROLLER -->
-<section class="bg-black py-16 overflow-hidden border-y border-gray-800">
-  <div class="flex whitespace-nowrap brand-track">
-    <div class="flex items-center space-x-16 px-10 opacity-80">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Prada-Logo.svg" class="h-8">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Chanel_logo_interlocking_cs.svg" class="h-8">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Dior_Logo.svg" class="h-8">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Gucci_Logo.svg" class="h-8">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Balenciaga_logo.svg" class="h-8">
-    </div>
-    <div class="flex items-center space-x-16 px-10 opacity-80">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Prada-Logo.svg" class="h-8">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Chanel_logo_interlocking_cs.svg" class="h-8">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Dior_Logo.svg" class="h-8">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Gucci_Logo.svg" class="h-8">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Balenciaga_logo.svg" class="h-8">
-    </div>
-  </div>
-</section>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const banner = document.getElementById("cookie-banner");
+        const acceptBtn = document.getElementById("cookie-accept");
+        const declineBtn = document.getElementById("cookie-decline");
 
-<!-- CONTACT -->
-<section id="contact" class="py-40 bg-[#0a0a0a] text-center relative">
-  <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1520975922131-cf1b0a2053b3?auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-10"></div>
-  <div class="relative z-10 px-6">
-    <h3 class="text-5xl mb-6">Let’s Build Iconic Visuals</h3>
-    <p class="text-gray-400 mb-10 max-w-xl mx-auto">Collaborate with S STUDIO COMMERCIAL for your next fashion campaign.</p>
-    <a href="mailto:hello@sstudiocommercial.com" class="inline-flex items-center border border-white px-8 py-3 rounded-full hover:bg-white hover:text-black transition">
-      <i class="ri-mail-send-line mr-2"></i> hello@sstudiocommercial.com
-    </a>
-  </div>
-</section>
+        // Nếu chưa từng chọn thì hiện banner
+        if (!localStorage.getItem("cookieConsent")) {
+          setTimeout(() => banner.classList.remove("hidden"), 1200);
+        }
 
-<!-- FOOTER -->
-<footer class="bg-black text-gray-500 py-10 text-center text-sm border-t border-gray-800">
-  <p>© 2025 S STUDIO COMMERCIAL — All Rights Reserved.</p>
-  <div class="flex justify-center space-x-4 mt-4 text-lg">
-    <i class="ri-instagram-line hover:text-white cursor-pointer"></i>
-    <i class="ri-facebook-circle-line hover:text-white cursor-pointer"></i>
-    <i class="ri-behance-line hover:text-white cursor-pointer"></i>
-  </div>
-</footer>
+        const closeBanner = (choice) => {
+          banner.classList.add("hidden");
+          localStorage.setItem("cookieConsent", choice);
+        };
 
-<!-- JS -->
-<script>
-const menuBtn=document.getElementById('menuBtn');
-const mobileMenu=document.getElementById('mobileMenu');
-const closeMenu=document.getElementById('closeMenu');
-menuBtn.addEventListener('click',()=>{mobileMenu.classList.remove('menu-closed');mobileMenu.classList.add('menu-open')});
-closeMenu.addEventListener('click',()=>{mobileMenu.classList.remove('menu-open');mobileMenu.classList.add('menu-closed')});
-</script>
+        acceptBtn.addEventListener("click", () => closeBanner("accepted"));
+        declineBtn.addEventListener("click", () => closeBanner("declined"));
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const btn = document.getElementById("spotify-toggle");
+        const consent = document.getElementById("spotify-consent");
+        const player = document.getElementById("spotify-box");
+        const closeBtn = document.getElementById("spotify-close");
+        const yes = document.getElementById("spotify-yes");
+        const no = document.getElementById("spotify-no");
 
-</body>
+        const consentStatus = localStorage.getItem("spotifyConsent");
+
+        // Nếu user đồng ý từ trước
+        if (consentStatus === "yes") {
+          btn.addEventListener("click", () => player.classList.toggle("hidden"));
+        } else if (consentStatus === "no") {
+          btn.addEventListener("click", () => consent.classList.toggle("hidden"));
+        } else {
+          // Chưa chọn thì hỏi
+          btn.addEventListener("click", () => consent.classList.toggle("hidden"));
+        }
+
+        yes.addEventListener("click", () => {
+          consent.classList.add("hidden");
+          player.classList.remove("hidden");
+          localStorage.setItem("spotifyConsent", "yes");
+        });
+
+        no.addEventListener("click", () => {
+          consent.classList.add("hidden");
+          localStorage.setItem("spotifyConsent", "no");
+        });
+
+        // Nút đóng player
+        closeBtn.addEventListener("click", () => player.classList.add("hidden"));
+
+        // Click ra ngoài để đóng
+        document.addEventListener("click", (e) => {
+          if (!player.contains(e.target) && !btn.contains(e.target)) {
+            player.classList.add("hidden");
+            consent.classList.add("hidden");
+          }
+        });
+      });
+    </script>
+
+    <!-- SDK EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <!-- File JS riêng -->
+    <script src="https://pckhanhduy.github.io/Portfolio/assets/js/main.js"></script>
+  </body>
 </html>

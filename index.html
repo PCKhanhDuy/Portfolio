@@ -24,7 +24,9 @@
   <meta name="twitter:image" content="https://pckhanhduy.github.io/Portfolio/assets/avt-2.png">
 
   <link rel="icon" type="image/png" href="https://pckhanhduy.github.io/Portfolio/assets/logo.png">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" /> -->
+  <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+          
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <link rel="stylesheet" href="https://pckhanhduy.github.io/Portfolio/assets/css/main.css" />
 
@@ -56,102 +58,102 @@
       },
     };
   </script>
-<style>
-  /* Hello animation theme vars */
-  :root {
-    --bg-color: black;
-    --text-color: white;
-    --flash-color: white;
-    --glow-color: rgba(255, 255, 255, 0.9);
-  }
-
-  html.light {
-    --bg-color: white;
-    --text-color: black;
-    --flash-color: black;
-    --glow-color: rgba(0, 0, 0, 0.7);
-  }
-
-  /* Hello screen */
-  #hello {
-    position: fixed;
-    inset: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: var(--bg-color);
-    z-index: 9999;
-    transition: opacity 0.8s ease-in-out;
-  }
-
-  #hello svg {
-    width: 80%;
-    max-width: 600px;
-    stroke: var(--text-color);
-    fill: none;
-    stroke-width: 10;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    filter: drop-shadow(0 0 20px var(--glow-color));
-    transition: opacity 0.6s ease-in-out, filter 0.5s ease-in-out;
-  }
-
-  #hello svg path {
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-    animation: draw 0.8s ease forwards;
-  }
-
-  @keyframes draw {
-    to {
-      stroke-dashoffset: 0;
+  <style>
+    /* Hello animation theme vars */
+    :root {
+      --bg-color: black;
+      --text-color: white;
+      --flash-color: white;
+      --glow-color: rgba(255, 255, 255, 0.9);
     }
-  }
 
-  /* delay từng nét */
-  #hello path:nth-of-type(1) { animation-delay: 0s; }
-  #hello path:nth-of-type(2) { animation-delay: 0.25s; }
-  #hello path:nth-of-type(3) { animation-delay: 0.5s; }
-  #hello path:nth-of-type(4) { animation-delay: 0.75s; }
-  #hello path:nth-of-type(5) { animation-delay: 1s; }
-  #hello path:nth-of-type(6) { animation-delay: 1.25s; }
-  #hello path:nth-of-type(7) { animation-delay: 1.5s; }
-  #hello path:nth-of-type(8) { animation-delay: 1.75s; }
-  #hello path:nth-of-type(9) { animation-delay: 2s; }
-  #hello path:nth-of-type(10) { animation-delay: 2.25s; }
+    html.light {
+      --bg-color: white;
+      --text-color: black;
+      --flash-color: black;
+      --glow-color: rgba(0, 0, 0, 0.7);
+    }
 
-  #hello circle {
-    opacity: 0;
-    animation: showDot 0.25s ease forwards;
-    animation-delay: 0.4s;
-  }
+    /* Hello screen */
+    #hello {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--bg-color);
+      z-index: 9999;
+      transition: opacity 0.8s ease-in-out;
+    }
 
-  @keyframes showDot {
-    to { opacity: 1; }
-  }
+    #hello svg {
+      width: 80%;
+      max-width: 600px;
+      stroke: var(--text-color);
+      fill: none;
+      stroke-width: 10;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      filter: drop-shadow(0 0 20px var(--glow-color));
+      transition: opacity 0.6s ease-in-out, filter 0.5s ease-in-out;
+    }
 
-  #flash {
-    position: fixed;
-    inset: 0;
-    background: var(--flash-color);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.6s ease-in-out;
-  }
-  #flash.active { opacity: 1; }
-  #flash.fadeout {
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-  }
+    #hello svg path {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: draw 0.8s ease forwards;
+    }
 
-  #mainContent {
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-  }
-  #mainContent.visible {
-    opacity: 1;
-  }
-</style>
+    @keyframes draw {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    /* delay từng nét */
+    #hello path:nth-of-type(1) { animation-delay: 0s; }
+    #hello path:nth-of-type(2) { animation-delay: 0.25s; }
+    #hello path:nth-of-type(3) { animation-delay: 0.5s; }
+    #hello path:nth-of-type(4) { animation-delay: 0.75s; }
+    #hello path:nth-of-type(5) { animation-delay: 1s; }
+    #hello path:nth-of-type(6) { animation-delay: 1.25s; }
+    #hello path:nth-of-type(7) { animation-delay: 1.5s; }
+    #hello path:nth-of-type(8) { animation-delay: 1.75s; }
+    #hello path:nth-of-type(9) { animation-delay: 2s; }
+    #hello path:nth-of-type(10) { animation-delay: 2.25s; }
+
+    #hello circle {
+      opacity: 0;
+      animation: showDot 0.25s ease forwards;
+      animation-delay: 0.4s;
+    }
+
+    @keyframes showDot {
+      to { opacity: 1; }
+    }
+
+    #flash {
+      position: fixed;
+      inset: 0;
+      background: var(--flash-color);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.6s ease-in-out;
+    }
+    #flash.active { opacity: 1; }
+    #flash.fadeout {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    #mainContent {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    #mainContent.visible {
+      opacity: 1;
+    }
+  </style>
 
 </head>
 
@@ -226,8 +228,9 @@
             <a class="px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 nav-a" data-scroll="#contact"><i class="fa-solid fa-paper-plane"></i><span data-i18n="nav.contact">Liên hệ</span></a>
           </nav>
         </div>
+
       </header>
-  
+      
       <!-- HERO -->
       <section id="home" class="min-h-[88vh] pt-28 md:pt-36">
         <div class="container mx-auto px-5 md:px-8">
@@ -319,9 +322,7 @@
   
           <div class="lg:col-span-7">
             <div class="rounded-2xl p-5 border border-black/10 dark:border-white/15 bg-white/70 dark:bg-black/30 glass" >
-              <h3 class="font-semibold mb-3" data-i18n="about.focus">
-                Tập trung
-              </h3>
+              <h3 class="font-semibold mb-3" data-i18n="about.focus">Tập trung</h3>
               <div class="grid sm:grid-cols-3 gap-3">
                 <div class="p-4 rounded-xl border border-black/10 dark:border-white/15" >
                   <h4 class="font-semibold" data-i18n="about.focus.performance">Performance</h4>
@@ -349,10 +350,13 @@
             <div class="marquee">
               <div class="marquee__inner">
                 <div class="flex items-center gap-3 skill-chip">
-                  <i class="devicon-html5-plain colored"></i><span>HTML5</span>
+                  <i class="devicon-figma-plain colored"></i><span>Figma</span>
                 </div>
                 <div class="flex items-center gap-3 skill-chip">
-                  <i class="devicon-css3-plain colored"></i><span>CSS3</span>
+                  <i class="devicon-html5-plain-wordmark colored"></i><span>HTML5</span>
+                </div>
+                <div class="flex items-center gap-3 skill-chip">
+                  <i class="devicon-css3-plain-wordmark colored"></i><span>CSS3</span>
                 </div>
                 <div class="flex items-center gap-3 skill-chip">
                   <i class="devicon-javascript-plain colored"></i><span>JavaScript</span>
@@ -368,16 +372,16 @@
                 </div>
                 <div class="flex items-center gap-3 skill-chip">
                   <i class="devicon-tailwindcss-plain colored"></i><span>Tailwind</span>
-                </div>
-                <div class="flex items-center gap-3 skill-chip">
-                  <i class="devicon-vitejs-plain colored"></i><span>Vite</span>
                 </div>
                 <!-- repeat -->
                 <div class="flex items-center gap-3 skill-chip">
-                  <i class="devicon-html5-plain colored"></i><span>HTML5</span>
+                  <i class="devicon-figma-plain colored"></i><span>Figma</span>
                 </div>
                 <div class="flex items-center gap-3 skill-chip">
-                  <i class="devicon-css3-plain colored"></i><span>CSS3</span>
+                  <i class="devicon-html5-plain-wordmark colored"></i><span>HTML5</span>
+                </div>
+                <div class="flex items-center gap-3 skill-chip">
+                  <i class="devicon-css3-plain-wordmark colored"></i><span>CSS3</span>
                 </div>
                 <div class="flex items-center gap-3 skill-chip">
                   <i class="devicon-javascript-plain colored"></i><span>JavaScript</span>
@@ -393,9 +397,6 @@
                 </div>
                 <div class="flex items-center gap-3 skill-chip">
                   <i class="devicon-tailwindcss-plain colored"></i><span>Tailwind</span>
-                </div>
-                <div class="flex items-center gap-3 skill-chip">
-                  <i class="devicon-vitejs-plain colored"></i><span>Vite</span>
                 </div>
               </div>
             </div>
@@ -404,19 +405,16 @@
             <div class="marquee">
               <div class="marquee__inner marquee__inner--rev">
                 <div class="flex items-center gap-3 skill-chip">
-                  <i class="devicon-figma-plain colored"></i><span>Figma</span>
+                  <i class="devicon-mysql-plain-wordmark colored"></i><span>MySQL</span>
                 </div>
                 <div class="flex items-center gap-3 skill-chip">
-                  <i class="devicon-storybook-plain colored"></i><span>Storybook</span>
+                  <i class="devicon-angular-plain colored"></i><span>Angular</span>
                 </div>
                 <div class="flex items-center gap-3 skill-chip">
                   <i class="devicon-nodejs-plain colored"></i><span>Node.js</span>
                 </div>
                 <div class="flex items-center gap-3 skill-chip">
-                  <i class="devicon-express-original"></i><span>Express</span>
-                </div>
-                <div class="flex items-center gap-3 skill-chip">
-                  <i class="devicon-postgresql-plain colored"></i><span>PostgreSQL</span>
+                  <i class="devicon-php-plain colored"></i><span>PHP</span>
                 </div>
                 <div class="flex items-center gap-3 skill-chip">
                   <i class="devicon-mongodb-plain colored"></i><span>MongoDB</span>
@@ -429,19 +427,16 @@
                 </div>
                 <!-- repeat -->
                 <div class="flex items-center gap-3 skill-chip">
-                  <i class="devicon-figma-plain colored"></i><span>Figma</span>
+                  <i class="devicon-mysql-plain-wordmark colored"></i><span>MySQL</span>
                 </div>
                 <div class="flex items-center gap-3 skill-chip">
-                  <i class="devicon-storybook-plain colored"></i><span>Storybook</span>
+                  <i class="devicon-angular-plain colored"></i><span>Angular</span>
                 </div>
                 <div class="flex items-center gap-3 skill-chip">
                   <i class="devicon-nodejs-plain colored"></i><span>Node.js</span>
                 </div>
                 <div class="flex items-center gap-3 skill-chip">
-                  <i class="devicon-express-original"></i><span>Express</span>
-                </div>
-                <div class="flex items-center gap-3 skill-chip">
-                  <i class="devicon-postgresql-plain colored"></i><span>PostgreSQL</span>
+                  <i class="devicon-php-plain colored"></i><span>PHP</span>
                 </div>
                 <div class="flex items-center gap-3 skill-chip">
                   <i class="devicon-mongodb-plain colored"></i><span>MongoDB</span>
@@ -476,7 +471,7 @@
               <p class="text-base font-semibold mb-5 text-gray-700 dark:text-gray-200 tracking-wide" data-key="backend">Back-end & Data</p>
               <div class="flex flex-wrap gap-3">
                 <span class="px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors duration-200">Node.js</span>
-                <span class="px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors duration-200">Express</span>
+                <span class="px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors duration-200">PHP</span>
                 <span class="px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors duration-200">MongoDB</span>
                 <span class="px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors duration-200">PostgreSQL</span>
                 <span class="px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors duration-200">REST / GraphQL</span>
@@ -490,58 +485,73 @@
       <!-- EXPERIENCE -->
       <section id="experience" class="py-12 md:py-16">
         <div class="container mx-auto px-5 md:px-8">
-          <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Kinh nghiệm</h2>
-  
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-4" data-i18n="experience.title">
+            Kinh nghiệm
+          </h2>
+
           <!-- Timeline -->
           <ol class="relative border-s-2 border-neutral-300/60 dark:border-neutral-700/60 ps-6 space-y-8 overflow-visible">
+
             <!-- 1️⃣ Web Developer -->
             <li class="relative group transition-all duration-300">
-              <div class="absolute -start-[31px] top-[0px] w-3 h-3 rounded-full bg-[#C8F560] ring-2 ring-[#C8F56055] group-hover:scale-125 group-hover:shadow-[0_0_10px_#C8F560AA] transition-all duration-300">
-              </div>
-              <h3 class="font-bold">Web Developer — Vietnam Furniture Resources</h3>
-              <p class="text-sm opacity-70">10/2023 – nay • HCM City</p>
+              <div class="absolute -start-[31px] top-[0px] w-3 h-3 rounded-full bg-[#C8F560] ring-2 ring-[#C8F56055] group-hover:scale-125 group-hover:shadow-[0_0_10px_#C8F560AA] transition-all duration-300"></div>
+
+              <h3 class="font-bold" data-i18n="exp.1.role">Web Developer — Vietnam Furniture Resources</h3>
+              <p class="text-sm opacity-70" data-i18n="exp.1.time">10/2023 – nay • HCM City</p>
+
               <ul class="list-disc ms-5 mt-2 text-sm opacity-90 space-y-1">
-                <li>Xây dựng và tối ưu giao diện web nội bộ cho hệ thống ERP và ticket.</li>
-                <li>Tích hợp và fetch API từ hệ thống ERP để hiển thị dữ liệu động.</li>
-                <li>Thiết kế và chuyển file design sang HTML/CSS để gửi email marketing.</li>
-                <li>Tối ưu CSS, responsive layout và hiệu năng trang.</li>
+                <li data-i18n="exp.1.li1">Xây dựng và tối ưu giao diện web nội bộ...</li>
+                <li data-i18n="exp.1.li2">Tích hợp và fetch API từ hệ thống ERP...</li>
+                <li data-i18n="exp.1.li3">Thiết kế và chuyển file design sang HTML/CSS...</li>
+                <li data-i18n="exp.1.li4">Tối ưu CSS, responsive layout...</li>
               </ul>
-              <p class="text-xs mt-2 opacity-70 italic">
-                ⚙️ Công nghệ & phần mềm: HTML, CSS, Bootstrap, Tailwind, JavaScript, PHP (Yii Framework), Git, Figma, OpenCart, Laravel, ReactJS, Angular, InDesign, Illustrator, Photoshop
+
+              <p class="text-xs mt-2 opacity-70 italic" data-i18n="exp.1.tech">
+                ⚙️ Công nghệ & phần mềm...
               </p>
             </li>
-  
+
             <!-- 2️⃣ UI/UX Designer -->
             <li class="relative group transition-all duration-300">
               <div class="absolute -start-[31px] top-[0px] w-3 h-3 rounded-full bg-neutral-900 dark:bg-neutral-100 ring-2 ring-neutral-300/30 dark:ring-white/20 group-hover:scale-125 group-hover:shadow-[0_0_10px_rgba(0,0,0,0.3)] dark:group-hover:shadow-[0_0_10px_rgba(255,255,255,0.4)] transition-all duration-300"></div>
-              <h3 class="font-bold">UI/UX Designer + Front-end Developer — Annam Software Company</h3>
-              <p class="text-sm opacity-70">02/2023 – 07/2023 • HCM City</p>
+
+              <h3 class="font-bold" data-i18n="exp.2.role">UI/UX Designer + Front-end Developer — Annam Software Company</h3>
+              <p class="text-sm opacity-70" data-i18n="exp.2.time">02/2023 – 07/2023 • HCM City</p>
+
               <ul class="list-disc ms-5 mt-2 text-sm opacity-90 space-y-1">
-                <li>Thiết kế và hiện thực hóa giao diện sản phẩm SaaS từ Figma sang HTML/CSS.</li>
-                <li>Xây dựng hệ thống component và prototype UI/UX.</li>
-                <li>Chuyển thiết kế pixel-perfect, tối ưu hiển thị trên desktop & mobile.</li>
-                <li>Hỗ trợ team cải thiện UX thông qua feedback và A/B testing.</li>
+                <li data-i18n="exp.2.li1">Thiết kế và hiện thực hóa giao diện...</li>
+                <li data-i18n="exp.2.li2">Xây dựng hệ thống component...</li>
+                <li data-i18n="exp.2.li3">Chuyển thiết kế pixel-perfect...</li>
+                <li data-i18n="exp.2.li4">Hỗ trợ team cải thiện UX...</li>
               </ul>
-              <p class="text-xs mt-2 opacity-70 italic">🎨 Công nghệ & phần mềm: Figma, Adobe XD, HTML, CSS, JavaScript, Bootstrap, Git</p>
+
+              <p class="text-xs mt-2 opacity-70 italic" data-i18n="exp.2.tech">
+                🎨 Công nghệ & phần mềm...
+              </p>
             </li>
-  
+
             <!-- 3️⃣ Freelance -->
             <li class="relative group transition-all duration-300">
               <div class="absolute -start-[31px] top-[0px] w-3 h-3 rounded-full bg-neutral-400 ring-2 ring-neutral-300/30 group-hover:scale-125 group-hover:shadow-[0_0_10px_rgba(156,163,175,0.6)] transition-all duration-300"></div>
-              <h3 class="font-bold">Freelance</h3>
-              <p class="text-sm opacity-70">2024 – nay • Global</p>
+
+              <h3 class="font-bold" data-i18n="exp.3.role">Freelance</h3>
+              <p class="text-sm opacity-70" data-i18n="exp.3.time">2024 – nay • Global</p>
+
               <ul class="list-disc ms-5 mt-2 text-sm opacity-90 space-y-1">
-                <li>Thực hiện các dự án front-end, landing page và portfolio website.</li>
-                <li>Thiết kế UI/UX và giao diện theo yêu cầu với Tailwind hoặc ReactJS.</li>
-                <li>Thiết kế banner, catalogue và mockup sản phẩm cho marketing.</li>
-                <li>Tối ưu UI/UX và hiệu năng website cho khách hàng toàn cầu.</li>
+                <li data-i18n="exp.3.li1">Thực hiện các dự án front-end...</li>
+                <li data-i18n="exp.3.li2">Thiết kế UI/UX theo yêu cầu...</li>
+                <li data-i18n="exp.3.li3">Thiết kế banner, catalogue...</li>
+                <li data-i18n="exp.3.li4">Tối ưu UI/UX và hiệu năng...</li>
               </ul>
-              <p class="text-xs mt-2 opacity-70 italic">🧰 Công nghệ & phần mềm: Figma, Photoshop, Illustrator, ReactJS, Tailwind CSS, GitHub</p>
+
+              <p class="text-xs mt-2 opacity-70 italic" data-i18n="exp.3.tech">
+                🧰 Công nghệ & phần mềm...
+              </p>
             </li>
           </ol>
         </div>
       </section>
-  
+
       <!-- PROJECTS -->
       <section id="projects" class="py-12 md:py-16">
         <div class="container mx-auto px-5 md:px-8">
@@ -549,37 +559,45 @@
             <h2 class="text-3xl md:text-4xl font-extrabold" data-i18n="proj.title">Dự án nổi bật</h2>
             <a href="projects.html" class="text-sm underline underline-offset-4" data-i18n="proj.viewAll">Xem tất cả</a>
           </div>
+
           <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+            <!-- Project 1 -->
             <article class="rounded-2xl overflow-hidden border border-black/10 dark:border-white/15 bg-white/70 dark:bg-black/30 glass">
-              <div class="">
-                <img class="w-full h-full object-cover" src="https://pckhanhduy.github.io/Portfolio/assets/project-01.jpg" alt="Hotel"/>
+              <div>
+                <img class="w-full h-full object-cover" src="https://pckhanhduy.github.io/Portfolio/assets/project-01.jpg" alt="Hotel" />
               </div>
               <div class="p-4">
-                <h3 class="font-semibold">Hotel</h3>
+                <h3 class="font-semibold" data-i18n="proj.p1.title">Hotel</h3>
                 <p class="text-sm opacity-80" data-i18n="proj.p1.desc">Hotel Travel Booking</p>
-                <div class="text-xs opacity-60 mt-1">React Js • Tailwind </div>
+                <div class="text-xs opacity-60 mt-1" data-i18n="proj.stack.hotel">React Js • Tailwind</div>
               </div>
             </article>
-            <article class="rounded-2xl overflow-hidden border border-black/10 dark:border-white/15 bg-white/70 dark:bg-black/30 glass" >
-              <div class="">
+
+            <!-- Project 2 -->
+            <article class="rounded-2xl overflow-hidden border border-black/10 dark:border-white/15 bg-white/70 dark:bg-black/30 glass">
+              <div>
                 <img class="w-full h-full object-cover" src="https://pckhanhduy.github.io/Portfolio/assets/project-02.jpg" alt="Pulse Analytics" />
               </div>
               <div class="p-4">
-                <h3 class="font-semibold">Hotel</h3>
+                <h3 class="font-semibold" data-i18n="proj.p2.title">Hotel</h3>
                 <p class="text-sm opacity-80" data-i18n="proj.p2.desc">LoveBox Hotel</p>
-                <div class="text-xs opacity-60 mt-1">React Js • Tailwind </div>
+                <div class="text-xs opacity-60 mt-1" data-i18n="proj.stack.hotel">React Js • Tailwind</div>
               </div>
             </article>
-            <article class="rounded-2xl overflow-hidden border border-black/10 dark:border-white/15 bg-white/70 dark:bg-black/30 glass" >
-              <div class="">
-                <img class="w-full h-full object-cover" src="https://pckhanhduy.github.io/Portfolio/assets/project-03.jpg" alt="Movie Cinema"/>
+
+            <!-- Project 3 -->
+            <article class="rounded-2xl overflow-hidden border border-black/10 dark:border-white/15 bg-white/70 dark:bg-black/30 glass">
+              <div>
+                <img class="w-full h-full object-cover" src="https://pckhanhduy.github.io/Portfolio/assets/project-03.jpg" alt="Movie Cinema" />
               </div>
               <div class="p-4">
-                <h3 class="font-semibold">Movie Cinema</h3>
+                <h3 class="font-semibold" data-i18n="proj.p3.title">Movie Cinema</h3>
                 <p class="text-sm opacity-80" data-i18n="proj.p3.desc">Movie Cinema Booking Ticket</p>
-                <div class="text-xs opacity-60 mt-1">React JC • MySql • Figma</div>
+                <div class="text-xs opacity-60 mt-1" data-i18n="proj.stack.movie">React JC • MySql • Figma</div>
               </div>
             </article>
+
           </div>
         </div>
       </section>
@@ -640,6 +658,7 @@
       <footer class="py-8 text-center border-t border-black/10 dark:border-white/15">
         <p>© <span id="year"></span> <span>Phan Chau Khanh Duy</span> — <span data-i18n="footer.built">Built with Tailwind & GSAP.</span></p>
       </footer>
+      
     </div>
     
     <style>

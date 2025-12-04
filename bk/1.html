@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>S STUDIO COMMERCIAL | Fashion Visual Agency</title>
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<!-- Icons -->
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+
+<style>
+body{background:#0a0a0a;color:#fff;font-family:'Inter',sans-serif;overflow-x:hidden;scroll-behavior:smooth}
+h1,h2,h3,h4{font-family:'Playfair Display',serif}
+.overlay{background:rgba(0,0,0,.6)}
+.brand-track{animation:slide 20s linear infinite}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.menu-open{transform:translateY(0);opacity:1}
+.menu-closed{transform:translateY(-100%);opacity:0}
+.transition-menu{transition:all .4s ease}
+.fade{transition:all .5s ease}
+.fade:hover{opacity:.85;transform:scale(1.05)}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="fixed top-0 left-0 w-full z-50 bg-black/60 backdrop-blur-md border-b border-gray-800 flex justify-between items-center px-6 md:px-12 py-4 text-sm uppercase tracking-wider">
+  <h1 class="text-xl font-semibold">S STUDIO COMMERCIAL</h1>
+  <ul class="hidden md:flex space-x-10">
+    <li><a href="#about" class="hover:text-gray-400">About</a></li>
+    <li><a href="#works" class="hover:text-gray-400">Works</a></li>
+    <li><a href="#studio" class="hover:text-gray-400">Studio</a></li>
+    <li><a href="#contact" class="hover:text-gray-400">Contact</a></li>
+  </ul>
+  <button id="menuBtn" class="md:hidden text-3xl"><i class="ri-menu-3-line"></i></button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mobileMenu" class="fixed top-0 left-0 w-full h-screen bg-black flex flex-col justify-center items-center text-2xl space-y-10 uppercase transition-menu menu-closed z-40">
+  <a href="#about" class="hover:text-gray-400">About</a>
+  <a href="#works" class="hover:text-gray-400">Works</a>
+  <a href="#studio" class="hover:text-gray-400">Studio</a>
+  <a href="#contact" class="hover:text-gray-400">Contact</a>
+  <button id="closeMenu" class="absolute top-6 right-6 text-3xl text-gray-400"><i class="ri-close-line"></i></button>
+</div>
+
+<!-- HERO -->
+<section class="relative h-screen flex flex-col items-center justify-center text-center">
+  <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
+    <source src="https://cdn.pixabay.com/video/2019/03/06/21625-320717148_large.mp4" type="video/mp4">
+  </video>
+  <div class="absolute inset-0 overlay"></div>
+  <div class="relative z-10 px-6">
+    <h2 class="text-5xl md:text-7xl font-bold mb-6">Visuals That Define Luxury</h2>
+    <p class="text-gray-300 max-w-xl mx-auto mb-8">Cinematic photography & fashion campaigns for global brands.</p>
+    <a href="#works" class="border border-white px-8 py-3 rounded-full hover:bg-white hover:text-black transition">Explore Works</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-32 px-6 md:px-20 text-center bg-[#0e0e0e]">
+  <h3 class="text-5xl mb-8">Art Direction. Cinematic Taste. Modern Identity.</h3>
+  <p class="text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed">
+    We transform fashion brands into living imagery.  
+    Through light, texture, and movement, S STUDIO COMMERCIAL creates stories that transcend trends and connect emotion with design.
+  </p>
+  <div class="grid md:grid-cols-3 gap-8 mt-12 text-gray-400">
+    <div><i class="ri-camera-lens-line text-4xl mb-3"></i><p>Editorial Photography</p></div>
+    <div><i class="ri-film-line text-4xl mb-3"></i><p>Fashion Film & Motion</p></div>
+    <div><i class="ri-brush-line text-4xl mb-3"></i><p>Creative Direction</p></div>
+  </div>
+</section>
+
+<!-- WORKS -->
+<section id="works" class="py-28 px-4 md:px-10 bg-black">
+  <h3 class="text-center text-5xl mb-16">Selected Works</h3>
+  <div class="grid md:grid-cols-6 gap-4">
+    <div class="md:col-span-3 row-span-2 overflow-hidden rounded-xl">
+      <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover fade">
+    </div>
+    <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=80" class="rounded-xl fade">
+    <img src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=800&q=80" class="rounded-xl fade">
+    <div class="md:col-span-2 row-span-2 overflow-hidden rounded-xl">
+      <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=900&q=80" class="object-cover w-full h-full fade">
+    </div>
+    <img src="https://images.unsplash.com/photo-1600181952424-b1e2e2cba8c5?auto=format&fit=crop&w=900&q=80" class="rounded-xl fade">
+    <img src="https://images.unsplash.com/photo-1573497019563-8f9534e2f4b0?auto=format&fit=crop&w=900&q=80" class="rounded-xl fade">
+  </div>
+</section>
+
+<!-- STUDIO -->
+<section id="studio" class="py-32 px-6 md:px-20 bg-[#0c0c0c]">
+  <div class="grid md:grid-cols-2 gap-16 items-center">
+    <div>
+      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1000&q=80" class="rounded-xl shadow-lg fade">
+    </div>
+    <div>
+      <h3 class="text-5xl mb-6">The Studio & Process</h3>
+      <p class="text-gray-400 mb-8 leading-relaxed">
+        Our creative space merges design sensibility with technical mastery.  
+        We orchestrate shoots from concept to retouch, ensuring every frame speaks your brand’s essence.
+      </p>
+      <a href="#contact" class="border border-white px-8 py-3 rounded-full hover:bg-white hover:text-black transition">Work With Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND SCROLLER -->
+<section class="bg-black py-16 overflow-hidden border-y border-gray-800">
+  <div class="flex whitespace-nowrap brand-track">
+    <div class="flex items-center space-x-16 px-10 opacity-80">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Prada-Logo.svg" class="h-8">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Chanel_logo_interlocking_cs.svg" class="h-8">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Dior_Logo.svg" class="h-8">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Gucci_Logo.svg" class="h-8">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Balenciaga_logo.svg" class="h-8">
+    </div>
+    <div class="flex items-center space-x-16 px-10 opacity-80">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Prada-Logo.svg" class="h-8">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Chanel_logo_interlocking_cs.svg" class="h-8">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Dior_Logo.svg" class="h-8">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Gucci_Logo.svg" class="h-8">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Balenciaga_logo.svg" class="h-8">
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-40 bg-[#0a0a0a] text-center relative">
+  <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1520975922131-cf1b0a2053b3?auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-10"></div>
+  <div class="relative z-10 px-6">
+    <h3 class="text-5xl mb-6">Let’s Build Iconic Visuals</h3>
+    <p class="text-gray-400 mb-10 max-w-xl mx-auto">Collaborate with S STUDIO COMMERCIAL for your next fashion campaign.</p>
+    <a href="mailto:hello@sstudiocommercial.com" class="inline-flex items-center border border-white px-8 py-3 rounded-full hover:bg-white hover:text-black transition">
+      <i class="ri-mail-send-line mr-2"></i> hello@sstudiocommercial.com
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-black text-gray-500 py-10 text-center text-sm border-t border-gray-800">
+  <p>© 2025 S STUDIO COMMERCIAL — All Rights Reserved.</p>
+  <div class="flex justify-center space-x-4 mt-4 text-lg">
+    <i class="ri-instagram-line hover:text-white cursor-pointer"></i>
+    <i class="ri-facebook-circle-line hover:text-white cursor-pointer"></i>
+    <i class="ri-behance-line hover:text-white cursor-pointer"></i>
+  </div>
+</footer>
+
+<!-- JS -->
+<script>
+const menuBtn=document.getElementById('menuBtn');
+const mobileMenu=document.getElementById('mobileMenu');
+const closeMenu=document.getElementById('closeMenu');
+menuBtn.addEventListener('click',()=>{mobileMenu.classList.remove('menu-closed');mobileMenu.classList.add('menu-open')});
+closeMenu.addEventListener('click',()=>{mobileMenu.classList.remove('menu-open');mobileMenu.classList.add('menu-closed')});
+</script>
+
+</body>
+</html>

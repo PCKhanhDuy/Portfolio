@@ -24,6 +24,7 @@ const I18N = {
     "hero.stats.years": "Năm KN",
     "hero.stats.projects": "Dự án",
     "hero.stats.awards": "Giải thưởng",
+
     "about.title": "Về tôi",
     "about.text":
       "Mình là <strong>Phan Chau Khanh Duy</strong>, 21 tuổi, sống tại <strong>TP.HCM</strong>. <br>Tốt nghiệp loại Giỏi tại <strong>Cao đẳng FPT Polytechnic</strong>, chuyên ngành <strong>Công nghệ thông tin – Lập trình Website (Front-end)</strong>.",
@@ -32,6 +33,7 @@ const I18N = {
     "about.locLabel": "Nơi ở:",
     "about.dateLabel": "Sinh năm:",
     "about.locValue": "TP.HCM, Việt Nam",
+
     "about.focus": "Tập trung",
     "about.focus.performance": "Performance",
     "about.focus.performanceDesc": "CWV, split, lazy.",
@@ -39,13 +41,53 @@ const I18N = {
     "about.focus.a11yDesc": "ARIA, keyboard-first.",
     "about.focus.motion": "Motion",
     "about.focus.motionDesc": "Micro-interaction có ý nghĩa.",
+
     "skills.title": "Kỹ năng",
+
     "exp.title": "Kinh nghiệm",
+    "experience.title": "Kinh nghiệm",
+
+    /* EXPERIENCE */
+    "exp.1.role": "Web Developer — Vietnam Furniture Resources",
+    "exp.1.time": "10/2023 – nay • TP.HCM",
+    "exp.1.li1": "Xây dựng và tối ưu giao diện web nội bộ cho hệ thống ERP và ticket.",
+    "exp.1.li2": "Tích hợp và fetch API từ hệ thống ERP để hiển thị dữ liệu động.",
+    "exp.1.li3": "Thiết kế và chuyển file design sang HTML/CSS để gửi email marketing.",
+    "exp.1.li4": "Tối ưu CSS, responsive layout và hiệu năng trang.",
+    "exp.1.tech":
+      "⚙️ Công nghệ & phần mềm: HTML, CSS, Bootstrap, Tailwind, JavaScript, PHP (Yii Framework), Git, Figma, OpenCart, Laravel, ReactJS, Angular, InDesign, Illustrator, Photoshop",
+
+    "exp.2.role":
+      "UI/UX Designer + Front-end Developer — Annam Software Company",
+    "exp.2.time": "02/2023 – 07/2023 • TP.HCM",
+    "exp.2.li1": "Thiết kế và hiện thực hóa giao diện sản phẩm SaaS từ Figma sang HTML/CSS.",
+    "exp.2.li2": "Xây dựng hệ thống component và prototype UI/UX.",
+    "exp.2.li3": "Chuyển thiết kế pixel-perfect, tối ưu hiển thị trên desktop & mobile.",
+    "exp.2.li4": "Hỗ trợ team cải thiện UX thông qua feedback và A/B testing.",
+    "exp.2.tech":
+      "🎨 Công nghệ & phần mềm: Figma, Adobe XD, HTML, CSS, JavaScript, Bootstrap, Git",
+
+    "exp.3.role": "Freelance",
+    "exp.3.time": "2024 – nay • Toàn cầu",
+    "exp.3.li1": "Thực hiện các dự án front-end, landing page và portfolio website.",
+    "exp.3.li2": "Thiết kế UI/UX và giao diện theo yêu cầu với Tailwind hoặc ReactJS.",
+    "exp.3.li3": "Thiết kế banner, catalogue và mockup sản phẩm cho marketing.",
+    "exp.3.li4": "Tối ưu UI/UX và hiệu năng website cho khách hàng toàn cầu.",
+    "exp.3.tech":
+      "🧰 Công nghệ & phần mềm: Figma, Photoshop, Illustrator, ReactJS, Tailwind CSS, GitHub",
+
+    /* PROJECTS */
     "proj.title": "Dự án nổi bật",
     "proj.viewAll": "Xem tất cả",
+    "proj.p1.title": "Hotel",
+    "proj.p2.title": "Hotel",
+    "proj.p3.title": "Movie Cinema",
     "proj.p1.desc": "Hotel Travel Booking",
     "proj.p2.desc": "LoveBox Hotel",
-    "proj.p3.desc": "App tài chính cá nhân.",
+    "proj.p3.desc": "Movie Cinema Booking Ticket",
+    "proj.stack.hotel": "ReactJs • Tailwind",
+    "proj.stack.movie": "ReactJs • MySql • Figma",
+
     "contact.title": "Liên hệ",
     "contact.text":
       "Ưu tiên consumer, SaaS, fintech & giáo dục. On-site HCMC hoặc remote.",
@@ -54,8 +96,10 @@ const I18N = {
     "form.message": "Nội dung",
     "form.orEmail": "hoặc email: phanchaukhanhduy@gmail.com",
     "form.submit": "Gửi",
+
     "footer.built": "Built with Tailwind.",
   },
+
   en: {
     "nav.home": "Home",
     "nav.about": "About",
@@ -70,6 +114,7 @@ const I18N = {
     "hero.stats.years": "Years Exp",
     "hero.stats.projects": "Projects",
     "hero.stats.awards": "Awards",
+
     "about.title": "About me",
     "about.text":
       "I'm <strong>Phan Chau Khanh Duy</strong>, 21 years old, living in <strong>Ho Chi Minh City</strong>. <br>Graduated with distinction from <strong>FPT Polytechnic</strong>, majoring in <strong>Information Technology – Web Programming (Front-end)</strong>.",
@@ -78,6 +123,7 @@ const I18N = {
     "about.dateLabel": "Birthday:",
     "about.locLabel": "Location:",
     "about.locValue": "HCMC, Vietnam",
+
     "about.focus": "Focus",
     "about.focus.performance": "Performance",
     "about.focus.performanceDesc": "CWV, split, lazy.",
@@ -85,13 +131,53 @@ const I18N = {
     "about.focus.a11yDesc": "ARIA, keyboard-first.",
     "about.focus.motion": "Motion",
     "about.focus.motionDesc": "Meaningful micro-interactions.",
+
     "skills.title": "Skills",
+
     "exp.title": "Experience",
+    "experience.title": "Experience",
+
+    /* EXPERIENCE */
+    "exp.1.role": "Web Developer — Vietnam Furniture Resources",
+    "exp.1.time": "10/2023 – Present • HCMC",
+    "exp.1.li1": "Built and optimized internal web UI for ERP and ticket systems.",
+    "exp.1.li2": "Integrated and fetched APIs from ERP system for dynamic data.",
+    "exp.1.li3": "Designed and converted marketing email layouts to HTML/CSS.",
+    "exp.1.li4": "Optimized CSS, responsive layout and page performance.",
+    "exp.1.tech":
+      "⚙️ Technologies: HTML, CSS, Bootstrap, Tailwind, JavaScript, PHP (Yii Framework), Git, Figma, OpenCart, Laravel, ReactJS, Angular, InDesign, Illustrator, Photoshop",
+
+    "exp.2.role":
+      "UI/UX Designer + Front-end Developer — Annam Software Company",
+    "exp.2.time": "02/2023 – 07/2023 • HCMC",
+    "exp.2.li1": "Designed and implemented SaaS product UI from Figma to HTML/CSS.",
+    "exp.2.li2": "Built UI component system and UX prototypes.",
+    "exp.2.li3": "Produced pixel-perfect layouts optimized for all screens.",
+    "exp.2.li4": "Improved UX through feedback loops and A/B testing.",
+    "exp.2.tech":
+      "🎨 Technologies: Figma, Adobe XD, HTML, CSS, JavaScript, Bootstrap, Git",
+
+    "exp.3.role": "Freelance",
+    "exp.3.time": "2024 – Present • Global",
+    "exp.3.li1": "Created front-end, landing pages and portfolio websites.",
+    "exp.3.li2": "Designed UI/UX using Tailwind or ReactJS based on client needs.",
+    "exp.3.li3": "Designed banners, catalogues and product mockups for marketing.",
+    "exp.3.li4": "Optimized UI/UX and performance for global clients.",
+    "exp.3.tech":
+      "🧰 Technologies: Figma, Photoshop, Illustrator, ReactJS, Tailwind CSS, GitHub",
+
+    /* PROJECTS */
     "proj.title": "Featured projects",
     "proj.viewAll": "View all",
+    "proj.p1.title": "Hotel",
+    "proj.p2.title": "Hotel",
+    "proj.p3.title": "Movie Cinema",
     "proj.p1.desc": "Hotel Travel Booking",
     "proj.p2.desc": "LoveBox Hotel",
-    "proj.p3.desc": "Movie Cinema",
+    "proj.p3.desc": "Movie Cinema Booking Ticket",
+    "proj.stack.hotel": "ReactJs • Tailwind",
+    "proj.stack.movie": "ReactJs • MySql • Figma",
+
     "contact.title": "Contact",
     "contact.text":
       "Prefer consumer, SaaS, fintech & education. On-site HCMC or remote.",
@@ -100,9 +186,11 @@ const I18N = {
     "form.message": "Message",
     "form.orEmail": "or email: phanchaukhanhduy@gmail.com",
     "form.submit": "Send",
+
     "footer.built": "Built with Tailwind.",
   },
 };
+
 
 const $ = (s) => document.querySelector(s),
   $$ = (s) => [...document.querySelectorAll(s)];

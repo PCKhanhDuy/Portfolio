@@ -58,7 +58,7 @@ const I18N = {
       "⚙️ Công nghệ & phần mềm: HTML, CSS, Bootstrap, Tailwind, JavaScript, PHP (Yii Framework), Git, Figma, OpenCart, Laravel, ReactJS, Angular, InDesign, Illustrator, Photoshop",
 
     "exp.2.role":
-      "UI/UX Designer + Front-end Developer — Annam Software Company",
+      "UI/UX Designer + Front-end Developer — Freelancer",
     "exp.2.time": "02/2023 – 07/2023 • TP.HCM",
     "exp.2.li1": "Thiết kế và hiện thực hóa giao diện sản phẩm SaaS từ Figma sang HTML/CSS.",
     "exp.2.li2": "Xây dựng hệ thống component và prototype UI/UX.",
@@ -148,7 +148,7 @@ const I18N = {
       "⚙️ Technologies: HTML, CSS, Bootstrap, Tailwind, JavaScript, PHP (Yii Framework), Git, Figma, OpenCart, Laravel, ReactJS, Angular, InDesign, Illustrator, Photoshop",
 
     "exp.2.role":
-      "UI/UX Designer + Front-end Developer — Annam Software Company",
+      "UI/UX Designer + Front-end Developer — Freelancer",
     "exp.2.time": "02/2023 – 07/2023 • HCMC",
     "exp.2.li1": "Designed and implemented SaaS product UI from Figma to HTML/CSS.",
     "exp.2.li2": "Built UI component system and UX prototypes.",
